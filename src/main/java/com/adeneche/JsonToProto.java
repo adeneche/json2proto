@@ -74,7 +74,9 @@ public class JsonToProto {
     // repeated ParquetFileMetadata files = 3;
     final JsonArray files = object.get("files").asArray();
     for (int i = 0; i < files.size(); i++) {
-      System.out.printf("processing file %d/%d%n", i, files.size());
+      if (i % 1000 == 0) {
+        System.out.printf("processing file %d/%d%n", i, files.size());
+      }
       builder.addFiles(parseFile(files.get(i).asObject()));
     }
 
