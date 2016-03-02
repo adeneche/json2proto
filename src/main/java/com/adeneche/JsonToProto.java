@@ -143,7 +143,11 @@ public class JsonToProto {
     // optional string mxValue = 3;
     final JsonValue mxValue = object.get("mxValue");
     if (mxValue != null) {
-      column.setMxValue(mxValue.asString());
+      try {
+        column.setMxValue(mxValue.asString());
+      } catch (Exception e) {
+        System.err.println("exception: " + e.getMessage() + ". for mxValue: " + mxValue);
+      }
     }
 
     return column.build();
