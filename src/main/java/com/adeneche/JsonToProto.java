@@ -138,10 +138,13 @@ public class JsonToProto {
     final RowGroup.ColumnMetadata.Builder column = RowGroup.ColumnMetadata.newBuilder();
 
     // repeated string name = 1;
-    column.addAllName(parseStringArray(object.get("name").asArray()));
+//    column.addAllName(parseStringArray(object.get("name").asArray()));
 
     // optional int64 nulls = 2;
-    column.setNulls(object.get("nulls").asLong());
+    final long nulls = object.get("nulls").asLong();
+    if (nulls > 0) {
+      column.setNulls(nulls);
+    }
 
     // optional string mxValue = 3;
     final JsonValue mxValue = object.get("mxValue");
