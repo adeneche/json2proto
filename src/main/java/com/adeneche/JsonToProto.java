@@ -143,7 +143,7 @@ public class JsonToProto {
     // optional string mxValue = 3;
     final JsonValue mxValue = object.get("mxValue");
 
-    if (nulls == 0 && mxValue.isNull()) {
+    if (nulls == 0 && mxValue == null) {
       return null;
     }
 
