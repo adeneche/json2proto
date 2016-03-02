@@ -128,26 +128,34 @@ public class JsonToProto {
     // repeated ColumnMetadata columns = 5;
     final JsonArray columns = object.get("columns").asArray();
     for (final JsonValue column : columns) {
-      rowGroup.addColumns(parseRowGroupColumn(column.asObject()));
+      final RowGroup.ColumnMetadata columnMetadata = parseRowGroupColumn(column.asObject());
+      if (columnMetadata != null) {
+        rowGroup.addColumns(columnMetadata);
+      }
     }
 
     return rowGroup.build();
   }
 
   private static RowGroup.ColumnMetadata parseRowGroupColumn(JsonObject object) {
+    // optional int64 nulls = 2;
+    final long nulls = object.get("nulls").asLong();
+    // optional string mxValue = 3;
+    final JsonValue mxValue = object.get("mxValue");
+
+    if (nulls == 0 && mxValue.isNull()) {
+      return null;
+    }
+
     final RowGroup.ColumnMetadata.Builder column = RowGroup.ColumnMetadata.newBuilder();
 
     // repeated string name = 1;
 //    column.addAllName(parseStringArray(object.get("name").asArray()));
 
-    // optional int64 nulls = 2;
-    final long nulls = object.get("nulls").asLong();
     if (nulls > 0) {
       column.setNulls(nulls);
     }
 
-    // optional string mxValue = 3;
-    final JsonValue mxValue = object.get("mxValue");
     if (mxValue != null) {
       column.setMxValue(mxValue.toString());
     }
