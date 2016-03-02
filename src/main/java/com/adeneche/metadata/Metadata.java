@@ -2184,13 +2184,13 @@ public final class Metadata {
         public interface ColumnMetadataOrBuilder
             extends com.google.protobuf.MessageOrBuilder {
 
-          // optional int32 name = 1;
+          // required int32 name = 1;
           /**
-           * <code>optional int32 name = 1;</code>
+           * <code>required int32 name = 1;</code>
            */
           boolean hasName();
           /**
-           * <code>optional int32 name = 1;</code>
+           * <code>required int32 name = 1;</code>
            */
           int getName();
 
@@ -2325,17 +2325,17 @@ public final class Metadata {
           }
 
           private int bitField0_;
-          // optional int32 name = 1;
+          // required int32 name = 1;
           public static final int NAME_FIELD_NUMBER = 1;
           private int name_;
           /**
-           * <code>optional int32 name = 1;</code>
+           * <code>required int32 name = 1;</code>
            */
           public boolean hasName() {
             return ((bitField0_ & 0x00000001) == 0x00000001);
           }
           /**
-           * <code>optional int32 name = 1;</code>
+           * <code>required int32 name = 1;</code>
            */
           public int getName() {
             return name_;
@@ -2410,6 +2410,10 @@ public final class Metadata {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized != -1) return isInitialized == 1;
 
+            if (!hasName()) {
+              memoizedIsInitialized = 0;
+              return false;
+            }
             memoizedIsInitialized = 1;
             return true;
           }
@@ -2641,6 +2645,10 @@ public final class Metadata {
             }
 
             public final boolean isInitialized() {
+              if (!hasName()) {
+                
+                return false;
+              }
               return true;
             }
 
@@ -2663,22 +2671,22 @@ public final class Metadata {
             }
             private int bitField0_;
 
-            // optional int32 name = 1;
+            // required int32 name = 1;
             private int name_ ;
             /**
-             * <code>optional int32 name = 1;</code>
+             * <code>required int32 name = 1;</code>
              */
             public boolean hasName() {
               return ((bitField0_ & 0x00000001) == 0x00000001);
             }
             /**
-             * <code>optional int32 name = 1;</code>
+             * <code>required int32 name = 1;</code>
              */
             public int getName() {
               return name_;
             }
             /**
-             * <code>optional int32 name = 1;</code>
+             * <code>required int32 name = 1;</code>
              */
             public Builder setName(int value) {
               bitField0_ |= 0x00000001;
@@ -2687,7 +2695,7 @@ public final class Metadata {
               return this;
             }
             /**
-             * <code>optional int32 name = 1;</code>
+             * <code>required int32 name = 1;</code>
              */
             public Builder clearName() {
               bitField0_ = (bitField0_ & ~0x00000001);
@@ -2947,6 +2955,12 @@ public final class Metadata {
           byte isInitialized = memoizedIsInitialized;
           if (isInitialized != -1) return isInitialized == 1;
 
+          for (int i = 0; i < getColumnsCount(); i++) {
+            if (!getColumns(i).isInitialized()) {
+              memoizedIsInitialized = 0;
+              return false;
+            }
+          }
           memoizedIsInitialized = 1;
           return true;
         }
@@ -3274,6 +3288,12 @@ public final class Metadata {
           }
 
           public final boolean isInitialized() {
+            for (int i = 0; i < getColumnsCount(); i++) {
+              if (!getColumns(i).isInitialized()) {
+                
+                return false;
+              }
+            }
             return true;
           }
 
@@ -3992,6 +4012,12 @@ public final class Metadata {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized != -1) return isInitialized == 1;
 
+        for (int i = 0; i < getRowGroupsCount(); i++) {
+          if (!getRowGroups(i).isInitialized()) {
+            memoizedIsInitialized = 0;
+            return false;
+          }
+        }
         memoizedIsInitialized = 1;
         return true;
       }
@@ -4256,6 +4282,12 @@ public final class Metadata {
         }
 
         public final boolean isInitialized() {
+          for (int i = 0; i < getRowGroupsCount(); i++) {
+            if (!getRowGroups(i).isInitialized()) {
+              
+              return false;
+            }
+          }
           return true;
         }
 
@@ -4793,6 +4825,12 @@ public final class Metadata {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
+      for (int i = 0; i < getFilesCount(); i++) {
+        if (!getFiles(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -5120,6 +5158,12 @@ public final class Metadata {
       }
 
       public final boolean isInitialized() {
+        for (int i = 0; i < getFilesCount(); i++) {
+          if (!getFiles(i).isInitialized()) {
+            
+            return false;
+          }
+        }
         return true;
       }
 
@@ -5871,7 +5915,7 @@ public final class Metadata {
       "ableMetadata.ParquetFileMetadata.RowGrou",
       "p.ColumnMetadata\032*\n\014HostAffinity\022\013\n\003key\030" +
       "\001 \001(\t\022\r\n\005value\030\002 \001(\002\032>\n\016ColumnMetadata\022\014" +
-      "\n\004name\030\001 \001(\005\022\r\n\005nulls\030\002 \001(\003\022\017\n\007mxValue\030\003" +
+      "\n\004name\030\001 \002(\005\022\r\n\005nulls\030\002 \001(\003\022\017\n\007mxValue\030\003" +
       " \001(\tB!\n\025com.adeneche.metadataB\010Metadata"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =

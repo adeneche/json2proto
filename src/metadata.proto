@@ -67,7 +67,7 @@ message ParquetTableMetadata {
       repeated HostAffinity affinities = 4;
 
       message ColumnMetadata {
-        optional int32 name = 1;
+        required int32 name = 1;
         optional int64 nulls = 2;
         optional string mxValue = 3;
       }
