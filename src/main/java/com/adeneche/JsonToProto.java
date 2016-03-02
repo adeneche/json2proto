@@ -74,6 +74,7 @@ public class JsonToProto {
     // repeated ParquetFileMetadata files = 3;
     final JsonArray files = object.get("files").asArray();
     for (int i = 0; i < files.size(); i++) {
+      System.out.printf("processing file %d/%d%n", i, files.size());
       builder.addFiles(parseFile(files.get(i).asObject()));
     }
 
@@ -143,11 +144,7 @@ public class JsonToProto {
     // optional string mxValue = 3;
     final JsonValue mxValue = object.get("mxValue");
     if (mxValue != null) {
-      try {
-        column.setMxValue(mxValue.asString());
-      } catch (Exception e) {
-        System.err.println("exception: " + e.getMessage() + ". for mxValue: " + mxValue);
-      }
+      column.setMxValue(mxValue.toString());
     }
 
     return column.build();
