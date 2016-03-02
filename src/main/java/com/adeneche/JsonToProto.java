@@ -8,6 +8,7 @@ import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonArray;
 import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.JsonValue;
+import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -66,9 +67,12 @@ public class JsonToProto {
     ParquetTableMetadata.Builder builder = ParquetTableMetadata.newBuilder();
 
     // repeated ColumnTypeInfo columns = 2;
-    JsonObject columns = object.get("columnTypeInfo").asObject();
+    final JsonObject columns = object.get("columnTypeInfo").asObject();
+    final List<String> columnNames = Lists.newArrayList();
     for (final String name : columns.names()) {
-       builder.addColumns(parseColumnTypeInfo(columns.get(name).asObject()));
+      final ColumnTypeInfo columnTypeInfo = parseColumnTypeInfo(columns.get(name).asObject());
+      columnNames.add(columnTypeInfo.getName());
+      builder.addColumns(columnTypeInfo);
     }
 
     // repeated ParquetFileMetadata files = 3;
@@ -77,7 +81,7 @@ public class JsonToProto {
       if (i % 1000 == 0) {
         System.out.printf("processing file %d/%d%n", i, files.size());
       }
-      builder.addFiles(parseFile(files.get(i).asObject()));
+      builder.addFiles(parseFile(files.get(i).asObject(), columnNames));
     }
 
     // repeated string directories = 4;
@@ -86,7 +90,7 @@ public class JsonToProto {
     return builder.build();
   }
 
-  private static ParquetFileMetadata parseFile(JsonObject object) {
+  private static ParquetFileMetadata parseFile(final JsonObject object, final List<String> columnNames) {
     final ParquetFileMetadata.Builder file = ParquetFileMetadata.newBuilder();
 
     // optional string path = 1;
@@ -98,13 +102,13 @@ public class JsonToProto {
     // repeated RowGroup rowGroups = 3;
     final JsonArray rowGroups = object.get("rowGroups").asArray();
     for (int i = 0; i < rowGroups.size(); i++) {
-      file.addRowGroups(parseRowGroup(rowGroups.get(i).asObject()));
+      file.addRowGroups(parseRowGroup(rowGroups.get(i).asObject(), columnNames));
     }
 
     return file.build();
   }
 
-  private static RowGroup parseRowGroup(JsonObject object) {
+  private static RowGroup parseRowGroup(final JsonObject object, final List<String> columnNames) {
     final RowGroup.Builder rowGroup = RowGroup.newBuilder();
 
     // optional int64 start = 1;
@@ -128,7 +132,7 @@ public class JsonToProto {
     // repeated ColumnMetadata columns = 5;
     final JsonArray columns = object.get("columns").asArray();
     for (final JsonValue column : columns) {
-      final RowGroup.ColumnMetadata columnMetadata = parseRowGroupColumn(column.asObject());
+      final RowGroup.ColumnMetadata columnMetadata = parseRowGroupColumn(column.asObject(), columnNames);
       if (columnMetadata != null) {
         rowGroup.addColumns(columnMetadata);
       }
@@ -137,7 +141,8 @@ public class JsonToProto {
     return rowGroup.build();
   }
 
-  private static RowGroup.ColumnMetadata parseRowGroupColumn(JsonObject object) {
+  private static RowGroup.ColumnMetadata parseRowGroupColumn(final JsonObject object,
+                                                             final List<String> columnNames) {
     // optional int64 nulls = 2;
     final long nulls = object.get("nulls").asLong();
     // optional string mxValue = 3;
@@ -150,7 +155,13 @@ public class JsonToProto {
     final RowGroup.ColumnMetadata.Builder column = RowGroup.ColumnMetadata.newBuilder();
 
     // repeated string name = 1;
-//    column.addAllName(parseStringArray(object.get("name").asArray()));
+    final String name = Joiner.on(".").join(parseStringArray(object.get("name").asArray()));
+    final int nameId = columnNames.indexOf(name);
+    if (nameId == -1) {
+      System.err.println("column '" + name + "' not found in columnNames");
+      System.exit(-1);
+    }
+    column.setName(nameId);
 
     if (nulls > 0) {
       column.setNulls(nulls);
@@ -167,7 +178,7 @@ public class JsonToProto {
     final ColumnTypeInfo.Builder columnTypeInfo = ColumnTypeInfo.newBuilder();
 
     // repeated string name = 1;
-    columnTypeInfo.addAllName(parseStringArray(object.get("name").asArray()));
+    columnTypeInfo.setName(Joiner.on(".").join(parseStringArray(object.get("name").asArray())));
 
     // optional PrimitiveTypeName primitiveType = 2;
     final JsonValue primitiveType = object.get("primitiveType");

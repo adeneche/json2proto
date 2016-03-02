@@ -7,7 +7,7 @@ message ParquetTableMetadata {
   optional string metadata_version = 1;
 
   message ColumnTypeInfo {
-    repeated string name = 1;
+    optional string name = 1;
 
     enum PrimitiveTypeName {
       INT64=0;
@@ -67,7 +67,7 @@ message ParquetTableMetadata {
       repeated HostAffinity affinities = 4;
 
       message ColumnMetadata {
-        repeated string name = 1;
+        optional int32 name = 1;
         optional int64 nulls = 2;
         optional string mxValue = 3;
       }
