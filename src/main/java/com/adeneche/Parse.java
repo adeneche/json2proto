@@ -2,6 +2,7 @@ package com.adeneche;
 
 import com.adeneche.metadata.Metadata;
 import com.google.common.base.Stopwatch;
+import com.google.protobuf.CodedInputStream;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,7 +16,10 @@ public class Parse {
     }
 
     Stopwatch watch = Stopwatch.createStarted();
-    Metadata.ParquetTableMetadata.parseFrom(new FileInputStream(args[0]));
+    CodedInputStream codedInputStream = CodedInputStream.newInstance(new FileInputStream(args[0]));
+    codedInputStream.setSizeLimit(500_000_000);
+    Metadata.ParquetTableMetadata.parseFrom(codedInputStream);
+
     System.out.printf("File parsed in %d ms%n", watch.elapsed(TimeUnit.MILLISECONDS));
   }
 }
