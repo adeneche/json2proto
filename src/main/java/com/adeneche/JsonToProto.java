@@ -88,7 +88,6 @@ public class JsonToProto {
       metadataFiles.addColumns(columnTypeInfo);
     }
 
-    // repeated ParquetFileMetadata files = 3;
     final JsonArray files = object.get("files").asArray();
     for (int i = 0; i < files.size(); i++) {
       if (i % 1000 == 0) {
@@ -115,13 +114,10 @@ public class JsonToProto {
   private static ParquetFileMetadata parseFile(final JsonObject object) {
     final ParquetFileMetadata.Builder file = ParquetFileMetadata.newBuilder();
 
-    // optional string path = 1;
     file.setPath(object.get("path").asString());
 
-    // optional int64 length = 2;
     file.setLength(object.get("length").asLong());
 
-    // repeated RowGroup rowGroups = 3;
     final JsonArray rowGroups = object.get("rowGroups").asArray();
     for (int i = 0; i < rowGroups.size(); i++) {
       file.addRowGroups(parseRowGroup(rowGroups.get(i).asObject()));
@@ -133,16 +129,10 @@ public class JsonToProto {
   private static RowGroup parseRowGroup(final JsonObject object) {
     final RowGroup.Builder rowGroup = RowGroup.newBuilder();
 
-    // optional int64 start = 1;
     rowGroup.setStart(object.get("start").asLong());
-
-    // optional int64 length = 2;
     rowGroup.setLength(object.get("length").asLong());
-
-    // optional int64 rowCount = 3;
     rowGroup.setRowCount(object.get("rowCount").asLong());
 
-    // repeated HostAffinity affinities = 4;
     final JsonObject hostAffinity = object.get("hostAffinity").asObject();
     for (final String name : hostAffinity.names()) {
       rowGroup.addAffinities(RowGroup.HostAffinity.newBuilder()
@@ -151,7 +141,6 @@ public class JsonToProto {
       );
     }
 
-    // repeated ColumnMetadata columns = 5;
     final JsonArray columns = object.get("columns").asArray();
     for (final JsonValue column : columns) {
       final RowGroup.ColumnMetadata columnMetadata = parseRowGroupColumn(column.asObject());
@@ -164,9 +153,7 @@ public class JsonToProto {
   }
 
   private static RowGroup.ColumnMetadata parseRowGroupColumn(final JsonObject object) {
-    // optional int64 nulls = 2;
     final long nulls = object.get("nulls").asLong();
-    // optional string mxValue = 3;
     final JsonValue mxValue = object.get("mxValue");
 
     if (nulls == 0 && mxValue == null) {
@@ -175,7 +162,6 @@ public class JsonToProto {
 
     final RowGroup.ColumnMetadata.Builder column = RowGroup.ColumnMetadata.newBuilder();
 
-    // repeated string name = 1;
     final String name = Joiner.on(".").join(parseStringArray(object.get("name").asArray()));
     final int nameId = columnNames.indexOf(name);
     if (nameId == -1) {
@@ -220,16 +206,13 @@ public class JsonToProto {
   private static ColumnTypeInfo parseColumnTypeInfo(JsonObject object) {
     final ColumnTypeInfo.Builder columnTypeInfo = ColumnTypeInfo.newBuilder();
 
-    // repeated string name = 1;
     columnTypeInfo.setName(Joiner.on(".").join(parseStringArray(object.get("name").asArray())));
 
-    // optional PrimitiveTypeName primitiveType = 2;
     final JsonValue primitiveType = object.get("primitiveType");
     if (!primitiveType.isNull()) {
       columnTypeInfo.setPrimitiveType(ColumnTypeInfo.PrimitiveTypeName.valueOf(primitiveType.asString()));
     }
 
-    // optional OriginalType originalType = 3;
     final JsonValue originalType = object.get("originalType");
     if (!originalType.isNull()) {
       columnTypeInfo.setOriginalType(ColumnTypeInfo.OriginalType.valueOf(originalType.asString()));

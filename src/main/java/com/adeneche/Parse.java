@@ -30,8 +30,6 @@ public class Parse {
     Metadata.MetadataFiles.parseFrom(codedStream);
     codedStream.popLimit(limit);
 
-//    codedInputStream.setSizeLimit(500_000_000);
-
     System.out.printf("File parsed in %d ms%n", watch.elapsed(TimeUnit.MILLISECONDS));
   }
 }
