@@ -10,6 +10,7 @@ import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.JsonValue;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedOutputStream;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -202,7 +203,7 @@ public class JsonToProto {
         case BINARY:
         case FIXED_LEN_BYTE_ARRAY:
         case INT96:
-          column.setVbinary(mxValue.toString());
+          column.setVbinary(ByteString.copyFrom(mxValue.asString().getBytes()));
           break;
         case FLOAT:
           column.setVfloat(mxValue.asFloat());

@@ -77,7 +77,7 @@ message MetadataFiles {
         optional sint64 vint64 = 3;
         optional sint32 vint32 = 4;
         optional bool vbool = 5;
-        optional string vbinary = 6; // used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+        optional bytes vbinary = 6; // used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
         optional float vfloat = 7;
         optional double vdouble = 8;
       }

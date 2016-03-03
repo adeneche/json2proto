@@ -2847,9 +2847,9 @@ public final class Metadata {
            */
           boolean getVbool();
 
-          // optional string vbinary = 6;
+          // optional bytes vbinary = 6;
           /**
-           * <code>optional string vbinary = 6;</code>
+           * <code>optional bytes vbinary = 6;</code>
            *
            * <pre>
            * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
@@ -2857,22 +2857,13 @@ public final class Metadata {
            */
           boolean hasVbinary();
           /**
-           * <code>optional string vbinary = 6;</code>
+           * <code>optional bytes vbinary = 6;</code>
            *
            * <pre>
            * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
            * </pre>
            */
-          java.lang.String getVbinary();
-          /**
-           * <code>optional string vbinary = 6;</code>
-           *
-           * <pre>
-           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-           * </pre>
-           */
-          com.google.protobuf.ByteString
-              getVbinaryBytes();
+          com.google.protobuf.ByteString getVbinary();
 
           // optional float vfloat = 7;
           /**
@@ -3105,11 +3096,11 @@ public final class Metadata {
             return vbool_;
           }
 
-          // optional string vbinary = 6;
+          // optional bytes vbinary = 6;
           public static final int VBINARY_FIELD_NUMBER = 6;
-          private java.lang.Object vbinary_;
+          private com.google.protobuf.ByteString vbinary_;
           /**
-           * <code>optional string vbinary = 6;</code>
+           * <code>optional bytes vbinary = 6;</code>
            *
            * <pre>
            * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
@@ -3119,45 +3110,14 @@ public final class Metadata {
             return ((bitField0_ & 0x00000020) == 0x00000020);
           }
           /**
-           * <code>optional string vbinary = 6;</code>
+           * <code>optional bytes vbinary = 6;</code>
            *
            * <pre>
            * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
            * </pre>
            */
-          public java.lang.String getVbinary() {
-            java.lang.Object ref = vbinary_;
-            if (ref instanceof java.lang.String) {
-              return (java.lang.String) ref;
-            } else {
-              com.google.protobuf.ByteString bs = 
-                  (com.google.protobuf.ByteString) ref;
-              java.lang.String s = bs.toStringUtf8();
-              if (bs.isValidUtf8()) {
-                vbinary_ = s;
-              }
-              return s;
-            }
-          }
-          /**
-           * <code>optional string vbinary = 6;</code>
-           *
-           * <pre>
-           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-           * </pre>
-           */
-          public com.google.protobuf.ByteString
-              getVbinaryBytes() {
-            java.lang.Object ref = vbinary_;
-            if (ref instanceof java.lang.String) {
-              com.google.protobuf.ByteString b = 
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                      (java.lang.String) ref);
-              vbinary_ = b;
-              return b;
-            } else {
-              return (com.google.protobuf.ByteString) ref;
-            }
+          public com.google.protobuf.ByteString getVbinary() {
+            return vbinary_;
           }
 
           // optional float vfloat = 7;
@@ -3198,7 +3158,7 @@ public final class Metadata {
             vint64_ = 0L;
             vint32_ = 0;
             vbool_ = false;
-            vbinary_ = "";
+            vbinary_ = com.google.protobuf.ByteString.EMPTY;
             vfloat_ = 0F;
             vdouble_ = 0D;
           }
@@ -3234,7 +3194,7 @@ public final class Metadata {
               output.writeBool(5, vbool_);
             }
             if (((bitField0_ & 0x00000020) == 0x00000020)) {
-              output.writeBytes(6, getVbinaryBytes());
+              output.writeBytes(6, vbinary_);
             }
             if (((bitField0_ & 0x00000040) == 0x00000040)) {
               output.writeFloat(7, vfloat_);
@@ -3273,7 +3233,7 @@ public final class Metadata {
             }
             if (((bitField0_ & 0x00000020) == 0x00000020)) {
               size += com.google.protobuf.CodedOutputStream
-                .computeBytesSize(6, getVbinaryBytes());
+                .computeBytesSize(6, vbinary_);
             }
             if (((bitField0_ & 0x00000040) == 0x00000040)) {
               size += com.google.protobuf.CodedOutputStream
@@ -3409,7 +3369,7 @@ public final class Metadata {
               bitField0_ = (bitField0_ & ~0x00000008);
               vbool_ = false;
               bitField0_ = (bitField0_ & ~0x00000010);
-              vbinary_ = "";
+              vbinary_ = com.google.protobuf.ByteString.EMPTY;
               bitField0_ = (bitField0_ & ~0x00000020);
               vfloat_ = 0F;
               bitField0_ = (bitField0_ & ~0x00000040);
@@ -3507,9 +3467,7 @@ public final class Metadata {
                 setVbool(other.getVbool());
               }
               if (other.hasVbinary()) {
-                bitField0_ |= 0x00000020;
-                vbinary_ = other.vbinary_;
-                onChanged();
+                setVbinary(other.getVbinary());
               }
               if (other.hasVfloat()) {
                 setVfloat(other.getVfloat());
@@ -3713,10 +3671,10 @@ public final class Metadata {
               return this;
             }
 
-            // optional string vbinary = 6;
-            private java.lang.Object vbinary_ = "";
+            // optional bytes vbinary = 6;
+            private com.google.protobuf.ByteString vbinary_ = com.google.protobuf.ByteString.EMPTY;
             /**
-             * <code>optional string vbinary = 6;</code>
+             * <code>optional bytes vbinary = 6;</code>
              *
              * <pre>
              * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
@@ -3726,52 +3684,23 @@ public final class Metadata {
               return ((bitField0_ & 0x00000020) == 0x00000020);
             }
             /**
-             * <code>optional string vbinary = 6;</code>
+             * <code>optional bytes vbinary = 6;</code>
              *
              * <pre>
              * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
              * </pre>
              */
-            public java.lang.String getVbinary() {
-              java.lang.Object ref = vbinary_;
-              if (!(ref instanceof java.lang.String)) {
-                java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                    .toStringUtf8();
-                vbinary_ = s;
-                return s;
-              } else {
-                return (java.lang.String) ref;
-              }
+            public com.google.protobuf.ByteString getVbinary() {
+              return vbinary_;
             }
             /**
-             * <code>optional string vbinary = 6;</code>
+             * <code>optional bytes vbinary = 6;</code>
              *
              * <pre>
              * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
              * </pre>
              */
-            public com.google.protobuf.ByteString
-                getVbinaryBytes() {
-              java.lang.Object ref = vbinary_;
-              if (ref instanceof String) {
-                com.google.protobuf.ByteString b = 
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-                vbinary_ = b;
-                return b;
-              } else {
-                return (com.google.protobuf.ByteString) ref;
-              }
-            }
-            /**
-             * <code>optional string vbinary = 6;</code>
-             *
-             * <pre>
-             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-             * </pre>
-             */
-            public Builder setVbinary(
-                java.lang.String value) {
+            public Builder setVbinary(com.google.protobuf.ByteString value) {
               if (value == null) {
     throw new NullPointerException();
   }
@@ -3781,7 +3710,7 @@ public final class Metadata {
               return this;
             }
             /**
-             * <code>optional string vbinary = 6;</code>
+             * <code>optional bytes vbinary = 6;</code>
              *
              * <pre>
              * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
@@ -3790,23 +3719,6 @@ public final class Metadata {
             public Builder clearVbinary() {
               bitField0_ = (bitField0_ & ~0x00000020);
               vbinary_ = getDefaultInstance().getVbinary();
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional string vbinary = 6;</code>
-             *
-             * <pre>
-             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-             * </pre>
-             */
-            public Builder setVbinaryBytes(
-                com.google.protobuf.ByteString value) {
-              if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-              vbinary_ = value;
               onChanged();
               return this;
             }
@@ -6694,7 +6606,7 @@ public final class Metadata {
       "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\032\216\001\n\016ColumnMetadat" +
       "a\022\014\n\004name\030\001 \002(\r\022\r\n\005nulls\030\002 \001(\004\022\016\n\006vint64" +
       "\030\003 \001(\022\022\016\n\006vint32\030\004 \001(\021\022\r\n\005vbool\030\005 \001(\010\022\017\n" +
-      "\007vbinary\030\006 \001(\t\022\016\n\006vfloat\030\007 \001(\002\022\017\n\007vdoubl" +
+      "\007vbinary\030\006 \001(\014\022\016\n\006vfloat\030\007 \001(\002\022\017\n\007vdoubl" +
       "e\030\010 \001(\001B!\n\025com.adeneche.metadataB\010Metada" +
       "ta"
     };
