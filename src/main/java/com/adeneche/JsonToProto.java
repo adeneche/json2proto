@@ -1,15 +1,16 @@
 package com.adeneche;
 
-import com.adeneche.metadata.Metadata.ParquetTableMetadata;
-import com.adeneche.metadata.Metadata.ParquetTableMetadata.ColumnTypeInfo;
-import com.adeneche.metadata.Metadata.ParquetTableMetadata.ParquetFileMetadata;
-import com.adeneche.metadata.Metadata.ParquetTableMetadata.ParquetFileMetadata.RowGroup;
+import com.adeneche.metadata.Metadata;
+import com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo;
+import com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata;
+import com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup;
 import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonArray;
 import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.JsonValue;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import com.google.protobuf.CodedOutputStream;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
@@ -17,7 +18,6 @@ import org.kohsuke.args4j.Option;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.util.List;
 
 /**
@@ -34,7 +34,7 @@ public class JsonToProto {
     private String output;
   }
 
-  public static void main( String[] args ) throws IOException {
+  private static Options parseArguments(String[] args) {
     final Options options = new Options();
     final CmdLineParser parser = new CmdLineParser(options);
 
@@ -45,34 +45,43 @@ public class JsonToProto {
       // you'll get this exception. this will report
       // an error message.
       System.err.println(e.getMessage());
-
-      return;
+      System.exit(-1);
     }
 
-    final Reader reader = new FileReader(options.input);
-    JsonObject metaJson = Json.parse(reader).asObject();
-
-    ParquetTableMetadata metadata = parseMetadata(metaJson);
-    metadata.writeTo(new FileOutputStream(options.output));
-//    System.out.println(metadata);
+    return options;
   }
 
-  private static ParquetTableMetadata parseMetadata(JsonObject object) {
-    // optional string metadata_version = 1;
-    final String version = object.get("metadata_version").asString();
-    if (!"v2".equals(version)) {
-      throw new RuntimeException("invalid metadata_version: " + version);
-    }
+  public static void main( String[] args ) throws IOException {
+    final Options options = parseArguments(args);
 
-    ParquetTableMetadata.Builder builder = ParquetTableMetadata.newBuilder();
+    final FileReader reader = new FileReader(options.input);
+    final JsonObject object = Json.parse(reader).asObject();
 
-    // repeated ColumnTypeInfo columns = 2;
+    final FileOutputStream fileStream = new FileOutputStream(options.output);
+    final CodedOutputStream codedStream = CodedOutputStream.newInstance(fileStream);
+
+    Metadata.MetadataHeader header = extractHeader(object);
+    codedStream.writeRawVarint32(header.getSerializedSize());
+    header.writeTo(codedStream);
+
+    Metadata.MetadataFiles files = extractFiles(object);
+    codedStream.writeRawVarint32(files.getSerializedSize());
+    files.writeTo(codedStream);
+
+    codedStream.flush();
+    fileStream.close();
+    reader.close();
+  }
+
+  private static Metadata.MetadataFiles extractFiles(JsonObject object) {
+    final Metadata.MetadataFiles.Builder metadataFiles = Metadata.MetadataFiles.newBuilder();
+
     final JsonObject columns = object.get("columnTypeInfo").asObject();
     final List<String> columnNames = Lists.newArrayList();
     for (final String name : columns.names()) {
       final ColumnTypeInfo columnTypeInfo = parseColumnTypeInfo(columns.get(name).asObject());
       columnNames.add(columnTypeInfo.getName());
-      builder.addColumns(columnTypeInfo);
+      metadataFiles.addColumns(columnTypeInfo);
     }
 
     // repeated ParquetFileMetadata files = 3;
@@ -81,13 +90,22 @@ public class JsonToProto {
       if (i % 1000 == 0) {
         System.out.printf("processing file %d/%d%n", i, files.size());
       }
-      builder.addFiles(parseFile(files.get(i).asObject(), columnNames));
+      metadataFiles.addFiles(parseFile(files.get(i).asObject(), columnNames));
     }
 
-    // repeated string directories = 4;
-    builder.addAllDirectories(parseStringArray(object.get("directories").asArray()));
+    return metadataFiles.build();
+  }
 
-    return builder.build();
+  private static Metadata.MetadataHeader extractHeader(final JsonObject object) {
+    final String version = object.get("metadata_version").asString();
+    if (!"v2".equals(version)) {
+      throw new RuntimeException("invalid metadata_version: " + version);
+    }
+
+    return Metadata.MetadataHeader.newBuilder()
+      .setMetadataVersion(version)
+      .addAllDirectories(parseStringArray(object.get("directories").asArray()))
+      .build();
   }
 
   private static ParquetFileMetadata parseFile(final JsonObject object, final List<String> columnNames) {

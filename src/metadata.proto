@@ -3,8 +3,12 @@ package metadata;
 option java_package="com.adeneche.metadata";
 option java_outer_classname="Metadata";
 
-message ParquetTableMetadata {
-  optional string metadata_version = 1;
+message MetadataHeader {
+  required string metadata_version = 1;
+  repeated string directories = 4;
+}
+
+message MetadataFiles {
 
   message ColumnTypeInfo {
     optional string name = 1;
@@ -80,5 +84,4 @@ message ParquetTableMetadata {
 
   repeated ParquetFileMetadata files = 3;
 
-  repeated string directories = 4;
 }

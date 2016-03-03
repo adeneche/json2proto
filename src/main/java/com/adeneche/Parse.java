@@ -16,9 +16,21 @@ public class Parse {
     }
 
     Stopwatch watch = Stopwatch.createStarted();
-    CodedInputStream codedInputStream = CodedInputStream.newInstance(new FileInputStream(args[0]));
-    codedInputStream.setSizeLimit(500_000_000);
-    Metadata.ParquetTableMetadata.parseFrom(codedInputStream);
+    CodedInputStream codedStream = CodedInputStream.newInstance(new FileInputStream(args[0]));
+
+    // read header
+    int length = codedStream.readRawVarint32();
+    int limit = codedStream.pushLimit(length);
+    Metadata.MetadataHeader.parseFrom(codedStream);
+    codedStream.popLimit(limit);
+
+    // read files
+    length = codedStream.readRawVarint32();
+    limit = codedStream.pushLimit(length);
+    Metadata.MetadataFiles.parseFrom(codedStream);
+    codedStream.popLimit(limit);
+
+//    codedInputStream.setSizeLimit(500_000_000);
 
     System.out.printf("File parsed in %d ms%n", watch.elapsed(TimeUnit.MILLISECONDS));
   }
