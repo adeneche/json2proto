@@ -56,12 +56,12 @@ message MetadataFiles {
 
   message ParquetFileMetadata {
     optional string path = 1;
-    optional int64 length = 2;
+    optional uint64 length = 2;
 
     message RowGroup {
-      optional int64 start = 1;
-      optional int64 length = 2;
-      optional int64 rowCount = 3;
+      optional uint64 start = 1;
+      optional uint64 length = 2;
+      optional uint64 rowCount = 3;
 
       message HostAffinity {
         optional string key = 1;
@@ -71,9 +71,15 @@ message MetadataFiles {
       repeated HostAffinity affinities = 4;
 
       message ColumnMetadata {
-        required int32 name = 1;
-        optional int64 nulls = 2;
-        optional string mxValue = 3;
+        required uint32 name = 1;
+        optional uint64 nulls = 2;
+
+        optional sint64 vint64 = 3;
+        optional sint32 vint32 = 4;
+        optional bool vbool = 5;
+        optional string vbinary = 6; // used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+        optional float vfloat = 7;
+        optional double vdouble = 8;
       }
 
       repeated ColumnMetadata columns = 5;

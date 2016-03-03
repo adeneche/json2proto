@@ -1886,13 +1886,13 @@ public final class Metadata {
       com.google.protobuf.ByteString
           getPathBytes();
 
-      // optional int64 length = 2;
+      // optional uint64 length = 2;
       /**
-       * <code>optional int64 length = 2;</code>
+       * <code>optional uint64 length = 2;</code>
        */
       boolean hasLength();
       /**
-       * <code>optional int64 length = 2;</code>
+       * <code>optional uint64 length = 2;</code>
        */
       long getLength();
 
@@ -1979,7 +1979,7 @@ public final class Metadata {
               }
               case 16: {
                 bitField0_ |= 0x00000002;
-                length_ = input.readInt64();
+                length_ = input.readUInt64();
                 break;
               }
               case 26: {
@@ -2035,33 +2035,33 @@ public final class Metadata {
       public interface RowGroupOrBuilder
           extends com.google.protobuf.MessageOrBuilder {
 
-        // optional int64 start = 1;
+        // optional uint64 start = 1;
         /**
-         * <code>optional int64 start = 1;</code>
+         * <code>optional uint64 start = 1;</code>
          */
         boolean hasStart();
         /**
-         * <code>optional int64 start = 1;</code>
+         * <code>optional uint64 start = 1;</code>
          */
         long getStart();
 
-        // optional int64 length = 2;
+        // optional uint64 length = 2;
         /**
-         * <code>optional int64 length = 2;</code>
+         * <code>optional uint64 length = 2;</code>
          */
         boolean hasLength();
         /**
-         * <code>optional int64 length = 2;</code>
+         * <code>optional uint64 length = 2;</code>
          */
         long getLength();
 
-        // optional int64 rowCount = 3;
+        // optional uint64 rowCount = 3;
         /**
-         * <code>optional int64 rowCount = 3;</code>
+         * <code>optional uint64 rowCount = 3;</code>
          */
         boolean hasRowCount();
         /**
-         * <code>optional int64 rowCount = 3;</code>
+         * <code>optional uint64 rowCount = 3;</code>
          */
         long getRowCount();
 
@@ -2168,17 +2168,17 @@ public final class Metadata {
                 }
                 case 8: {
                   bitField0_ |= 0x00000001;
-                  start_ = input.readInt64();
+                  start_ = input.readUInt64();
                   break;
                 }
                 case 16: {
                   bitField0_ |= 0x00000002;
-                  length_ = input.readInt64();
+                  length_ = input.readUInt64();
                   break;
                 }
                 case 24: {
                   bitField0_ |= 0x00000004;
-                  rowCount_ = input.readInt64();
+                  rowCount_ = input.readUInt64();
                   break;
                 }
                 case 34: {
@@ -2797,40 +2797,102 @@ public final class Metadata {
         public interface ColumnMetadataOrBuilder
             extends com.google.protobuf.MessageOrBuilder {
 
-          // required int32 name = 1;
+          // required uint32 name = 1;
           /**
-           * <code>required int32 name = 1;</code>
+           * <code>required uint32 name = 1;</code>
            */
           boolean hasName();
           /**
-           * <code>required int32 name = 1;</code>
+           * <code>required uint32 name = 1;</code>
            */
           int getName();
 
-          // optional int64 nulls = 2;
+          // optional uint64 nulls = 2;
           /**
-           * <code>optional int64 nulls = 2;</code>
+           * <code>optional uint64 nulls = 2;</code>
            */
           boolean hasNulls();
           /**
-           * <code>optional int64 nulls = 2;</code>
+           * <code>optional uint64 nulls = 2;</code>
            */
           long getNulls();
 
-          // optional string mxValue = 3;
+          // optional sint64 vint64 = 3;
           /**
-           * <code>optional string mxValue = 3;</code>
+           * <code>optional sint64 vint64 = 3;</code>
            */
-          boolean hasMxValue();
+          boolean hasVint64();
           /**
-           * <code>optional string mxValue = 3;</code>
+           * <code>optional sint64 vint64 = 3;</code>
            */
-          java.lang.String getMxValue();
+          long getVint64();
+
+          // optional sint32 vint32 = 4;
           /**
-           * <code>optional string mxValue = 3;</code>
+           * <code>optional sint32 vint32 = 4;</code>
+           */
+          boolean hasVint32();
+          /**
+           * <code>optional sint32 vint32 = 4;</code>
+           */
+          int getVint32();
+
+          // optional bool vbool = 5;
+          /**
+           * <code>optional bool vbool = 5;</code>
+           */
+          boolean hasVbool();
+          /**
+           * <code>optional bool vbool = 5;</code>
+           */
+          boolean getVbool();
+
+          // optional string vbinary = 6;
+          /**
+           * <code>optional string vbinary = 6;</code>
+           *
+           * <pre>
+           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+           * </pre>
+           */
+          boolean hasVbinary();
+          /**
+           * <code>optional string vbinary = 6;</code>
+           *
+           * <pre>
+           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+           * </pre>
+           */
+          java.lang.String getVbinary();
+          /**
+           * <code>optional string vbinary = 6;</code>
+           *
+           * <pre>
+           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+           * </pre>
            */
           com.google.protobuf.ByteString
-              getMxValueBytes();
+              getVbinaryBytes();
+
+          // optional float vfloat = 7;
+          /**
+           * <code>optional float vfloat = 7;</code>
+           */
+          boolean hasVfloat();
+          /**
+           * <code>optional float vfloat = 7;</code>
+           */
+          float getVfloat();
+
+          // optional double vdouble = 8;
+          /**
+           * <code>optional double vdouble = 8;</code>
+           */
+          boolean hasVdouble();
+          /**
+           * <code>optional double vdouble = 8;</code>
+           */
+          double getVdouble();
         }
         /**
          * Protobuf type {@code metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata}
@@ -2885,17 +2947,42 @@ public final class Metadata {
                   }
                   case 8: {
                     bitField0_ |= 0x00000001;
-                    name_ = input.readInt32();
+                    name_ = input.readUInt32();
                     break;
                   }
                   case 16: {
                     bitField0_ |= 0x00000002;
-                    nulls_ = input.readInt64();
+                    nulls_ = input.readUInt64();
                     break;
                   }
-                  case 26: {
+                  case 24: {
                     bitField0_ |= 0x00000004;
-                    mxValue_ = input.readBytes();
+                    vint64_ = input.readSInt64();
+                    break;
+                  }
+                  case 32: {
+                    bitField0_ |= 0x00000008;
+                    vint32_ = input.readSInt32();
+                    break;
+                  }
+                  case 40: {
+                    bitField0_ |= 0x00000010;
+                    vbool_ = input.readBool();
+                    break;
+                  }
+                  case 50: {
+                    bitField0_ |= 0x00000020;
+                    vbinary_ = input.readBytes();
+                    break;
+                  }
+                  case 61: {
+                    bitField0_ |= 0x00000040;
+                    vfloat_ = input.readFloat();
+                    break;
+                  }
+                  case 65: {
+                    bitField0_ |= 0x00000080;
+                    vdouble_ = input.readDouble();
                     break;
                   }
                 }
@@ -2938,52 +3025,108 @@ public final class Metadata {
           }
 
           private int bitField0_;
-          // required int32 name = 1;
+          // required uint32 name = 1;
           public static final int NAME_FIELD_NUMBER = 1;
           private int name_;
           /**
-           * <code>required int32 name = 1;</code>
+           * <code>required uint32 name = 1;</code>
            */
           public boolean hasName() {
             return ((bitField0_ & 0x00000001) == 0x00000001);
           }
           /**
-           * <code>required int32 name = 1;</code>
+           * <code>required uint32 name = 1;</code>
            */
           public int getName() {
             return name_;
           }
 
-          // optional int64 nulls = 2;
+          // optional uint64 nulls = 2;
           public static final int NULLS_FIELD_NUMBER = 2;
           private long nulls_;
           /**
-           * <code>optional int64 nulls = 2;</code>
+           * <code>optional uint64 nulls = 2;</code>
            */
           public boolean hasNulls() {
             return ((bitField0_ & 0x00000002) == 0x00000002);
           }
           /**
-           * <code>optional int64 nulls = 2;</code>
+           * <code>optional uint64 nulls = 2;</code>
            */
           public long getNulls() {
             return nulls_;
           }
 
-          // optional string mxValue = 3;
-          public static final int MXVALUE_FIELD_NUMBER = 3;
-          private java.lang.Object mxValue_;
+          // optional sint64 vint64 = 3;
+          public static final int VINT64_FIELD_NUMBER = 3;
+          private long vint64_;
           /**
-           * <code>optional string mxValue = 3;</code>
+           * <code>optional sint64 vint64 = 3;</code>
            */
-          public boolean hasMxValue() {
+          public boolean hasVint64() {
             return ((bitField0_ & 0x00000004) == 0x00000004);
           }
           /**
-           * <code>optional string mxValue = 3;</code>
+           * <code>optional sint64 vint64 = 3;</code>
            */
-          public java.lang.String getMxValue() {
-            java.lang.Object ref = mxValue_;
+          public long getVint64() {
+            return vint64_;
+          }
+
+          // optional sint32 vint32 = 4;
+          public static final int VINT32_FIELD_NUMBER = 4;
+          private int vint32_;
+          /**
+           * <code>optional sint32 vint32 = 4;</code>
+           */
+          public boolean hasVint32() {
+            return ((bitField0_ & 0x00000008) == 0x00000008);
+          }
+          /**
+           * <code>optional sint32 vint32 = 4;</code>
+           */
+          public int getVint32() {
+            return vint32_;
+          }
+
+          // optional bool vbool = 5;
+          public static final int VBOOL_FIELD_NUMBER = 5;
+          private boolean vbool_;
+          /**
+           * <code>optional bool vbool = 5;</code>
+           */
+          public boolean hasVbool() {
+            return ((bitField0_ & 0x00000010) == 0x00000010);
+          }
+          /**
+           * <code>optional bool vbool = 5;</code>
+           */
+          public boolean getVbool() {
+            return vbool_;
+          }
+
+          // optional string vbinary = 6;
+          public static final int VBINARY_FIELD_NUMBER = 6;
+          private java.lang.Object vbinary_;
+          /**
+           * <code>optional string vbinary = 6;</code>
+           *
+           * <pre>
+           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+           * </pre>
+           */
+          public boolean hasVbinary() {
+            return ((bitField0_ & 0x00000020) == 0x00000020);
+          }
+          /**
+           * <code>optional string vbinary = 6;</code>
+           *
+           * <pre>
+           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+           * </pre>
+           */
+          public java.lang.String getVbinary() {
+            java.lang.Object ref = vbinary_;
             if (ref instanceof java.lang.String) {
               return (java.lang.String) ref;
             } else {
@@ -2991,32 +3134,73 @@ public final class Metadata {
                   (com.google.protobuf.ByteString) ref;
               java.lang.String s = bs.toStringUtf8();
               if (bs.isValidUtf8()) {
-                mxValue_ = s;
+                vbinary_ = s;
               }
               return s;
             }
           }
           /**
-           * <code>optional string mxValue = 3;</code>
+           * <code>optional string vbinary = 6;</code>
+           *
+           * <pre>
+           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+           * </pre>
            */
           public com.google.protobuf.ByteString
-              getMxValueBytes() {
-            java.lang.Object ref = mxValue_;
+              getVbinaryBytes() {
+            java.lang.Object ref = vbinary_;
             if (ref instanceof java.lang.String) {
               com.google.protobuf.ByteString b = 
                   com.google.protobuf.ByteString.copyFromUtf8(
                       (java.lang.String) ref);
-              mxValue_ = b;
+              vbinary_ = b;
               return b;
             } else {
               return (com.google.protobuf.ByteString) ref;
             }
           }
 
+          // optional float vfloat = 7;
+          public static final int VFLOAT_FIELD_NUMBER = 7;
+          private float vfloat_;
+          /**
+           * <code>optional float vfloat = 7;</code>
+           */
+          public boolean hasVfloat() {
+            return ((bitField0_ & 0x00000040) == 0x00000040);
+          }
+          /**
+           * <code>optional float vfloat = 7;</code>
+           */
+          public float getVfloat() {
+            return vfloat_;
+          }
+
+          // optional double vdouble = 8;
+          public static final int VDOUBLE_FIELD_NUMBER = 8;
+          private double vdouble_;
+          /**
+           * <code>optional double vdouble = 8;</code>
+           */
+          public boolean hasVdouble() {
+            return ((bitField0_ & 0x00000080) == 0x00000080);
+          }
+          /**
+           * <code>optional double vdouble = 8;</code>
+           */
+          public double getVdouble() {
+            return vdouble_;
+          }
+
           private void initFields() {
             name_ = 0;
             nulls_ = 0L;
-            mxValue_ = "";
+            vint64_ = 0L;
+            vint32_ = 0;
+            vbool_ = false;
+            vbinary_ = "";
+            vfloat_ = 0F;
+            vdouble_ = 0D;
           }
           private byte memoizedIsInitialized = -1;
           public final boolean isInitialized() {
@@ -3035,13 +3219,28 @@ public final class Metadata {
                               throws java.io.IOException {
             getSerializedSize();
             if (((bitField0_ & 0x00000001) == 0x00000001)) {
-              output.writeInt32(1, name_);
+              output.writeUInt32(1, name_);
             }
             if (((bitField0_ & 0x00000002) == 0x00000002)) {
-              output.writeInt64(2, nulls_);
+              output.writeUInt64(2, nulls_);
             }
             if (((bitField0_ & 0x00000004) == 0x00000004)) {
-              output.writeBytes(3, getMxValueBytes());
+              output.writeSInt64(3, vint64_);
+            }
+            if (((bitField0_ & 0x00000008) == 0x00000008)) {
+              output.writeSInt32(4, vint32_);
+            }
+            if (((bitField0_ & 0x00000010) == 0x00000010)) {
+              output.writeBool(5, vbool_);
+            }
+            if (((bitField0_ & 0x00000020) == 0x00000020)) {
+              output.writeBytes(6, getVbinaryBytes());
+            }
+            if (((bitField0_ & 0x00000040) == 0x00000040)) {
+              output.writeFloat(7, vfloat_);
+            }
+            if (((bitField0_ & 0x00000080) == 0x00000080)) {
+              output.writeDouble(8, vdouble_);
             }
             getUnknownFields().writeTo(output);
           }
@@ -3054,15 +3253,35 @@ public final class Metadata {
             size = 0;
             if (((bitField0_ & 0x00000001) == 0x00000001)) {
               size += com.google.protobuf.CodedOutputStream
-                .computeInt32Size(1, name_);
+                .computeUInt32Size(1, name_);
             }
             if (((bitField0_ & 0x00000002) == 0x00000002)) {
               size += com.google.protobuf.CodedOutputStream
-                .computeInt64Size(2, nulls_);
+                .computeUInt64Size(2, nulls_);
             }
             if (((bitField0_ & 0x00000004) == 0x00000004)) {
               size += com.google.protobuf.CodedOutputStream
-                .computeBytesSize(3, getMxValueBytes());
+                .computeSInt64Size(3, vint64_);
+            }
+            if (((bitField0_ & 0x00000008) == 0x00000008)) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeSInt32Size(4, vint32_);
+            }
+            if (((bitField0_ & 0x00000010) == 0x00000010)) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeBoolSize(5, vbool_);
+            }
+            if (((bitField0_ & 0x00000020) == 0x00000020)) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeBytesSize(6, getVbinaryBytes());
+            }
+            if (((bitField0_ & 0x00000040) == 0x00000040)) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeFloatSize(7, vfloat_);
+            }
+            if (((bitField0_ & 0x00000080) == 0x00000080)) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeDoubleSize(8, vdouble_);
             }
             size += getUnknownFields().getSerializedSize();
             memoizedSerializedSize = size;
@@ -3184,8 +3403,18 @@ public final class Metadata {
               bitField0_ = (bitField0_ & ~0x00000001);
               nulls_ = 0L;
               bitField0_ = (bitField0_ & ~0x00000002);
-              mxValue_ = "";
+              vint64_ = 0L;
               bitField0_ = (bitField0_ & ~0x00000004);
+              vint32_ = 0;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              vbool_ = false;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              vbinary_ = "";
+              bitField0_ = (bitField0_ & ~0x00000020);
+              vfloat_ = 0F;
+              bitField0_ = (bitField0_ & ~0x00000040);
+              vdouble_ = 0D;
+              bitField0_ = (bitField0_ & ~0x00000080);
               return this;
             }
 
@@ -3225,7 +3454,27 @@ public final class Metadata {
               if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
                 to_bitField0_ |= 0x00000004;
               }
-              result.mxValue_ = mxValue_;
+              result.vint64_ = vint64_;
+              if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+                to_bitField0_ |= 0x00000008;
+              }
+              result.vint32_ = vint32_;
+              if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+                to_bitField0_ |= 0x00000010;
+              }
+              result.vbool_ = vbool_;
+              if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+                to_bitField0_ |= 0x00000020;
+              }
+              result.vbinary_ = vbinary_;
+              if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+                to_bitField0_ |= 0x00000040;
+              }
+              result.vfloat_ = vfloat_;
+              if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+                to_bitField0_ |= 0x00000080;
+              }
+              result.vdouble_ = vdouble_;
               result.bitField0_ = to_bitField0_;
               onBuilt();
               return result;
@@ -3248,10 +3497,25 @@ public final class Metadata {
               if (other.hasNulls()) {
                 setNulls(other.getNulls());
               }
-              if (other.hasMxValue()) {
-                bitField0_ |= 0x00000004;
-                mxValue_ = other.mxValue_;
+              if (other.hasVint64()) {
+                setVint64(other.getVint64());
+              }
+              if (other.hasVint32()) {
+                setVint32(other.getVint32());
+              }
+              if (other.hasVbool()) {
+                setVbool(other.getVbool());
+              }
+              if (other.hasVbinary()) {
+                bitField0_ |= 0x00000020;
+                vbinary_ = other.vbinary_;
                 onChanged();
+              }
+              if (other.hasVfloat()) {
+                setVfloat(other.getVfloat());
+              }
+              if (other.hasVdouble()) {
+                setVdouble(other.getVdouble());
               }
               this.mergeUnknownFields(other.getUnknownFields());
               return this;
@@ -3284,22 +3548,22 @@ public final class Metadata {
             }
             private int bitField0_;
 
-            // required int32 name = 1;
+            // required uint32 name = 1;
             private int name_ ;
             /**
-             * <code>required int32 name = 1;</code>
+             * <code>required uint32 name = 1;</code>
              */
             public boolean hasName() {
               return ((bitField0_ & 0x00000001) == 0x00000001);
             }
             /**
-             * <code>required int32 name = 1;</code>
+             * <code>required uint32 name = 1;</code>
              */
             public int getName() {
               return name_;
             }
             /**
-             * <code>required int32 name = 1;</code>
+             * <code>required uint32 name = 1;</code>
              */
             public Builder setName(int value) {
               bitField0_ |= 0x00000001;
@@ -3308,7 +3572,7 @@ public final class Metadata {
               return this;
             }
             /**
-             * <code>required int32 name = 1;</code>
+             * <code>required uint32 name = 1;</code>
              */
             public Builder clearName() {
               bitField0_ = (bitField0_ & ~0x00000001);
@@ -3317,22 +3581,22 @@ public final class Metadata {
               return this;
             }
 
-            // optional int64 nulls = 2;
+            // optional uint64 nulls = 2;
             private long nulls_ ;
             /**
-             * <code>optional int64 nulls = 2;</code>
+             * <code>optional uint64 nulls = 2;</code>
              */
             public boolean hasNulls() {
               return ((bitField0_ & 0x00000002) == 0x00000002);
             }
             /**
-             * <code>optional int64 nulls = 2;</code>
+             * <code>optional uint64 nulls = 2;</code>
              */
             public long getNulls() {
               return nulls_;
             }
             /**
-             * <code>optional int64 nulls = 2;</code>
+             * <code>optional uint64 nulls = 2;</code>
              */
             public Builder setNulls(long value) {
               bitField0_ |= 0x00000002;
@@ -3341,7 +3605,7 @@ public final class Metadata {
               return this;
             }
             /**
-             * <code>optional int64 nulls = 2;</code>
+             * <code>optional uint64 nulls = 2;</code>
              */
             public Builder clearNulls() {
               bitField0_ = (bitField0_ & ~0x00000002);
@@ -3350,76 +3614,265 @@ public final class Metadata {
               return this;
             }
 
-            // optional string mxValue = 3;
-            private java.lang.Object mxValue_ = "";
+            // optional sint64 vint64 = 3;
+            private long vint64_ ;
             /**
-             * <code>optional string mxValue = 3;</code>
+             * <code>optional sint64 vint64 = 3;</code>
              */
-            public boolean hasMxValue() {
+            public boolean hasVint64() {
               return ((bitField0_ & 0x00000004) == 0x00000004);
             }
             /**
-             * <code>optional string mxValue = 3;</code>
+             * <code>optional sint64 vint64 = 3;</code>
              */
-            public java.lang.String getMxValue() {
-              java.lang.Object ref = mxValue_;
+            public long getVint64() {
+              return vint64_;
+            }
+            /**
+             * <code>optional sint64 vint64 = 3;</code>
+             */
+            public Builder setVint64(long value) {
+              bitField0_ |= 0x00000004;
+              vint64_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>optional sint64 vint64 = 3;</code>
+             */
+            public Builder clearVint64() {
+              bitField0_ = (bitField0_ & ~0x00000004);
+              vint64_ = 0L;
+              onChanged();
+              return this;
+            }
+
+            // optional sint32 vint32 = 4;
+            private int vint32_ ;
+            /**
+             * <code>optional sint32 vint32 = 4;</code>
+             */
+            public boolean hasVint32() {
+              return ((bitField0_ & 0x00000008) == 0x00000008);
+            }
+            /**
+             * <code>optional sint32 vint32 = 4;</code>
+             */
+            public int getVint32() {
+              return vint32_;
+            }
+            /**
+             * <code>optional sint32 vint32 = 4;</code>
+             */
+            public Builder setVint32(int value) {
+              bitField0_ |= 0x00000008;
+              vint32_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>optional sint32 vint32 = 4;</code>
+             */
+            public Builder clearVint32() {
+              bitField0_ = (bitField0_ & ~0x00000008);
+              vint32_ = 0;
+              onChanged();
+              return this;
+            }
+
+            // optional bool vbool = 5;
+            private boolean vbool_ ;
+            /**
+             * <code>optional bool vbool = 5;</code>
+             */
+            public boolean hasVbool() {
+              return ((bitField0_ & 0x00000010) == 0x00000010);
+            }
+            /**
+             * <code>optional bool vbool = 5;</code>
+             */
+            public boolean getVbool() {
+              return vbool_;
+            }
+            /**
+             * <code>optional bool vbool = 5;</code>
+             */
+            public Builder setVbool(boolean value) {
+              bitField0_ |= 0x00000010;
+              vbool_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>optional bool vbool = 5;</code>
+             */
+            public Builder clearVbool() {
+              bitField0_ = (bitField0_ & ~0x00000010);
+              vbool_ = false;
+              onChanged();
+              return this;
+            }
+
+            // optional string vbinary = 6;
+            private java.lang.Object vbinary_ = "";
+            /**
+             * <code>optional string vbinary = 6;</code>
+             *
+             * <pre>
+             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+             * </pre>
+             */
+            public boolean hasVbinary() {
+              return ((bitField0_ & 0x00000020) == 0x00000020);
+            }
+            /**
+             * <code>optional string vbinary = 6;</code>
+             *
+             * <pre>
+             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+             * </pre>
+             */
+            public java.lang.String getVbinary() {
+              java.lang.Object ref = vbinary_;
               if (!(ref instanceof java.lang.String)) {
                 java.lang.String s = ((com.google.protobuf.ByteString) ref)
                     .toStringUtf8();
-                mxValue_ = s;
+                vbinary_ = s;
                 return s;
               } else {
                 return (java.lang.String) ref;
               }
             }
             /**
-             * <code>optional string mxValue = 3;</code>
+             * <code>optional string vbinary = 6;</code>
+             *
+             * <pre>
+             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+             * </pre>
              */
             public com.google.protobuf.ByteString
-                getMxValueBytes() {
-              java.lang.Object ref = mxValue_;
+                getVbinaryBytes() {
+              java.lang.Object ref = vbinary_;
               if (ref instanceof String) {
                 com.google.protobuf.ByteString b = 
                     com.google.protobuf.ByteString.copyFromUtf8(
                         (java.lang.String) ref);
-                mxValue_ = b;
+                vbinary_ = b;
                 return b;
               } else {
                 return (com.google.protobuf.ByteString) ref;
               }
             }
             /**
-             * <code>optional string mxValue = 3;</code>
+             * <code>optional string vbinary = 6;</code>
+             *
+             * <pre>
+             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+             * </pre>
              */
-            public Builder setMxValue(
+            public Builder setVbinary(
                 java.lang.String value) {
               if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
-              mxValue_ = value;
+  bitField0_ |= 0x00000020;
+              vbinary_ = value;
               onChanged();
               return this;
             }
             /**
-             * <code>optional string mxValue = 3;</code>
+             * <code>optional string vbinary = 6;</code>
+             *
+             * <pre>
+             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+             * </pre>
              */
-            public Builder clearMxValue() {
-              bitField0_ = (bitField0_ & ~0x00000004);
-              mxValue_ = getDefaultInstance().getMxValue();
+            public Builder clearVbinary() {
+              bitField0_ = (bitField0_ & ~0x00000020);
+              vbinary_ = getDefaultInstance().getVbinary();
               onChanged();
               return this;
             }
             /**
-             * <code>optional string mxValue = 3;</code>
+             * <code>optional string vbinary = 6;</code>
+             *
+             * <pre>
+             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+             * </pre>
              */
-            public Builder setMxValueBytes(
+            public Builder setVbinaryBytes(
                 com.google.protobuf.ByteString value) {
               if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
-              mxValue_ = value;
+  bitField0_ |= 0x00000020;
+              vbinary_ = value;
+              onChanged();
+              return this;
+            }
+
+            // optional float vfloat = 7;
+            private float vfloat_ ;
+            /**
+             * <code>optional float vfloat = 7;</code>
+             */
+            public boolean hasVfloat() {
+              return ((bitField0_ & 0x00000040) == 0x00000040);
+            }
+            /**
+             * <code>optional float vfloat = 7;</code>
+             */
+            public float getVfloat() {
+              return vfloat_;
+            }
+            /**
+             * <code>optional float vfloat = 7;</code>
+             */
+            public Builder setVfloat(float value) {
+              bitField0_ |= 0x00000040;
+              vfloat_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>optional float vfloat = 7;</code>
+             */
+            public Builder clearVfloat() {
+              bitField0_ = (bitField0_ & ~0x00000040);
+              vfloat_ = 0F;
+              onChanged();
+              return this;
+            }
+
+            // optional double vdouble = 8;
+            private double vdouble_ ;
+            /**
+             * <code>optional double vdouble = 8;</code>
+             */
+            public boolean hasVdouble() {
+              return ((bitField0_ & 0x00000080) == 0x00000080);
+            }
+            /**
+             * <code>optional double vdouble = 8;</code>
+             */
+            public double getVdouble() {
+              return vdouble_;
+            }
+            /**
+             * <code>optional double vdouble = 8;</code>
+             */
+            public Builder setVdouble(double value) {
+              bitField0_ |= 0x00000080;
+              vdouble_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>optional double vdouble = 8;</code>
+             */
+            public Builder clearVdouble() {
+              bitField0_ = (bitField0_ & ~0x00000080);
+              vdouble_ = 0D;
               onChanged();
               return this;
             }
@@ -3436,49 +3889,49 @@ public final class Metadata {
         }
 
         private int bitField0_;
-        // optional int64 start = 1;
+        // optional uint64 start = 1;
         public static final int START_FIELD_NUMBER = 1;
         private long start_;
         /**
-         * <code>optional int64 start = 1;</code>
+         * <code>optional uint64 start = 1;</code>
          */
         public boolean hasStart() {
           return ((bitField0_ & 0x00000001) == 0x00000001);
         }
         /**
-         * <code>optional int64 start = 1;</code>
+         * <code>optional uint64 start = 1;</code>
          */
         public long getStart() {
           return start_;
         }
 
-        // optional int64 length = 2;
+        // optional uint64 length = 2;
         public static final int LENGTH_FIELD_NUMBER = 2;
         private long length_;
         /**
-         * <code>optional int64 length = 2;</code>
+         * <code>optional uint64 length = 2;</code>
          */
         public boolean hasLength() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
         /**
-         * <code>optional int64 length = 2;</code>
+         * <code>optional uint64 length = 2;</code>
          */
         public long getLength() {
           return length_;
         }
 
-        // optional int64 rowCount = 3;
+        // optional uint64 rowCount = 3;
         public static final int ROWCOUNT_FIELD_NUMBER = 3;
         private long rowCount_;
         /**
-         * <code>optional int64 rowCount = 3;</code>
+         * <code>optional uint64 rowCount = 3;</code>
          */
         public boolean hasRowCount() {
           return ((bitField0_ & 0x00000004) == 0x00000004);
         }
         /**
-         * <code>optional int64 rowCount = 3;</code>
+         * <code>optional uint64 rowCount = 3;</code>
          */
         public long getRowCount() {
           return rowCount_;
@@ -3582,13 +4035,13 @@ public final class Metadata {
                             throws java.io.IOException {
           getSerializedSize();
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            output.writeInt64(1, start_);
+            output.writeUInt64(1, start_);
           }
           if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            output.writeInt64(2, length_);
+            output.writeUInt64(2, length_);
           }
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            output.writeInt64(3, rowCount_);
+            output.writeUInt64(3, rowCount_);
           }
           for (int i = 0; i < affinities_.size(); i++) {
             output.writeMessage(4, affinities_.get(i));
@@ -3607,15 +4060,15 @@ public final class Metadata {
           size = 0;
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
             size += com.google.protobuf.CodedOutputStream
-              .computeInt64Size(1, start_);
+              .computeUInt64Size(1, start_);
           }
           if (((bitField0_ & 0x00000002) == 0x00000002)) {
             size += com.google.protobuf.CodedOutputStream
-              .computeInt64Size(2, length_);
+              .computeUInt64Size(2, length_);
           }
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
             size += com.google.protobuf.CodedOutputStream
-              .computeInt64Size(3, rowCount_);
+              .computeUInt64Size(3, rowCount_);
           }
           for (int i = 0; i < affinities_.size(); i++) {
             size += com.google.protobuf.CodedOutputStream
@@ -3929,22 +4382,22 @@ public final class Metadata {
           }
           private int bitField0_;
 
-          // optional int64 start = 1;
+          // optional uint64 start = 1;
           private long start_ ;
           /**
-           * <code>optional int64 start = 1;</code>
+           * <code>optional uint64 start = 1;</code>
            */
           public boolean hasStart() {
             return ((bitField0_ & 0x00000001) == 0x00000001);
           }
           /**
-           * <code>optional int64 start = 1;</code>
+           * <code>optional uint64 start = 1;</code>
            */
           public long getStart() {
             return start_;
           }
           /**
-           * <code>optional int64 start = 1;</code>
+           * <code>optional uint64 start = 1;</code>
            */
           public Builder setStart(long value) {
             bitField0_ |= 0x00000001;
@@ -3953,7 +4406,7 @@ public final class Metadata {
             return this;
           }
           /**
-           * <code>optional int64 start = 1;</code>
+           * <code>optional uint64 start = 1;</code>
            */
           public Builder clearStart() {
             bitField0_ = (bitField0_ & ~0x00000001);
@@ -3962,22 +4415,22 @@ public final class Metadata {
             return this;
           }
 
-          // optional int64 length = 2;
+          // optional uint64 length = 2;
           private long length_ ;
           /**
-           * <code>optional int64 length = 2;</code>
+           * <code>optional uint64 length = 2;</code>
            */
           public boolean hasLength() {
             return ((bitField0_ & 0x00000002) == 0x00000002);
           }
           /**
-           * <code>optional int64 length = 2;</code>
+           * <code>optional uint64 length = 2;</code>
            */
           public long getLength() {
             return length_;
           }
           /**
-           * <code>optional int64 length = 2;</code>
+           * <code>optional uint64 length = 2;</code>
            */
           public Builder setLength(long value) {
             bitField0_ |= 0x00000002;
@@ -3986,7 +4439,7 @@ public final class Metadata {
             return this;
           }
           /**
-           * <code>optional int64 length = 2;</code>
+           * <code>optional uint64 length = 2;</code>
            */
           public Builder clearLength() {
             bitField0_ = (bitField0_ & ~0x00000002);
@@ -3995,22 +4448,22 @@ public final class Metadata {
             return this;
           }
 
-          // optional int64 rowCount = 3;
+          // optional uint64 rowCount = 3;
           private long rowCount_ ;
           /**
-           * <code>optional int64 rowCount = 3;</code>
+           * <code>optional uint64 rowCount = 3;</code>
            */
           public boolean hasRowCount() {
             return ((bitField0_ & 0x00000004) == 0x00000004);
           }
           /**
-           * <code>optional int64 rowCount = 3;</code>
+           * <code>optional uint64 rowCount = 3;</code>
            */
           public long getRowCount() {
             return rowCount_;
           }
           /**
-           * <code>optional int64 rowCount = 3;</code>
+           * <code>optional uint64 rowCount = 3;</code>
            */
           public Builder setRowCount(long value) {
             bitField0_ |= 0x00000004;
@@ -4019,7 +4472,7 @@ public final class Metadata {
             return this;
           }
           /**
-           * <code>optional int64 rowCount = 3;</code>
+           * <code>optional uint64 rowCount = 3;</code>
            */
           public Builder clearRowCount() {
             bitField0_ = (bitField0_ & ~0x00000004);
@@ -4563,17 +5016,17 @@ public final class Metadata {
         }
       }
 
-      // optional int64 length = 2;
+      // optional uint64 length = 2;
       public static final int LENGTH_FIELD_NUMBER = 2;
       private long length_;
       /**
-       * <code>optional int64 length = 2;</code>
+       * <code>optional uint64 length = 2;</code>
        */
       public boolean hasLength() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int64 length = 2;</code>
+       * <code>optional uint64 length = 2;</code>
        */
       public long getLength() {
         return length_;
@@ -4642,7 +5095,7 @@ public final class Metadata {
           output.writeBytes(1, getPathBytes());
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeInt64(2, length_);
+          output.writeUInt64(2, length_);
         }
         for (int i = 0; i < rowGroups_.size(); i++) {
           output.writeMessage(3, rowGroups_.get(i));
@@ -4662,7 +5115,7 @@ public final class Metadata {
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(2, length_);
+            .computeUInt64Size(2, length_);
         }
         for (int i = 0; i < rowGroups_.size(); i++) {
           size += com.google.protobuf.CodedOutputStream
@@ -4997,22 +5450,22 @@ public final class Metadata {
           return this;
         }
 
-        // optional int64 length = 2;
+        // optional uint64 length = 2;
         private long length_ ;
         /**
-         * <code>optional int64 length = 2;</code>
+         * <code>optional uint64 length = 2;</code>
          */
         public boolean hasLength() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
         /**
-         * <code>optional int64 length = 2;</code>
+         * <code>optional uint64 length = 2;</code>
          */
         public long getLength() {
           return length_;
         }
         /**
-         * <code>optional int64 length = 2;</code>
+         * <code>optional uint64 length = 2;</code>
          */
         public Builder setLength(long value) {
           bitField0_ |= 0x00000002;
@@ -5021,7 +5474,7 @@ public final class Metadata {
           return this;
         }
         /**
-         * <code>optional int64 length = 2;</code>
+         * <code>optional uint64 length = 2;</code>
          */
         public Builder clearLength() {
           bitField0_ = (bitField0_ & ~0x00000002);
@@ -6210,7 +6663,7 @@ public final class Metadata {
     java.lang.String[] descriptorData = {
       "\n\022src/metadata.proto\022\010metadata\"?\n\016Metada" +
       "taHeader\022\030\n\020metadata_version\030\001 \002(\t\022\023\n\013di" +
-      "rectories\030\004 \003(\t\"\244\t\n\rMetadataFiles\0227\n\007col" +
+      "rectories\030\004 \003(\t\"\365\t\n\rMetadataFiles\0227\n\007col" +
       "umns\030\002 \003(\0132&.metadata.MetadataFiles.Colu" +
       "mnTypeInfo\022:\n\005files\030\003 \003(\0132+.metadata.Met" +
       "adataFiles.ParquetFileMetadata\032\307\004\n\016Colum" +
@@ -6228,20 +6681,22 @@ public final class Metadata {
       "IS\020\010\022\n\n\006UINT_8\020\t\022\013\n\007UINT_16\020\n\022\013\n\007UINT_32" +
       "\020\013\022\013\n\007UINT_64\020\014\022\t\n\005INT_8\020\r\022\n\n\006INT_16\020\016\022\n" +
       "\n\006INT_32\020\017\022\n\n\006INT_64\020\020\022\010\n\004JSON\020\021\022\010\n\004BSON",
-      "\020\022\022\014\n\010INTERVAL\020\023\032\323\003\n\023ParquetFileMetadata" +
-      "\022\014\n\004path\030\001 \001(\t\022\016\n\006length\030\002 \001(\003\022G\n\trowGro" +
+      "\020\022\022\014\n\010INTERVAL\020\023\032\244\004\n\023ParquetFileMetadata" +
+      "\022\014\n\004path\030\001 \001(\t\022\016\n\006length\030\002 \001(\004\022G\n\trowGro" +
       "ups\030\003 \003(\01324.metadata.MetadataFiles.Parqu" +
-      "etFileMetadata.RowGroup\032\324\002\n\010RowGroup\022\r\n\005" +
-      "start\030\001 \001(\003\022\016\n\006length\030\002 \001(\003\022\020\n\010rowCount\030" +
-      "\003 \001(\003\022U\n\naffinities\030\004 \003(\0132A.metadata.Met" +
+      "etFileMetadata.RowGroup\032\245\003\n\010RowGroup\022\r\n\005" +
+      "start\030\001 \001(\004\022\016\n\006length\030\002 \001(\004\022\020\n\010rowCount\030" +
+      "\003 \001(\004\022U\n\naffinities\030\004 \003(\0132A.metadata.Met" +
       "adataFiles.ParquetFileMetadata.RowGroup." +
       "HostAffinity\022T\n\007columns\030\005 \003(\0132C.metadata" +
       ".MetadataFiles.ParquetFileMetadata.RowGr" +
       "oup.ColumnMetadata\032*\n\014HostAffinity\022\013\n\003ke",
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\032>\n\016ColumnMetadata" +
-      "\022\014\n\004name\030\001 \002(\005\022\r\n\005nulls\030\002 \001(\003\022\017\n\007mxValue" +
-      "\030\003 \001(\tB!\n\025com.adeneche.metadataB\010Metadat" +
-      "a"
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\032\216\001\n\016ColumnMetadat" +
+      "a\022\014\n\004name\030\001 \002(\r\022\r\n\005nulls\030\002 \001(\004\022\016\n\006vint64" +
+      "\030\003 \001(\022\022\016\n\006vint32\030\004 \001(\021\022\r\n\005vbool\030\005 \001(\010\022\017\n" +
+      "\007vbinary\030\006 \001(\t\022\016\n\006vfloat\030\007 \001(\002\022\017\n\007vdoubl" +
+      "e\030\010 \001(\001B!\n\025com.adeneche.metadataB\010Metada" +
+      "ta"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -6289,7 +6744,7 @@ public final class Metadata {
           internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor,
-              new java.lang.String[] { "Name", "Nulls", "MxValue", });
+              new java.lang.String[] { "Name", "Nulls", "Vint64", "Vint32", "Vbool", "Vbinary", "Vfloat", "Vdouble", });
           return null;
         }
       };
