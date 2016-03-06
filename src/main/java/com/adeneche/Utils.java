@@ -4,6 +4,8 @@ import com.adeneche.metadata.Metadata;
 import com.eclipsesource.json.JsonArray;
 import com.google.common.base.Joiner;
 
+import java.util.Collections;
+
 public class Utils {
   public static final Joiner COLUMN_NAME_JOINER = Joiner.on(".");
 
@@ -36,9 +38,14 @@ public class Utils {
 
     if (files1.getColumnsCount() != files2.getColumnsCount()) {
       System.out.printf("files.columnsCount: %d vs %d%n", files1.getColumnsCount(), files2.getColumnsCount());
+    } else if (files1.getColumnsList().equals(files2.getColumnsList())){
+
     }
+
     if (files1.getFilesCount() != files2.getFilesCount()) {
       System.out.printf("files.filesCount: %d vs %d%n", files1.getFilesCount(), files2.getFilesCount());
+    } else {
+
     }
   }
 }

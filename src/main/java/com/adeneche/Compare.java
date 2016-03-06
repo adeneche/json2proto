@@ -39,7 +39,12 @@ public class Compare {
     MetadataHolder metadata1 = parse(args[0]);
     MetadataHolder metadata2 = parse(args[1]);
 
-    metadata1.findDifference(metadata2);
+    if (!metadata1.equals(metadata2)) {
+      System.err.println("Difference found, trying to pinpoint what is different");
+      metadata1.findDifference(metadata2);
+    } else {
+      System.out.println("no difference was found =D");
+    }
   }
 
   private static MetadataHolder parse(final String filename) throws IOException {
