@@ -8,7 +8,9 @@ import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonArray;
 import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.JsonValue;
+import com.google.common.base.Function;
 import com.google.common.base.Joiner;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedOutputStream;
@@ -19,6 +21,8 @@ import org.kohsuke.args4j.Option;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -81,12 +85,39 @@ public class JsonToProto {
     final Metadata.MetadataFiles.Builder metadataFiles = Metadata.MetadataFiles.newBuilder();
 
     final JsonObject columns = object.get("columnTypeInfo").asObject();
+
+    List<ColumnTypeInfo> columnsTypeInfos = Lists.newArrayList();
     for (final String name : columns.names()) {
       final ColumnTypeInfo columnTypeInfo = parseColumnTypeInfo(columns.get(name).asObject());
-      columnNames.add(columnTypeInfo.getName());
-      columnTypes.add(columnTypeInfo.getPrimitiveType());
-      metadataFiles.addColumns(columnTypeInfo);
+      columnsTypeInfos.add(columnTypeInfo);
     }
+
+    //make sure we sort keySet so we always have same order
+    Collections.sort(columnsTypeInfos, new Comparator<ColumnTypeInfo>() {
+      @Override
+      public int compare(ColumnTypeInfo o1, ColumnTypeInfo o2) {
+        return o1.getName().compareTo(o2.getName());
+      }
+    });
+    metadataFiles.addAllColumns(columnsTypeInfos);
+
+    Iterables.addAll(columnNames, Iterables.transform(columnsTypeInfos,
+      new Function<ColumnTypeInfo, String>() {
+        @Override
+        public String apply(ColumnTypeInfo input) {
+          return input.getName();
+        }
+      }
+    ));
+
+    Iterables.addAll(columnTypes, Iterables.transform(columnsTypeInfos,
+      new Function<ColumnTypeInfo, ColumnTypeInfo.PrimitiveTypeName>() {
+        @Override
+        public ColumnTypeInfo.PrimitiveTypeName apply(ColumnTypeInfo input) {
+          return input.getPrimitiveType();
+        }
+      }
+    ));
 
     final JsonArray files = object.get("files").asArray();
     for (int i = 0; i < files.size(); i++) {
