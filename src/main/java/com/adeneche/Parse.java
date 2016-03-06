@@ -60,7 +60,7 @@ public class Parse {
     final Metadata.MetadataFiles files = Metadata.MetadataFiles.parseFrom(codedStream);
     codedStream.popLimit(limit);
 
-    if (options.verbose) {
+    if (!options.verbose) {
       System.out.printf("File parsed in %d ms%n", watch.elapsed(TimeUnit.MILLISECONDS));
     } else {
       System.out.println(header);

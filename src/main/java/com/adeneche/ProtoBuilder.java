@@ -4,9 +4,13 @@ import com.adeneche.Holders.ColumnTypeMetadata;
 import com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo;
 import com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup;
 import com.adeneche.metadata.Metadata;
+import com.google.common.base.Function;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.protobuf.ByteString;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -29,11 +33,28 @@ public class ProtoBuilder {
   public Metadata.MetadataFiles buildFiles() {
     final Metadata.MetadataFiles.Builder metadataFiles = Metadata.MetadataFiles.newBuilder();
 
+    List<ColumnTypeInfo> columns = Lists.newArrayList();
     for (final ColumnTypeMetadata.Key key : tableMetadata.columnTypeInfo.keySet()) {
       final ColumnTypeInfo columnTypeInfo = buildColumnTypeInfo(tableMetadata.columnTypeInfo.get(key));
-      columnNames.add(columnTypeInfo.getName());
-      metadataFiles.addColumns(columnTypeInfo);
+      columns.add(columnTypeInfo);
     }
+
+    //make sure we sort keySet so we always have same order
+    Collections.sort(columns, new Comparator<ColumnTypeInfo>() {
+      @Override
+      public int compare(ColumnTypeInfo o1, ColumnTypeInfo o2) {
+        return o1.getName().compareTo(o2.getName());
+      }
+    });
+    metadataFiles.addAllColumns(columns);
+
+    Iterables.addAll(columnNames, Iterables.transform(columns, new Function<ColumnTypeInfo, String>() {
+      @Override
+      public String apply(ColumnTypeInfo input) {
+        return input.getName();
+      }
+    }));
+
 
     for (final Holders.ParquetFileMetadata fileMetadata : tableMetadata.files) {
       metadataFiles.addFiles(buildFile(fileMetadata));
