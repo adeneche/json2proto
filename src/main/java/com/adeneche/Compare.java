@@ -7,6 +7,7 @@ import com.google.protobuf.CodedInputStream;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Compare {
@@ -22,6 +23,11 @@ public class Compare {
       MetadataHolder holder = (MetadataHolder) obj;
       return Objects.equals(header, holder.header) && Objects.equals(files, holder.files);
     }
+
+    public void findDifference(MetadataHolder holder) {
+      Utils.findDifference(header, holder.header);
+      Utils.findDifference(files, holder.files);
+    }
   }
 
   public static void main(String[] args) throws IOException {
@@ -30,23 +36,16 @@ public class Compare {
       System.exit(-1);
     }
 
-    {
-      boolean assertOn = false;
-      assert assertOn = true;
-
-      if (!assertOn) {
-        throw new RuntimeException("assertions are not enabled");
-      }
-    }
-
     MetadataHolder metadata1 = parse(args[0]);
     MetadataHolder metadata2 = parse(args[1]);
 
-    assert metadata1.equals(metadata2): "metadata is different";
+    metadata1.findDifference(metadata2);
   }
 
   private static MetadataHolder parse(final String filename) throws IOException {
     CodedInputStream codedStream = CodedInputStream.newInstance(new FileInputStream(filename));
+    codedStream.setSizeLimit(200_000_000);
+
     MetadataHolder holder = new MetadataHolder();
 
     // read header
