@@ -1,6 +1,5 @@
 package com.adeneche;
 
-import com.adeneche.metadata.Metadata;
 import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonObject;
 import com.google.protobuf.CodedOutputStream;
@@ -54,16 +53,11 @@ public class JsonToProto {
 
     Holders.ParquetTableMetadata tableMetadata = new JsonLoader().load(object);
 
-    final ProtoBuilder protoBuilder = new ProtoBuilder(tableMetadata);
-    Metadata.MetadataHeader header = protoBuilder.buildHeader("v2");
-    codedStream.writeRawVarint32(header.getSerializedSize());
-    header.writeTo(codedStream);
+    final MetadataHolder holder = new MetadataHolder();
+    holder.parseFrom(tableMetadata);
 
-    Metadata.MetadataFiles files = protoBuilder.buildFiles();
-    codedStream.writeRawVarint32(files.getSerializedSize());
-    files.writeTo(codedStream);
+    holder.writeTo(codedStream);
 
-    codedStream.flush();
     fileStream.close();
     reader.close();
   }

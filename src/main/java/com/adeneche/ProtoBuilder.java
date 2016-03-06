@@ -1,8 +1,8 @@
 package com.adeneche;
 
 import com.adeneche.Holders.ColumnTypeMetadata;
-import com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo;
-import com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup;
+import com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo;
+import com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup;
 import com.adeneche.metadata.Metadata;
 import com.google.common.base.Function;
 import com.google.common.collect.Iterables;
@@ -30,8 +30,8 @@ public class ProtoBuilder {
       .build();
   }
 
-  public Metadata.MetadataFiles buildFiles() {
-    final Metadata.MetadataFiles.Builder metadataFiles = Metadata.MetadataFiles.newBuilder();
+  public Metadata.MetadataColumns buildColumns() {
+    final Metadata.MetadataColumns.Builder metadataColumns = Metadata.MetadataColumns.newBuilder();
 
     List<ColumnTypeInfo> columns = Lists.newArrayList();
     for (final ColumnTypeMetadata.Key key : tableMetadata.columnTypeInfo.keySet()) {
@@ -46,7 +46,7 @@ public class ProtoBuilder {
         return o1.getName().compareTo(o2.getName());
       }
     });
-    metadataFiles.addAllColumns(columns);
+    metadataColumns.addAllColumns(columns);
 
     Iterables.addAll(columnNames, Iterables.transform(columns, new Function<ColumnTypeInfo, String>() {
       @Override
@@ -55,12 +55,17 @@ public class ProtoBuilder {
       }
     }));
 
+    return metadataColumns.build();
+  }
+
+  public List<Metadata.ParquetFileMetadata> buildFiles() {
+    List<Metadata.ParquetFileMetadata> files = Lists.newArrayList();
 
     for (final Holders.ParquetFileMetadata fileMetadata : tableMetadata.files) {
-      metadataFiles.addFiles(buildFile(fileMetadata));
+      files.add(buildFile(fileMetadata));
     }
 
-    return metadataFiles.build();
+    return files;
   }
 
   private ColumnTypeInfo buildColumnTypeInfo(ColumnTypeMetadata columnTypeMetadata) {
@@ -79,8 +84,8 @@ public class ProtoBuilder {
     return columnTypeInfo.build();
   }
 
-  private Metadata.MetadataFiles.ParquetFileMetadata buildFile(Holders.ParquetFileMetadata fileMetadata) {
-    final Metadata.MetadataFiles.ParquetFileMetadata.Builder file = Metadata.MetadataFiles.ParquetFileMetadata.newBuilder();
+  private Metadata.ParquetFileMetadata buildFile(Holders.ParquetFileMetadata fileMetadata) {
+    final Metadata.ParquetFileMetadata.Builder file = Metadata.ParquetFileMetadata.newBuilder();
 
     file.setPath(fileMetadata.path);
     file.setLength(fileMetadata.length);
@@ -93,7 +98,7 @@ public class ProtoBuilder {
   }
 
   private RowGroup buildRowGroup(Holders.RowGroupMetadata rowGroupMetadata) {
-    final RowGroup.Builder rowGroup = Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.newBuilder();
+    final RowGroup.Builder rowGroup = Metadata.ParquetFileMetadata.RowGroup.newBuilder();
 
     rowGroup.setStart(rowGroupMetadata.start);
     rowGroup.setLength(rowGroupMetadata.length);
@@ -101,7 +106,7 @@ public class ProtoBuilder {
 
     final Map<String, Float> hostAffinity = rowGroupMetadata.hostAffinity;
     for (final String name : hostAffinity.keySet()) {
-      rowGroup.addAffinities(Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.newBuilder()
+      rowGroup.addAffinities(Metadata.ParquetFileMetadata.RowGroup.HostAffinity.newBuilder()
           .setKey(name)
           .setValue(hostAffinity.get(name))
       );

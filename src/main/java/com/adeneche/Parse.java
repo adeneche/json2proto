@@ -2,6 +2,7 @@ package com.adeneche;
 
 import com.adeneche.metadata.Metadata;
 import com.google.common.base.Stopwatch;
+import com.google.common.collect.Lists;
 import com.google.protobuf.CodedInputStream;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -9,6 +10,7 @@ import org.kohsuke.args4j.Option;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Parse {
@@ -48,23 +50,14 @@ public class Parse {
       codedStream.setSizeLimit(options.size);
     }
 
-    // read header
-    int length = codedStream.readRawVarint32();
-    int limit = codedStream.pushLimit(length);
-    final Metadata.MetadataHeader header = Metadata.MetadataHeader.parseFrom(codedStream);
-    codedStream.popLimit(limit);
+    final MetadataHolder holder = new MetadataHolder();
+    holder.parseFrom(codedStream);
 
-    // read files
-    length = codedStream.readRawVarint32();
-    limit = codedStream.pushLimit(length);
-    final Metadata.MetadataFiles files = Metadata.MetadataFiles.parseFrom(codedStream);
-    codedStream.popLimit(limit);
 
     if (!options.verbose) {
       System.out.printf("File parsed in %d ms%n", watch.elapsed(TimeUnit.MILLISECONDS));
     } else {
-      System.out.println(header);
-      System.out.println(files);
+      System.out.println(holder);
     }
   }
 }

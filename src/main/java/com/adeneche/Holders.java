@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName;
-import com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType;
+import com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName;
+import com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType;
 
 /**
  * Structures similar to Drill's Metadata cache

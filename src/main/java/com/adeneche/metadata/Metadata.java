@@ -672,78 +672,78 @@ public final class Metadata {
     // @@protoc_insertion_point(class_scope:metadata.MetadataHeader)
   }
 
-  public interface MetadataFilesOrBuilder
+  public interface ParquetFileMetadataOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;
+    // optional string path = 1;
     /**
-     * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+     * <code>optional string path = 1;</code>
      */
-    java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo> 
-        getColumnsList();
+    boolean hasPath();
     /**
-     * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+     * <code>optional string path = 1;</code>
      */
-    com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo getColumns(int index);
+    java.lang.String getPath();
     /**
-     * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+     * <code>optional string path = 1;</code>
      */
-    int getColumnsCount();
-    /**
-     * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
-     */
-    java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfoOrBuilder> 
-        getColumnsOrBuilderList();
-    /**
-     * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
-     */
-    com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfoOrBuilder getColumnsOrBuilder(
-        int index);
+    com.google.protobuf.ByteString
+        getPathBytes();
 
-    // repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;
+    // optional uint64 length = 2;
     /**
-     * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
+     * <code>optional uint64 length = 2;</code>
      */
-    java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata> 
-        getFilesList();
+    boolean hasLength();
     /**
-     * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
+     * <code>optional uint64 length = 2;</code>
      */
-    com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata getFiles(int index);
+    long getLength();
+
+    // repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;
     /**
-     * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
+     * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
      */
-    int getFilesCount();
+    java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup> 
+        getRowGroupsList();
     /**
-     * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
+     * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
      */
-    java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadataOrBuilder> 
-        getFilesOrBuilderList();
+    com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup getRowGroups(int index);
     /**
-     * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
+     * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
      */
-    com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadataOrBuilder getFilesOrBuilder(
+    int getRowGroupsCount();
+    /**
+     * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+     */
+    java.util.List<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroupOrBuilder> 
+        getRowGroupsOrBuilderList();
+    /**
+     * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+     */
+    com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroupOrBuilder getRowGroupsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code metadata.MetadataFiles}
+   * Protobuf type {@code metadata.ParquetFileMetadata}
    */
-  public static final class MetadataFiles extends
+  public static final class ParquetFileMetadata extends
       com.google.protobuf.GeneratedMessage
-      implements MetadataFilesOrBuilder {
-    // Use MetadataFiles.newBuilder() to construct.
-    private MetadataFiles(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements ParquetFileMetadataOrBuilder {
+    // Use ParquetFileMetadata.newBuilder() to construct.
+    private ParquetFileMetadata(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private MetadataFiles(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private ParquetFileMetadata(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final MetadataFiles defaultInstance;
-    public static MetadataFiles getDefaultInstance() {
+    private static final ParquetFileMetadata defaultInstance;
+    public static ParquetFileMetadata getDefaultInstance() {
       return defaultInstance;
     }
 
-    public MetadataFiles getDefaultInstanceForType() {
+    public ParquetFileMetadata getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -753,7 +753,3760 @@ public final class Metadata {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private MetadataFiles(
+    private ParquetFileMetadata(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              path_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              length_ = input.readUInt64();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                rowGroups_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              rowGroups_.add(input.readMessage(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          rowGroups_ = java.util.Collections.unmodifiableList(rowGroups_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.adeneche.metadata.Metadata.ParquetFileMetadata.class, com.adeneche.metadata.Metadata.ParquetFileMetadata.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ParquetFileMetadata> PARSER =
+        new com.google.protobuf.AbstractParser<ParquetFileMetadata>() {
+      public ParquetFileMetadata parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ParquetFileMetadata(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ParquetFileMetadata> getParserForType() {
+      return PARSER;
+    }
+
+    public interface RowGroupOrBuilder
+        extends com.google.protobuf.MessageOrBuilder {
+
+      // optional uint64 start = 1;
+      /**
+       * <code>optional uint64 start = 1;</code>
+       */
+      boolean hasStart();
+      /**
+       * <code>optional uint64 start = 1;</code>
+       */
+      long getStart();
+
+      // optional uint64 length = 2;
+      /**
+       * <code>optional uint64 length = 2;</code>
+       */
+      boolean hasLength();
+      /**
+       * <code>optional uint64 length = 2;</code>
+       */
+      long getLength();
+
+      // optional uint64 rowCount = 3;
+      /**
+       * <code>optional uint64 rowCount = 3;</code>
+       */
+      boolean hasRowCount();
+      /**
+       * <code>optional uint64 rowCount = 3;</code>
+       */
+      long getRowCount();
+
+      // repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+       */
+      java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity> 
+          getAffinitiesList();
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+       */
+      com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity getAffinities(int index);
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+       */
+      int getAffinitiesCount();
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+       */
+      java.util.List<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder> 
+          getAffinitiesOrBuilderList();
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+       */
+      com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder getAffinitiesOrBuilder(
+          int index);
+
+      // repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+       */
+      java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata> 
+          getColumnsList();
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+       */
+      com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata getColumns(int index);
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+       */
+      int getColumnsCount();
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+       */
+      java.util.List<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder> 
+          getColumnsOrBuilderList();
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+       */
+      com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder getColumnsOrBuilder(
+          int index);
+    }
+    /**
+     * Protobuf type {@code metadata.ParquetFileMetadata.RowGroup}
+     */
+    public static final class RowGroup extends
+        com.google.protobuf.GeneratedMessage
+        implements RowGroupOrBuilder {
+      // Use RowGroup.newBuilder() to construct.
+      private RowGroup(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        super(builder);
+        this.unknownFields = builder.getUnknownFields();
+      }
+      private RowGroup(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+      private static final RowGroup defaultInstance;
+      public static RowGroup getDefaultInstance() {
+        return defaultInstance;
+      }
+
+      public RowGroup getDefaultInstanceForType() {
+        return defaultInstance;
+      }
+
+      private final com.google.protobuf.UnknownFieldSet unknownFields;
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+          getUnknownFields() {
+        return this.unknownFields;
+      }
+      private RowGroup(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        initFields();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 8: {
+                bitField0_ |= 0x00000001;
+                start_ = input.readUInt64();
+                break;
+              }
+              case 16: {
+                bitField0_ |= 0x00000002;
+                length_ = input.readUInt64();
+                break;
+              }
+              case 24: {
+                bitField0_ |= 0x00000004;
+                rowCount_ = input.readUInt64();
+                break;
+              }
+              case 34: {
+                if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                  affinities_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity>();
+                  mutable_bitField0_ |= 0x00000008;
+                }
+                affinities_.add(input.readMessage(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.PARSER, extensionRegistry));
+                break;
+              }
+              case 42: {
+                if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                  columns_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata>();
+                  mutable_bitField0_ |= 0x00000010;
+                }
+                columns_.add(input.readMessage(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.PARSER, extensionRegistry));
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(this);
+        } finally {
+          if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+            affinities_ = java.util.Collections.unmodifiableList(affinities_);
+          }
+          if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+            columns_ = java.util.Collections.unmodifiableList(columns_);
+          }
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.class, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder.class);
+      }
+
+      public static com.google.protobuf.Parser<RowGroup> PARSER =
+          new com.google.protobuf.AbstractParser<RowGroup>() {
+        public RowGroup parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new RowGroup(input, extensionRegistry);
+        }
+      };
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<RowGroup> getParserForType() {
+        return PARSER;
+      }
+
+      public interface HostAffinityOrBuilder
+          extends com.google.protobuf.MessageOrBuilder {
+
+        // optional string key = 1;
+        /**
+         * <code>optional string key = 1;</code>
+         */
+        boolean hasKey();
+        /**
+         * <code>optional string key = 1;</code>
+         */
+        java.lang.String getKey();
+        /**
+         * <code>optional string key = 1;</code>
+         */
+        com.google.protobuf.ByteString
+            getKeyBytes();
+
+        // optional float value = 2;
+        /**
+         * <code>optional float value = 2;</code>
+         */
+        boolean hasValue();
+        /**
+         * <code>optional float value = 2;</code>
+         */
+        float getValue();
+      }
+      /**
+       * Protobuf type {@code metadata.ParquetFileMetadata.RowGroup.HostAffinity}
+       */
+      public static final class HostAffinity extends
+          com.google.protobuf.GeneratedMessage
+          implements HostAffinityOrBuilder {
+        // Use HostAffinity.newBuilder() to construct.
+        private HostAffinity(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+          super(builder);
+          this.unknownFields = builder.getUnknownFields();
+        }
+        private HostAffinity(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+        private static final HostAffinity defaultInstance;
+        public static HostAffinity getDefaultInstance() {
+          return defaultInstance;
+        }
+
+        public HostAffinity getDefaultInstanceForType() {
+          return defaultInstance;
+        }
+
+        private final com.google.protobuf.UnknownFieldSet unknownFields;
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+            getUnknownFields() {
+          return this.unknownFields;
+        }
+        private HostAffinity(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          initFields();
+          int mutable_bitField0_ = 0;
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+              com.google.protobuf.UnknownFieldSet.newBuilder();
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!parseUnknownField(input, unknownFields,
+                                         extensionRegistry, tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 10: {
+                  bitField0_ |= 0x00000001;
+                  key_ = input.readBytes();
+                  break;
+                }
+                case 21: {
+                  bitField0_ |= 0x00000002;
+                  value_ = input.readFloat();
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this);
+          } finally {
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_HostAffinity_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_HostAffinity_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.class, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder.class);
+        }
+
+        public static com.google.protobuf.Parser<HostAffinity> PARSER =
+            new com.google.protobuf.AbstractParser<HostAffinity>() {
+          public HostAffinity parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new HostAffinity(input, extensionRegistry);
+          }
+        };
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<HostAffinity> getParserForType() {
+          return PARSER;
+        }
+
+        private int bitField0_;
+        // optional string key = 1;
+        public static final int KEY_FIELD_NUMBER = 1;
+        private java.lang.Object key_;
+        /**
+         * <code>optional string key = 1;</code>
+         */
+        public boolean hasKey() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>optional string key = 1;</code>
+         */
+        public java.lang.String getKey() {
+          java.lang.Object ref = key_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              key_ = s;
+            }
+            return s;
+          }
+        }
+        /**
+         * <code>optional string key = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+            getKeyBytes() {
+          java.lang.Object ref = key_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            key_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        // optional float value = 2;
+        public static final int VALUE_FIELD_NUMBER = 2;
+        private float value_;
+        /**
+         * <code>optional float value = 2;</code>
+         */
+        public boolean hasValue() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>optional float value = 2;</code>
+         */
+        public float getValue() {
+          return value_;
+        }
+
+        private void initFields() {
+          key_ = "";
+          value_ = 0F;
+        }
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized != -1) return isInitialized == 1;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          getSerializedSize();
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            output.writeBytes(1, getKeyBytes());
+          }
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            output.writeFloat(2, value_);
+          }
+          getUnknownFields().writeTo(output);
+        }
+
+        private int memoizedSerializedSize = -1;
+        public int getSerializedSize() {
+          int size = memoizedSerializedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeBytesSize(1, getKeyBytes());
+          }
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeFloatSize(2, value_);
+          }
+          size += getUnknownFields().getSerializedSize();
+          memoizedSerializedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        protected java.lang.Object writeReplace()
+            throws java.io.ObjectStreamException {
+          return super.writeReplace();
+        }
+
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input, extensionRegistry);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return PARSER.parseDelimitedFrom(input);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return PARSER.parseDelimitedFrom(input, extensionRegistry);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() { return Builder.create(); }
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity prototype) {
+          return newBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() { return newBuilder(this); }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code metadata.ParquetFileMetadata.RowGroup.HostAffinity}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessage.Builder<Builder>
+           implements com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_HostAffinity_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_HostAffinity_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.class, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder.class);
+          }
+
+          // Construct using com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+            }
+          }
+          private static Builder create() {
+            return new Builder();
+          }
+
+          public Builder clear() {
+            super.clear();
+            key_ = "";
+            bitField0_ = (bitField0_ & ~0x00000001);
+            value_ = 0F;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            return this;
+          }
+
+          public Builder clone() {
+            return create().mergeFrom(buildPartial());
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_HostAffinity_descriptor;
+          }
+
+          public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity getDefaultInstanceForType() {
+            return com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.getDefaultInstance();
+          }
+
+          public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity build() {
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity buildPartial() {
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity result = new com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity(this);
+            int from_bitField0_ = bitField0_;
+            int to_bitField0_ = 0;
+            if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+              to_bitField0_ |= 0x00000001;
+            }
+            result.key_ = key_;
+            if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+              to_bitField0_ |= 0x00000002;
+            }
+            result.value_ = value_;
+            result.bitField0_ = to_bitField0_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity) {
+              return mergeFrom((com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity other) {
+            if (other == com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.getDefaultInstance()) return this;
+            if (other.hasKey()) {
+              bitField0_ |= 0x00000001;
+              key_ = other.key_;
+              onChanged();
+            }
+            if (other.hasValue()) {
+              setValue(other.getValue());
+            }
+            this.mergeUnknownFields(other.getUnknownFields());
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity) e.getUnfinishedMessage();
+              throw e;
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+          private int bitField0_;
+
+          // optional string key = 1;
+          private java.lang.Object key_ = "";
+          /**
+           * <code>optional string key = 1;</code>
+           */
+          public boolean hasKey() {
+            return ((bitField0_ & 0x00000001) == 0x00000001);
+          }
+          /**
+           * <code>optional string key = 1;</code>
+           */
+          public java.lang.String getKey() {
+            java.lang.Object ref = key_;
+            if (!(ref instanceof java.lang.String)) {
+              java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                  .toStringUtf8();
+              key_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>optional string key = 1;</code>
+           */
+          public com.google.protobuf.ByteString
+              getKeyBytes() {
+            java.lang.Object ref = key_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              key_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>optional string key = 1;</code>
+           */
+          public Builder setKey(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+            key_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional string key = 1;</code>
+           */
+          public Builder clearKey() {
+            bitField0_ = (bitField0_ & ~0x00000001);
+            key_ = getDefaultInstance().getKey();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional string key = 1;</code>
+           */
+          public Builder setKeyBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+            key_ = value;
+            onChanged();
+            return this;
+          }
+
+          // optional float value = 2;
+          private float value_ ;
+          /**
+           * <code>optional float value = 2;</code>
+           */
+          public boolean hasValue() {
+            return ((bitField0_ & 0x00000002) == 0x00000002);
+          }
+          /**
+           * <code>optional float value = 2;</code>
+           */
+          public float getValue() {
+            return value_;
+          }
+          /**
+           * <code>optional float value = 2;</code>
+           */
+          public Builder setValue(float value) {
+            bitField0_ |= 0x00000002;
+            value_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional float value = 2;</code>
+           */
+          public Builder clearValue() {
+            bitField0_ = (bitField0_ & ~0x00000002);
+            value_ = 0F;
+            onChanged();
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:metadata.ParquetFileMetadata.RowGroup.HostAffinity)
+        }
+
+        static {
+          defaultInstance = new HostAffinity(true);
+          defaultInstance.initFields();
+        }
+
+        // @@protoc_insertion_point(class_scope:metadata.ParquetFileMetadata.RowGroup.HostAffinity)
+      }
+
+      public interface ColumnMetadataOrBuilder
+          extends com.google.protobuf.MessageOrBuilder {
+
+        // required uint32 name = 1;
+        /**
+         * <code>required uint32 name = 1;</code>
+         */
+        boolean hasName();
+        /**
+         * <code>required uint32 name = 1;</code>
+         */
+        int getName();
+
+        // optional uint64 nulls = 2;
+        /**
+         * <code>optional uint64 nulls = 2;</code>
+         */
+        boolean hasNulls();
+        /**
+         * <code>optional uint64 nulls = 2;</code>
+         */
+        long getNulls();
+
+        // optional sint64 vint64 = 3;
+        /**
+         * <code>optional sint64 vint64 = 3;</code>
+         */
+        boolean hasVint64();
+        /**
+         * <code>optional sint64 vint64 = 3;</code>
+         */
+        long getVint64();
+
+        // optional sint32 vint32 = 4;
+        /**
+         * <code>optional sint32 vint32 = 4;</code>
+         */
+        boolean hasVint32();
+        /**
+         * <code>optional sint32 vint32 = 4;</code>
+         */
+        int getVint32();
+
+        // optional bool vbool = 5;
+        /**
+         * <code>optional bool vbool = 5;</code>
+         */
+        boolean hasVbool();
+        /**
+         * <code>optional bool vbool = 5;</code>
+         */
+        boolean getVbool();
+
+        // optional bytes vbinary = 6;
+        /**
+         * <code>optional bytes vbinary = 6;</code>
+         *
+         * <pre>
+         * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+         * </pre>
+         */
+        boolean hasVbinary();
+        /**
+         * <code>optional bytes vbinary = 6;</code>
+         *
+         * <pre>
+         * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+         * </pre>
+         */
+        com.google.protobuf.ByteString getVbinary();
+
+        // optional float vfloat = 7;
+        /**
+         * <code>optional float vfloat = 7;</code>
+         */
+        boolean hasVfloat();
+        /**
+         * <code>optional float vfloat = 7;</code>
+         */
+        float getVfloat();
+
+        // optional double vdouble = 8;
+        /**
+         * <code>optional double vdouble = 8;</code>
+         */
+        boolean hasVdouble();
+        /**
+         * <code>optional double vdouble = 8;</code>
+         */
+        double getVdouble();
+      }
+      /**
+       * Protobuf type {@code metadata.ParquetFileMetadata.RowGroup.ColumnMetadata}
+       */
+      public static final class ColumnMetadata extends
+          com.google.protobuf.GeneratedMessage
+          implements ColumnMetadataOrBuilder {
+        // Use ColumnMetadata.newBuilder() to construct.
+        private ColumnMetadata(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+          super(builder);
+          this.unknownFields = builder.getUnknownFields();
+        }
+        private ColumnMetadata(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+        private static final ColumnMetadata defaultInstance;
+        public static ColumnMetadata getDefaultInstance() {
+          return defaultInstance;
+        }
+
+        public ColumnMetadata getDefaultInstanceForType() {
+          return defaultInstance;
+        }
+
+        private final com.google.protobuf.UnknownFieldSet unknownFields;
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+            getUnknownFields() {
+          return this.unknownFields;
+        }
+        private ColumnMetadata(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          initFields();
+          int mutable_bitField0_ = 0;
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+              com.google.protobuf.UnknownFieldSet.newBuilder();
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!parseUnknownField(input, unknownFields,
+                                         extensionRegistry, tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+                  bitField0_ |= 0x00000001;
+                  name_ = input.readUInt32();
+                  break;
+                }
+                case 16: {
+                  bitField0_ |= 0x00000002;
+                  nulls_ = input.readUInt64();
+                  break;
+                }
+                case 24: {
+                  bitField0_ |= 0x00000004;
+                  vint64_ = input.readSInt64();
+                  break;
+                }
+                case 32: {
+                  bitField0_ |= 0x00000008;
+                  vint32_ = input.readSInt32();
+                  break;
+                }
+                case 40: {
+                  bitField0_ |= 0x00000010;
+                  vbool_ = input.readBool();
+                  break;
+                }
+                case 50: {
+                  bitField0_ |= 0x00000020;
+                  vbinary_ = input.readBytes();
+                  break;
+                }
+                case 61: {
+                  bitField0_ |= 0x00000040;
+                  vfloat_ = input.readFloat();
+                  break;
+                }
+                case 65: {
+                  bitField0_ |= 0x00000080;
+                  vdouble_ = input.readDouble();
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this);
+          } finally {
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_ColumnMetadata_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.class, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder.class);
+        }
+
+        public static com.google.protobuf.Parser<ColumnMetadata> PARSER =
+            new com.google.protobuf.AbstractParser<ColumnMetadata>() {
+          public ColumnMetadata parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new ColumnMetadata(input, extensionRegistry);
+          }
+        };
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<ColumnMetadata> getParserForType() {
+          return PARSER;
+        }
+
+        private int bitField0_;
+        // required uint32 name = 1;
+        public static final int NAME_FIELD_NUMBER = 1;
+        private int name_;
+        /**
+         * <code>required uint32 name = 1;</code>
+         */
+        public boolean hasName() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>required uint32 name = 1;</code>
+         */
+        public int getName() {
+          return name_;
+        }
+
+        // optional uint64 nulls = 2;
+        public static final int NULLS_FIELD_NUMBER = 2;
+        private long nulls_;
+        /**
+         * <code>optional uint64 nulls = 2;</code>
+         */
+        public boolean hasNulls() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>optional uint64 nulls = 2;</code>
+         */
+        public long getNulls() {
+          return nulls_;
+        }
+
+        // optional sint64 vint64 = 3;
+        public static final int VINT64_FIELD_NUMBER = 3;
+        private long vint64_;
+        /**
+         * <code>optional sint64 vint64 = 3;</code>
+         */
+        public boolean hasVint64() {
+          return ((bitField0_ & 0x00000004) == 0x00000004);
+        }
+        /**
+         * <code>optional sint64 vint64 = 3;</code>
+         */
+        public long getVint64() {
+          return vint64_;
+        }
+
+        // optional sint32 vint32 = 4;
+        public static final int VINT32_FIELD_NUMBER = 4;
+        private int vint32_;
+        /**
+         * <code>optional sint32 vint32 = 4;</code>
+         */
+        public boolean hasVint32() {
+          return ((bitField0_ & 0x00000008) == 0x00000008);
+        }
+        /**
+         * <code>optional sint32 vint32 = 4;</code>
+         */
+        public int getVint32() {
+          return vint32_;
+        }
+
+        // optional bool vbool = 5;
+        public static final int VBOOL_FIELD_NUMBER = 5;
+        private boolean vbool_;
+        /**
+         * <code>optional bool vbool = 5;</code>
+         */
+        public boolean hasVbool() {
+          return ((bitField0_ & 0x00000010) == 0x00000010);
+        }
+        /**
+         * <code>optional bool vbool = 5;</code>
+         */
+        public boolean getVbool() {
+          return vbool_;
+        }
+
+        // optional bytes vbinary = 6;
+        public static final int VBINARY_FIELD_NUMBER = 6;
+        private com.google.protobuf.ByteString vbinary_;
+        /**
+         * <code>optional bytes vbinary = 6;</code>
+         *
+         * <pre>
+         * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+         * </pre>
+         */
+        public boolean hasVbinary() {
+          return ((bitField0_ & 0x00000020) == 0x00000020);
+        }
+        /**
+         * <code>optional bytes vbinary = 6;</code>
+         *
+         * <pre>
+         * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+         * </pre>
+         */
+        public com.google.protobuf.ByteString getVbinary() {
+          return vbinary_;
+        }
+
+        // optional float vfloat = 7;
+        public static final int VFLOAT_FIELD_NUMBER = 7;
+        private float vfloat_;
+        /**
+         * <code>optional float vfloat = 7;</code>
+         */
+        public boolean hasVfloat() {
+          return ((bitField0_ & 0x00000040) == 0x00000040);
+        }
+        /**
+         * <code>optional float vfloat = 7;</code>
+         */
+        public float getVfloat() {
+          return vfloat_;
+        }
+
+        // optional double vdouble = 8;
+        public static final int VDOUBLE_FIELD_NUMBER = 8;
+        private double vdouble_;
+        /**
+         * <code>optional double vdouble = 8;</code>
+         */
+        public boolean hasVdouble() {
+          return ((bitField0_ & 0x00000080) == 0x00000080);
+        }
+        /**
+         * <code>optional double vdouble = 8;</code>
+         */
+        public double getVdouble() {
+          return vdouble_;
+        }
+
+        private void initFields() {
+          name_ = 0;
+          nulls_ = 0L;
+          vint64_ = 0L;
+          vint32_ = 0;
+          vbool_ = false;
+          vbinary_ = com.google.protobuf.ByteString.EMPTY;
+          vfloat_ = 0F;
+          vdouble_ = 0D;
+        }
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized != -1) return isInitialized == 1;
+
+          if (!hasName()) {
+            memoizedIsInitialized = 0;
+            return false;
+          }
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          getSerializedSize();
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            output.writeUInt32(1, name_);
+          }
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            output.writeUInt64(2, nulls_);
+          }
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            output.writeSInt64(3, vint64_);
+          }
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            output.writeSInt32(4, vint32_);
+          }
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            output.writeBool(5, vbool_);
+          }
+          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            output.writeBytes(6, vbinary_);
+          }
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+            output.writeFloat(7, vfloat_);
+          }
+          if (((bitField0_ & 0x00000080) == 0x00000080)) {
+            output.writeDouble(8, vdouble_);
+          }
+          getUnknownFields().writeTo(output);
+        }
+
+        private int memoizedSerializedSize = -1;
+        public int getSerializedSize() {
+          int size = memoizedSerializedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeUInt32Size(1, name_);
+          }
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeUInt64Size(2, nulls_);
+          }
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeSInt64Size(3, vint64_);
+          }
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeSInt32Size(4, vint32_);
+          }
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeBoolSize(5, vbool_);
+          }
+          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeBytesSize(6, vbinary_);
+          }
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeFloatSize(7, vfloat_);
+          }
+          if (((bitField0_ & 0x00000080) == 0x00000080)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeDoubleSize(8, vdouble_);
+          }
+          size += getUnknownFields().getSerializedSize();
+          memoizedSerializedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        protected java.lang.Object writeReplace()
+            throws java.io.ObjectStreamException {
+          return super.writeReplace();
+        }
+
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input, extensionRegistry);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return PARSER.parseDelimitedFrom(input);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return PARSER.parseDelimitedFrom(input, extensionRegistry);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input);
+        }
+        public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() { return Builder.create(); }
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata prototype) {
+          return newBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() { return newBuilder(this); }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code metadata.ParquetFileMetadata.RowGroup.ColumnMetadata}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessage.Builder<Builder>
+           implements com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_ColumnMetadata_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.class, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder.class);
+          }
+
+          // Construct using com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+            }
+          }
+          private static Builder create() {
+            return new Builder();
+          }
+
+          public Builder clear() {
+            super.clear();
+            name_ = 0;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            nulls_ = 0L;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            vint64_ = 0L;
+            bitField0_ = (bitField0_ & ~0x00000004);
+            vint32_ = 0;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            vbool_ = false;
+            bitField0_ = (bitField0_ & ~0x00000010);
+            vbinary_ = com.google.protobuf.ByteString.EMPTY;
+            bitField0_ = (bitField0_ & ~0x00000020);
+            vfloat_ = 0F;
+            bitField0_ = (bitField0_ & ~0x00000040);
+            vdouble_ = 0D;
+            bitField0_ = (bitField0_ & ~0x00000080);
+            return this;
+          }
+
+          public Builder clone() {
+            return create().mergeFrom(buildPartial());
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor;
+          }
+
+          public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata getDefaultInstanceForType() {
+            return com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.getDefaultInstance();
+          }
+
+          public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata build() {
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata buildPartial() {
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata result = new com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata(this);
+            int from_bitField0_ = bitField0_;
+            int to_bitField0_ = 0;
+            if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+              to_bitField0_ |= 0x00000001;
+            }
+            result.name_ = name_;
+            if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+              to_bitField0_ |= 0x00000002;
+            }
+            result.nulls_ = nulls_;
+            if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+              to_bitField0_ |= 0x00000004;
+            }
+            result.vint64_ = vint64_;
+            if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+              to_bitField0_ |= 0x00000008;
+            }
+            result.vint32_ = vint32_;
+            if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+              to_bitField0_ |= 0x00000010;
+            }
+            result.vbool_ = vbool_;
+            if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+              to_bitField0_ |= 0x00000020;
+            }
+            result.vbinary_ = vbinary_;
+            if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+              to_bitField0_ |= 0x00000040;
+            }
+            result.vfloat_ = vfloat_;
+            if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+              to_bitField0_ |= 0x00000080;
+            }
+            result.vdouble_ = vdouble_;
+            result.bitField0_ = to_bitField0_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata) {
+              return mergeFrom((com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata other) {
+            if (other == com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.getDefaultInstance()) return this;
+            if (other.hasName()) {
+              setName(other.getName());
+            }
+            if (other.hasNulls()) {
+              setNulls(other.getNulls());
+            }
+            if (other.hasVint64()) {
+              setVint64(other.getVint64());
+            }
+            if (other.hasVint32()) {
+              setVint32(other.getVint32());
+            }
+            if (other.hasVbool()) {
+              setVbool(other.getVbool());
+            }
+            if (other.hasVbinary()) {
+              setVbinary(other.getVbinary());
+            }
+            if (other.hasVfloat()) {
+              setVfloat(other.getVfloat());
+            }
+            if (other.hasVdouble()) {
+              setVdouble(other.getVdouble());
+            }
+            this.mergeUnknownFields(other.getUnknownFields());
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            if (!hasName()) {
+              
+              return false;
+            }
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata) e.getUnfinishedMessage();
+              throw e;
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+          private int bitField0_;
+
+          // required uint32 name = 1;
+          private int name_ ;
+          /**
+           * <code>required uint32 name = 1;</code>
+           */
+          public boolean hasName() {
+            return ((bitField0_ & 0x00000001) == 0x00000001);
+          }
+          /**
+           * <code>required uint32 name = 1;</code>
+           */
+          public int getName() {
+            return name_;
+          }
+          /**
+           * <code>required uint32 name = 1;</code>
+           */
+          public Builder setName(int value) {
+            bitField0_ |= 0x00000001;
+            name_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>required uint32 name = 1;</code>
+           */
+          public Builder clearName() {
+            bitField0_ = (bitField0_ & ~0x00000001);
+            name_ = 0;
+            onChanged();
+            return this;
+          }
+
+          // optional uint64 nulls = 2;
+          private long nulls_ ;
+          /**
+           * <code>optional uint64 nulls = 2;</code>
+           */
+          public boolean hasNulls() {
+            return ((bitField0_ & 0x00000002) == 0x00000002);
+          }
+          /**
+           * <code>optional uint64 nulls = 2;</code>
+           */
+          public long getNulls() {
+            return nulls_;
+          }
+          /**
+           * <code>optional uint64 nulls = 2;</code>
+           */
+          public Builder setNulls(long value) {
+            bitField0_ |= 0x00000002;
+            nulls_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional uint64 nulls = 2;</code>
+           */
+          public Builder clearNulls() {
+            bitField0_ = (bitField0_ & ~0x00000002);
+            nulls_ = 0L;
+            onChanged();
+            return this;
+          }
+
+          // optional sint64 vint64 = 3;
+          private long vint64_ ;
+          /**
+           * <code>optional sint64 vint64 = 3;</code>
+           */
+          public boolean hasVint64() {
+            return ((bitField0_ & 0x00000004) == 0x00000004);
+          }
+          /**
+           * <code>optional sint64 vint64 = 3;</code>
+           */
+          public long getVint64() {
+            return vint64_;
+          }
+          /**
+           * <code>optional sint64 vint64 = 3;</code>
+           */
+          public Builder setVint64(long value) {
+            bitField0_ |= 0x00000004;
+            vint64_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional sint64 vint64 = 3;</code>
+           */
+          public Builder clearVint64() {
+            bitField0_ = (bitField0_ & ~0x00000004);
+            vint64_ = 0L;
+            onChanged();
+            return this;
+          }
+
+          // optional sint32 vint32 = 4;
+          private int vint32_ ;
+          /**
+           * <code>optional sint32 vint32 = 4;</code>
+           */
+          public boolean hasVint32() {
+            return ((bitField0_ & 0x00000008) == 0x00000008);
+          }
+          /**
+           * <code>optional sint32 vint32 = 4;</code>
+           */
+          public int getVint32() {
+            return vint32_;
+          }
+          /**
+           * <code>optional sint32 vint32 = 4;</code>
+           */
+          public Builder setVint32(int value) {
+            bitField0_ |= 0x00000008;
+            vint32_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional sint32 vint32 = 4;</code>
+           */
+          public Builder clearVint32() {
+            bitField0_ = (bitField0_ & ~0x00000008);
+            vint32_ = 0;
+            onChanged();
+            return this;
+          }
+
+          // optional bool vbool = 5;
+          private boolean vbool_ ;
+          /**
+           * <code>optional bool vbool = 5;</code>
+           */
+          public boolean hasVbool() {
+            return ((bitField0_ & 0x00000010) == 0x00000010);
+          }
+          /**
+           * <code>optional bool vbool = 5;</code>
+           */
+          public boolean getVbool() {
+            return vbool_;
+          }
+          /**
+           * <code>optional bool vbool = 5;</code>
+           */
+          public Builder setVbool(boolean value) {
+            bitField0_ |= 0x00000010;
+            vbool_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional bool vbool = 5;</code>
+           */
+          public Builder clearVbool() {
+            bitField0_ = (bitField0_ & ~0x00000010);
+            vbool_ = false;
+            onChanged();
+            return this;
+          }
+
+          // optional bytes vbinary = 6;
+          private com.google.protobuf.ByteString vbinary_ = com.google.protobuf.ByteString.EMPTY;
+          /**
+           * <code>optional bytes vbinary = 6;</code>
+           *
+           * <pre>
+           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+           * </pre>
+           */
+          public boolean hasVbinary() {
+            return ((bitField0_ & 0x00000020) == 0x00000020);
+          }
+          /**
+           * <code>optional bytes vbinary = 6;</code>
+           *
+           * <pre>
+           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+           * </pre>
+           */
+          public com.google.protobuf.ByteString getVbinary() {
+            return vbinary_;
+          }
+          /**
+           * <code>optional bytes vbinary = 6;</code>
+           *
+           * <pre>
+           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+           * </pre>
+           */
+          public Builder setVbinary(com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+            vbinary_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional bytes vbinary = 6;</code>
+           *
+           * <pre>
+           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
+           * </pre>
+           */
+          public Builder clearVbinary() {
+            bitField0_ = (bitField0_ & ~0x00000020);
+            vbinary_ = getDefaultInstance().getVbinary();
+            onChanged();
+            return this;
+          }
+
+          // optional float vfloat = 7;
+          private float vfloat_ ;
+          /**
+           * <code>optional float vfloat = 7;</code>
+           */
+          public boolean hasVfloat() {
+            return ((bitField0_ & 0x00000040) == 0x00000040);
+          }
+          /**
+           * <code>optional float vfloat = 7;</code>
+           */
+          public float getVfloat() {
+            return vfloat_;
+          }
+          /**
+           * <code>optional float vfloat = 7;</code>
+           */
+          public Builder setVfloat(float value) {
+            bitField0_ |= 0x00000040;
+            vfloat_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional float vfloat = 7;</code>
+           */
+          public Builder clearVfloat() {
+            bitField0_ = (bitField0_ & ~0x00000040);
+            vfloat_ = 0F;
+            onChanged();
+            return this;
+          }
+
+          // optional double vdouble = 8;
+          private double vdouble_ ;
+          /**
+           * <code>optional double vdouble = 8;</code>
+           */
+          public boolean hasVdouble() {
+            return ((bitField0_ & 0x00000080) == 0x00000080);
+          }
+          /**
+           * <code>optional double vdouble = 8;</code>
+           */
+          public double getVdouble() {
+            return vdouble_;
+          }
+          /**
+           * <code>optional double vdouble = 8;</code>
+           */
+          public Builder setVdouble(double value) {
+            bitField0_ |= 0x00000080;
+            vdouble_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional double vdouble = 8;</code>
+           */
+          public Builder clearVdouble() {
+            bitField0_ = (bitField0_ & ~0x00000080);
+            vdouble_ = 0D;
+            onChanged();
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:metadata.ParquetFileMetadata.RowGroup.ColumnMetadata)
+        }
+
+        static {
+          defaultInstance = new ColumnMetadata(true);
+          defaultInstance.initFields();
+        }
+
+        // @@protoc_insertion_point(class_scope:metadata.ParquetFileMetadata.RowGroup.ColumnMetadata)
+      }
+
+      private int bitField0_;
+      // optional uint64 start = 1;
+      public static final int START_FIELD_NUMBER = 1;
+      private long start_;
+      /**
+       * <code>optional uint64 start = 1;</code>
+       */
+      public boolean hasStart() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional uint64 start = 1;</code>
+       */
+      public long getStart() {
+        return start_;
+      }
+
+      // optional uint64 length = 2;
+      public static final int LENGTH_FIELD_NUMBER = 2;
+      private long length_;
+      /**
+       * <code>optional uint64 length = 2;</code>
+       */
+      public boolean hasLength() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional uint64 length = 2;</code>
+       */
+      public long getLength() {
+        return length_;
+      }
+
+      // optional uint64 rowCount = 3;
+      public static final int ROWCOUNT_FIELD_NUMBER = 3;
+      private long rowCount_;
+      /**
+       * <code>optional uint64 rowCount = 3;</code>
+       */
+      public boolean hasRowCount() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional uint64 rowCount = 3;</code>
+       */
+      public long getRowCount() {
+        return rowCount_;
+      }
+
+      // repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;
+      public static final int AFFINITIES_FIELD_NUMBER = 4;
+      private java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity> affinities_;
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+       */
+      public java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity> getAffinitiesList() {
+        return affinities_;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+       */
+      public java.util.List<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder> 
+          getAffinitiesOrBuilderList() {
+        return affinities_;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+       */
+      public int getAffinitiesCount() {
+        return affinities_.size();
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+       */
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity getAffinities(int index) {
+        return affinities_.get(index);
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+       */
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder getAffinitiesOrBuilder(
+          int index) {
+        return affinities_.get(index);
+      }
+
+      // repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;
+      public static final int COLUMNS_FIELD_NUMBER = 5;
+      private java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata> columns_;
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+       */
+      public java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata> getColumnsList() {
+        return columns_;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+       */
+      public java.util.List<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder> 
+          getColumnsOrBuilderList() {
+        return columns_;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+       */
+      public int getColumnsCount() {
+        return columns_.size();
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+       */
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata getColumns(int index) {
+        return columns_.get(index);
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+       */
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder getColumnsOrBuilder(
+          int index) {
+        return columns_.get(index);
+      }
+
+      private void initFields() {
+        start_ = 0L;
+        length_ = 0L;
+        rowCount_ = 0L;
+        affinities_ = java.util.Collections.emptyList();
+        columns_ = java.util.Collections.emptyList();
+      }
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized != -1) return isInitialized == 1;
+
+        for (int i = 0; i < getColumnsCount(); i++) {
+          if (!getColumns(i).isInitialized()) {
+            memoizedIsInitialized = 0;
+            return false;
+          }
+        }
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        getSerializedSize();
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeUInt64(1, start_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          output.writeUInt64(2, length_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          output.writeUInt64(3, rowCount_);
+        }
+        for (int i = 0; i < affinities_.size(); i++) {
+          output.writeMessage(4, affinities_.get(i));
+        }
+        for (int i = 0; i < columns_.size(); i++) {
+          output.writeMessage(5, columns_.get(i));
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      private int memoizedSerializedSize = -1;
+      public int getSerializedSize() {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt64Size(1, start_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt64Size(2, length_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt64Size(3, rowCount_);
+        }
+        for (int i = 0; i < affinities_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(4, affinities_.get(i));
+        }
+        for (int i = 0; i < columns_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(5, columns_.get(i));
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSerializedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      protected java.lang.Object writeReplace()
+          throws java.io.ObjectStreamException {
+        return super.writeReplace();
+      }
+
+      public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+      public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input);
+      }
+      public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      }
+      public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() { return Builder.create(); }
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup prototype) {
+        return newBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() { return newBuilder(this); }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code metadata.ParquetFileMetadata.RowGroup}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder>
+         implements com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroupOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.class, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder.class);
+        }
+
+        // Construct using com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+            getAffinitiesFieldBuilder();
+            getColumnsFieldBuilder();
+          }
+        }
+        private static Builder create() {
+          return new Builder();
+        }
+
+        public Builder clear() {
+          super.clear();
+          start_ = 0L;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          length_ = 0L;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          rowCount_ = 0L;
+          bitField0_ = (bitField0_ & ~0x00000004);
+          if (affinitiesBuilder_ == null) {
+            affinities_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            affinitiesBuilder_.clear();
+          }
+          if (columnsBuilder_ == null) {
+            columns_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            columnsBuilder_.clear();
+          }
+          return this;
+        }
+
+        public Builder clone() {
+          return create().mergeFrom(buildPartial());
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_RowGroup_descriptor;
+        }
+
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup getDefaultInstanceForType() {
+          return com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.getDefaultInstance();
+        }
+
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup build() {
+          com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup buildPartial() {
+          com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup result = new com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.start_ = start_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.length_ = length_;
+          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+            to_bitField0_ |= 0x00000004;
+          }
+          result.rowCount_ = rowCount_;
+          if (affinitiesBuilder_ == null) {
+            if (((bitField0_ & 0x00000008) == 0x00000008)) {
+              affinities_ = java.util.Collections.unmodifiableList(affinities_);
+              bitField0_ = (bitField0_ & ~0x00000008);
+            }
+            result.affinities_ = affinities_;
+          } else {
+            result.affinities_ = affinitiesBuilder_.build();
+          }
+          if (columnsBuilder_ == null) {
+            if (((bitField0_ & 0x00000010) == 0x00000010)) {
+              columns_ = java.util.Collections.unmodifiableList(columns_);
+              bitField0_ = (bitField0_ & ~0x00000010);
+            }
+            result.columns_ = columns_;
+          } else {
+            result.columns_ = columnsBuilder_.build();
+          }
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup) {
+            return mergeFrom((com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup other) {
+          if (other == com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.getDefaultInstance()) return this;
+          if (other.hasStart()) {
+            setStart(other.getStart());
+          }
+          if (other.hasLength()) {
+            setLength(other.getLength());
+          }
+          if (other.hasRowCount()) {
+            setRowCount(other.getRowCount());
+          }
+          if (affinitiesBuilder_ == null) {
+            if (!other.affinities_.isEmpty()) {
+              if (affinities_.isEmpty()) {
+                affinities_ = other.affinities_;
+                bitField0_ = (bitField0_ & ~0x00000008);
+              } else {
+                ensureAffinitiesIsMutable();
+                affinities_.addAll(other.affinities_);
+              }
+              onChanged();
+            }
+          } else {
+            if (!other.affinities_.isEmpty()) {
+              if (affinitiesBuilder_.isEmpty()) {
+                affinitiesBuilder_.dispose();
+                affinitiesBuilder_ = null;
+                affinities_ = other.affinities_;
+                bitField0_ = (bitField0_ & ~0x00000008);
+                affinitiesBuilder_ = 
+                  com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                     getAffinitiesFieldBuilder() : null;
+              } else {
+                affinitiesBuilder_.addAllMessages(other.affinities_);
+              }
+            }
+          }
+          if (columnsBuilder_ == null) {
+            if (!other.columns_.isEmpty()) {
+              if (columns_.isEmpty()) {
+                columns_ = other.columns_;
+                bitField0_ = (bitField0_ & ~0x00000010);
+              } else {
+                ensureColumnsIsMutable();
+                columns_.addAll(other.columns_);
+              }
+              onChanged();
+            }
+          } else {
+            if (!other.columns_.isEmpty()) {
+              if (columnsBuilder_.isEmpty()) {
+                columnsBuilder_.dispose();
+                columnsBuilder_ = null;
+                columns_ = other.columns_;
+                bitField0_ = (bitField0_ & ~0x00000010);
+                columnsBuilder_ = 
+                  com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                     getColumnsFieldBuilder() : null;
+              } else {
+                columnsBuilder_.addAllMessages(other.columns_);
+              }
+            }
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          for (int i = 0; i < getColumnsCount(); i++) {
+            if (!getColumns(i).isInitialized()) {
+              
+              return false;
+            }
+          }
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        // optional uint64 start = 1;
+        private long start_ ;
+        /**
+         * <code>optional uint64 start = 1;</code>
+         */
+        public boolean hasStart() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>optional uint64 start = 1;</code>
+         */
+        public long getStart() {
+          return start_;
+        }
+        /**
+         * <code>optional uint64 start = 1;</code>
+         */
+        public Builder setStart(long value) {
+          bitField0_ |= 0x00000001;
+          start_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional uint64 start = 1;</code>
+         */
+        public Builder clearStart() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          start_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        // optional uint64 length = 2;
+        private long length_ ;
+        /**
+         * <code>optional uint64 length = 2;</code>
+         */
+        public boolean hasLength() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>optional uint64 length = 2;</code>
+         */
+        public long getLength() {
+          return length_;
+        }
+        /**
+         * <code>optional uint64 length = 2;</code>
+         */
+        public Builder setLength(long value) {
+          bitField0_ |= 0x00000002;
+          length_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional uint64 length = 2;</code>
+         */
+        public Builder clearLength() {
+          bitField0_ = (bitField0_ & ~0x00000002);
+          length_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        // optional uint64 rowCount = 3;
+        private long rowCount_ ;
+        /**
+         * <code>optional uint64 rowCount = 3;</code>
+         */
+        public boolean hasRowCount() {
+          return ((bitField0_ & 0x00000004) == 0x00000004);
+        }
+        /**
+         * <code>optional uint64 rowCount = 3;</code>
+         */
+        public long getRowCount() {
+          return rowCount_;
+        }
+        /**
+         * <code>optional uint64 rowCount = 3;</code>
+         */
+        public Builder setRowCount(long value) {
+          bitField0_ |= 0x00000004;
+          rowCount_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional uint64 rowCount = 3;</code>
+         */
+        public Builder clearRowCount() {
+          bitField0_ = (bitField0_ & ~0x00000004);
+          rowCount_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        // repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;
+        private java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity> affinities_ =
+          java.util.Collections.emptyList();
+        private void ensureAffinitiesIsMutable() {
+          if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+            affinities_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity>(affinities_);
+            bitField0_ |= 0x00000008;
+           }
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilder<
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder> affinitiesBuilder_;
+
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity> getAffinitiesList() {
+          if (affinitiesBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(affinities_);
+          } else {
+            return affinitiesBuilder_.getMessageList();
+          }
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public int getAffinitiesCount() {
+          if (affinitiesBuilder_ == null) {
+            return affinities_.size();
+          } else {
+            return affinitiesBuilder_.getCount();
+          }
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity getAffinities(int index) {
+          if (affinitiesBuilder_ == null) {
+            return affinities_.get(index);
+          } else {
+            return affinitiesBuilder_.getMessage(index);
+          }
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public Builder setAffinities(
+            int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity value) {
+          if (affinitiesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureAffinitiesIsMutable();
+            affinities_.set(index, value);
+            onChanged();
+          } else {
+            affinitiesBuilder_.setMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public Builder setAffinities(
+            int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder builderForValue) {
+          if (affinitiesBuilder_ == null) {
+            ensureAffinitiesIsMutable();
+            affinities_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            affinitiesBuilder_.setMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public Builder addAffinities(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity value) {
+          if (affinitiesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureAffinitiesIsMutable();
+            affinities_.add(value);
+            onChanged();
+          } else {
+            affinitiesBuilder_.addMessage(value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public Builder addAffinities(
+            int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity value) {
+          if (affinitiesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureAffinitiesIsMutable();
+            affinities_.add(index, value);
+            onChanged();
+          } else {
+            affinitiesBuilder_.addMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public Builder addAffinities(
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder builderForValue) {
+          if (affinitiesBuilder_ == null) {
+            ensureAffinitiesIsMutable();
+            affinities_.add(builderForValue.build());
+            onChanged();
+          } else {
+            affinitiesBuilder_.addMessage(builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public Builder addAffinities(
+            int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder builderForValue) {
+          if (affinitiesBuilder_ == null) {
+            ensureAffinitiesIsMutable();
+            affinities_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            affinitiesBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public Builder addAllAffinities(
+            java.lang.Iterable<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity> values) {
+          if (affinitiesBuilder_ == null) {
+            ensureAffinitiesIsMutable();
+            super.addAll(values, affinities_);
+            onChanged();
+          } else {
+            affinitiesBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public Builder clearAffinities() {
+          if (affinitiesBuilder_ == null) {
+            affinities_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000008);
+            onChanged();
+          } else {
+            affinitiesBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public Builder removeAffinities(int index) {
+          if (affinitiesBuilder_ == null) {
+            ensureAffinitiesIsMutable();
+            affinities_.remove(index);
+            onChanged();
+          } else {
+            affinitiesBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder getAffinitiesBuilder(
+            int index) {
+          return getAffinitiesFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder getAffinitiesOrBuilder(
+            int index) {
+          if (affinitiesBuilder_ == null) {
+            return affinities_.get(index);  } else {
+            return affinitiesBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public java.util.List<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder> 
+             getAffinitiesOrBuilderList() {
+          if (affinitiesBuilder_ != null) {
+            return affinitiesBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(affinities_);
+          }
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder addAffinitiesBuilder() {
+          return getAffinitiesFieldBuilder().addBuilder(
+              com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder addAffinitiesBuilder(
+            int index) {
+          return getAffinitiesFieldBuilder().addBuilder(
+              index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
+         */
+        public java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder> 
+             getAffinitiesBuilderList() {
+          return getAffinitiesFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilder<
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder> 
+            getAffinitiesFieldBuilder() {
+          if (affinitiesBuilder_ == null) {
+            affinitiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+                com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinity.Builder, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder>(
+                    affinities_,
+                    ((bitField0_ & 0x00000008) == 0x00000008),
+                    getParentForChildren(),
+                    isClean());
+            affinities_ = null;
+          }
+          return affinitiesBuilder_;
+        }
+
+        // repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;
+        private java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata> columns_ =
+          java.util.Collections.emptyList();
+        private void ensureColumnsIsMutable() {
+          if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+            columns_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata>(columns_);
+            bitField0_ |= 0x00000010;
+           }
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilder<
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder> columnsBuilder_;
+
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata> getColumnsList() {
+          if (columnsBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(columns_);
+          } else {
+            return columnsBuilder_.getMessageList();
+          }
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public int getColumnsCount() {
+          if (columnsBuilder_ == null) {
+            return columns_.size();
+          } else {
+            return columnsBuilder_.getCount();
+          }
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata getColumns(int index) {
+          if (columnsBuilder_ == null) {
+            return columns_.get(index);
+          } else {
+            return columnsBuilder_.getMessage(index);
+          }
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public Builder setColumns(
+            int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata value) {
+          if (columnsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureColumnsIsMutable();
+            columns_.set(index, value);
+            onChanged();
+          } else {
+            columnsBuilder_.setMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public Builder setColumns(
+            int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder builderForValue) {
+          if (columnsBuilder_ == null) {
+            ensureColumnsIsMutable();
+            columns_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            columnsBuilder_.setMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public Builder addColumns(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata value) {
+          if (columnsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureColumnsIsMutable();
+            columns_.add(value);
+            onChanged();
+          } else {
+            columnsBuilder_.addMessage(value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public Builder addColumns(
+            int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata value) {
+          if (columnsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureColumnsIsMutable();
+            columns_.add(index, value);
+            onChanged();
+          } else {
+            columnsBuilder_.addMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public Builder addColumns(
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder builderForValue) {
+          if (columnsBuilder_ == null) {
+            ensureColumnsIsMutable();
+            columns_.add(builderForValue.build());
+            onChanged();
+          } else {
+            columnsBuilder_.addMessage(builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public Builder addColumns(
+            int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder builderForValue) {
+          if (columnsBuilder_ == null) {
+            ensureColumnsIsMutable();
+            columns_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            columnsBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public Builder addAllColumns(
+            java.lang.Iterable<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata> values) {
+          if (columnsBuilder_ == null) {
+            ensureColumnsIsMutable();
+            super.addAll(values, columns_);
+            onChanged();
+          } else {
+            columnsBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public Builder clearColumns() {
+          if (columnsBuilder_ == null) {
+            columns_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000010);
+            onChanged();
+          } else {
+            columnsBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public Builder removeColumns(int index) {
+          if (columnsBuilder_ == null) {
+            ensureColumnsIsMutable();
+            columns_.remove(index);
+            onChanged();
+          } else {
+            columnsBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder getColumnsBuilder(
+            int index) {
+          return getColumnsFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder getColumnsOrBuilder(
+            int index) {
+          if (columnsBuilder_ == null) {
+            return columns_.get(index);  } else {
+            return columnsBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public java.util.List<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder> 
+             getColumnsOrBuilderList() {
+          if (columnsBuilder_ != null) {
+            return columnsBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(columns_);
+          }
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder addColumnsBuilder() {
+          return getColumnsFieldBuilder().addBuilder(
+              com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder addColumnsBuilder(
+            int index) {
+          return getColumnsFieldBuilder().addBuilder(
+              index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .metadata.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
+         */
+        public java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder> 
+             getColumnsBuilderList() {
+          return getColumnsFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilder<
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder> 
+            getColumnsFieldBuilder() {
+          if (columnsBuilder_ == null) {
+            columnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+                com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder>(
+                    columns_,
+                    ((bitField0_ & 0x00000010) == 0x00000010),
+                    getParentForChildren(),
+                    isClean());
+            columns_ = null;
+          }
+          return columnsBuilder_;
+        }
+
+        // @@protoc_insertion_point(builder_scope:metadata.ParquetFileMetadata.RowGroup)
+      }
+
+      static {
+        defaultInstance = new RowGroup(true);
+        defaultInstance.initFields();
+      }
+
+      // @@protoc_insertion_point(class_scope:metadata.ParquetFileMetadata.RowGroup)
+    }
+
+    private int bitField0_;
+    // optional string path = 1;
+    public static final int PATH_FIELD_NUMBER = 1;
+    private java.lang.Object path_;
+    /**
+     * <code>optional string path = 1;</code>
+     */
+    public boolean hasPath() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string path = 1;</code>
+     */
+    public java.lang.String getPath() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          path_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string path = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPathBytes() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        path_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional uint64 length = 2;
+    public static final int LENGTH_FIELD_NUMBER = 2;
+    private long length_;
+    /**
+     * <code>optional uint64 length = 2;</code>
+     */
+    public boolean hasLength() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional uint64 length = 2;</code>
+     */
+    public long getLength() {
+      return length_;
+    }
+
+    // repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;
+    public static final int ROWGROUPS_FIELD_NUMBER = 3;
+    private java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup> rowGroups_;
+    /**
+     * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+     */
+    public java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup> getRowGroupsList() {
+      return rowGroups_;
+    }
+    /**
+     * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+     */
+    public java.util.List<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroupOrBuilder> 
+        getRowGroupsOrBuilderList() {
+      return rowGroups_;
+    }
+    /**
+     * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+     */
+    public int getRowGroupsCount() {
+      return rowGroups_.size();
+    }
+    /**
+     * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+     */
+    public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup getRowGroups(int index) {
+      return rowGroups_.get(index);
+    }
+    /**
+     * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+     */
+    public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroupOrBuilder getRowGroupsOrBuilder(
+        int index) {
+      return rowGroups_.get(index);
+    }
+
+    private void initFields() {
+      path_ = "";
+      length_ = 0L;
+      rowGroups_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      for (int i = 0; i < getRowGroupsCount(); i++) {
+        if (!getRowGroups(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getPathBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt64(2, length_);
+      }
+      for (int i = 0; i < rowGroups_.size(); i++) {
+        output.writeMessage(3, rowGroups_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getPathBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, length_);
+      }
+      for (int i = 0; i < rowGroups_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, rowGroups_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.adeneche.metadata.Metadata.ParquetFileMetadata parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.adeneche.metadata.Metadata.ParquetFileMetadata parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.adeneche.metadata.Metadata.ParquetFileMetadata parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.adeneche.metadata.Metadata.ParquetFileMetadata parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.adeneche.metadata.Metadata.ParquetFileMetadata parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.adeneche.metadata.Metadata.ParquetFileMetadata parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.adeneche.metadata.Metadata.ParquetFileMetadata parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.adeneche.metadata.Metadata.ParquetFileMetadata parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.adeneche.metadata.Metadata.ParquetFileMetadata parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.adeneche.metadata.Metadata.ParquetFileMetadata parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.adeneche.metadata.Metadata.ParquetFileMetadata prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code metadata.ParquetFileMetadata}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.adeneche.metadata.Metadata.ParquetFileMetadataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.adeneche.metadata.Metadata.ParquetFileMetadata.class, com.adeneche.metadata.Metadata.ParquetFileMetadata.Builder.class);
+      }
+
+      // Construct using com.adeneche.metadata.Metadata.ParquetFileMetadata.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getRowGroupsFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        path_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        length_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (rowGroupsBuilder_ == null) {
+          rowGroups_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          rowGroupsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.adeneche.metadata.Metadata.internal_static_metadata_ParquetFileMetadata_descriptor;
+      }
+
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata getDefaultInstanceForType() {
+        return com.adeneche.metadata.Metadata.ParquetFileMetadata.getDefaultInstance();
+      }
+
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata build() {
+        com.adeneche.metadata.Metadata.ParquetFileMetadata result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata buildPartial() {
+        com.adeneche.metadata.Metadata.ParquetFileMetadata result = new com.adeneche.metadata.Metadata.ParquetFileMetadata(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.path_ = path_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.length_ = length_;
+        if (rowGroupsBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            rowGroups_ = java.util.Collections.unmodifiableList(rowGroups_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.rowGroups_ = rowGroups_;
+        } else {
+          result.rowGroups_ = rowGroupsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.adeneche.metadata.Metadata.ParquetFileMetadata) {
+          return mergeFrom((com.adeneche.metadata.Metadata.ParquetFileMetadata)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.adeneche.metadata.Metadata.ParquetFileMetadata other) {
+        if (other == com.adeneche.metadata.Metadata.ParquetFileMetadata.getDefaultInstance()) return this;
+        if (other.hasPath()) {
+          bitField0_ |= 0x00000001;
+          path_ = other.path_;
+          onChanged();
+        }
+        if (other.hasLength()) {
+          setLength(other.getLength());
+        }
+        if (rowGroupsBuilder_ == null) {
+          if (!other.rowGroups_.isEmpty()) {
+            if (rowGroups_.isEmpty()) {
+              rowGroups_ = other.rowGroups_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureRowGroupsIsMutable();
+              rowGroups_.addAll(other.rowGroups_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rowGroups_.isEmpty()) {
+            if (rowGroupsBuilder_.isEmpty()) {
+              rowGroupsBuilder_.dispose();
+              rowGroupsBuilder_ = null;
+              rowGroups_ = other.rowGroups_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              rowGroupsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getRowGroupsFieldBuilder() : null;
+            } else {
+              rowGroupsBuilder_.addAllMessages(other.rowGroups_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getRowGroupsCount(); i++) {
+          if (!getRowGroups(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.adeneche.metadata.Metadata.ParquetFileMetadata parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.adeneche.metadata.Metadata.ParquetFileMetadata) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional string path = 1;
+      private java.lang.Object path_ = "";
+      /**
+       * <code>optional string path = 1;</code>
+       */
+      public boolean hasPath() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string path = 1;</code>
+       */
+      public java.lang.String getPath() {
+        java.lang.Object ref = path_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          path_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string path = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPathBytes() {
+        java.lang.Object ref = path_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          path_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string path = 1;</code>
+       */
+      public Builder setPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        path_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string path = 1;</code>
+       */
+      public Builder clearPath() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        path_ = getDefaultInstance().getPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string path = 1;</code>
+       */
+      public Builder setPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        path_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional uint64 length = 2;
+      private long length_ ;
+      /**
+       * <code>optional uint64 length = 2;</code>
+       */
+      public boolean hasLength() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional uint64 length = 2;</code>
+       */
+      public long getLength() {
+        return length_;
+      }
+      /**
+       * <code>optional uint64 length = 2;</code>
+       */
+      public Builder setLength(long value) {
+        bitField0_ |= 0x00000002;
+        length_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 length = 2;</code>
+       */
+      public Builder clearLength() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        length_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;
+      private java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup> rowGroups_ =
+        java.util.Collections.emptyList();
+      private void ensureRowGroupsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          rowGroups_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup>(rowGroups_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroupOrBuilder> rowGroupsBuilder_;
+
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup> getRowGroupsList() {
+        if (rowGroupsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rowGroups_);
+        } else {
+          return rowGroupsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public int getRowGroupsCount() {
+        if (rowGroupsBuilder_ == null) {
+          return rowGroups_.size();
+        } else {
+          return rowGroupsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup getRowGroups(int index) {
+        if (rowGroupsBuilder_ == null) {
+          return rowGroups_.get(index);
+        } else {
+          return rowGroupsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public Builder setRowGroups(
+          int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup value) {
+        if (rowGroupsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRowGroupsIsMutable();
+          rowGroups_.set(index, value);
+          onChanged();
+        } else {
+          rowGroupsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public Builder setRowGroups(
+          int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder builderForValue) {
+        if (rowGroupsBuilder_ == null) {
+          ensureRowGroupsIsMutable();
+          rowGroups_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rowGroupsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public Builder addRowGroups(com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup value) {
+        if (rowGroupsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRowGroupsIsMutable();
+          rowGroups_.add(value);
+          onChanged();
+        } else {
+          rowGroupsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public Builder addRowGroups(
+          int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup value) {
+        if (rowGroupsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRowGroupsIsMutable();
+          rowGroups_.add(index, value);
+          onChanged();
+        } else {
+          rowGroupsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public Builder addRowGroups(
+          com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder builderForValue) {
+        if (rowGroupsBuilder_ == null) {
+          ensureRowGroupsIsMutable();
+          rowGroups_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rowGroupsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public Builder addRowGroups(
+          int index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder builderForValue) {
+        if (rowGroupsBuilder_ == null) {
+          ensureRowGroupsIsMutable();
+          rowGroups_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rowGroupsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public Builder addAllRowGroups(
+          java.lang.Iterable<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup> values) {
+        if (rowGroupsBuilder_ == null) {
+          ensureRowGroupsIsMutable();
+          super.addAll(values, rowGroups_);
+          onChanged();
+        } else {
+          rowGroupsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public Builder clearRowGroups() {
+        if (rowGroupsBuilder_ == null) {
+          rowGroups_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          rowGroupsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public Builder removeRowGroups(int index) {
+        if (rowGroupsBuilder_ == null) {
+          ensureRowGroupsIsMutable();
+          rowGroups_.remove(index);
+          onChanged();
+        } else {
+          rowGroupsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder getRowGroupsBuilder(
+          int index) {
+        return getRowGroupsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroupOrBuilder getRowGroupsOrBuilder(
+          int index) {
+        if (rowGroupsBuilder_ == null) {
+          return rowGroups_.get(index);  } else {
+          return rowGroupsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public java.util.List<? extends com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroupOrBuilder> 
+           getRowGroupsOrBuilderList() {
+        if (rowGroupsBuilder_ != null) {
+          return rowGroupsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rowGroups_);
+        }
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder addRowGroupsBuilder() {
+        return getRowGroupsFieldBuilder().addBuilder(
+            com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder addRowGroupsBuilder(
+          int index) {
+        return getRowGroupsFieldBuilder().addBuilder(
+            index, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .metadata.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
+       */
+      public java.util.List<com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder> 
+           getRowGroupsBuilderList() {
+        return getRowGroupsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroupOrBuilder> 
+          getRowGroupsFieldBuilder() {
+        if (rowGroupsBuilder_ == null) {
+          rowGroupsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup.Builder, com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroupOrBuilder>(
+                  rowGroups_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          rowGroups_ = null;
+        }
+        return rowGroupsBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:metadata.ParquetFileMetadata)
+    }
+
+    static {
+      defaultInstance = new ParquetFileMetadata(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:metadata.ParquetFileMetadata)
+  }
+
+  public interface MetadataColumnsOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;
+    /**
+     * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
+     */
+    java.util.List<com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo> 
+        getColumnsList();
+    /**
+     * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
+     */
+    com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo getColumns(int index);
+    /**
+     * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
+     */
+    int getColumnsCount();
+    /**
+     * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
+     */
+    java.util.List<? extends com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfoOrBuilder> 
+        getColumnsOrBuilderList();
+    /**
+     * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
+     */
+    com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfoOrBuilder getColumnsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code metadata.MetadataColumns}
+   */
+  public static final class MetadataColumns extends
+      com.google.protobuf.GeneratedMessage
+      implements MetadataColumnsOrBuilder {
+    // Use MetadataColumns.newBuilder() to construct.
+    private MetadataColumns(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private MetadataColumns(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final MetadataColumns defaultInstance;
+    public static MetadataColumns getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public MetadataColumns getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MetadataColumns(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -778,18 +4531,10 @@ public final class Metadata {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                columns_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo>();
+                columns_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              columns_.add(input.readMessage(com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PARSER, extensionRegistry));
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                files_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              files_.add(input.readMessage(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.PARSER, extensionRegistry));
+              columns_.add(input.readMessage(com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PARSER, extensionRegistry));
               break;
             }
           }
@@ -803,37 +4548,34 @@ public final class Metadata {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           columns_ = java.util.Collections.unmodifiableList(columns_);
         }
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          files_ = java.util.Collections.unmodifiableList(files_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_descriptor;
+      return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataColumns_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_fieldAccessorTable
+      return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataColumns_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.adeneche.metadata.Metadata.MetadataFiles.class, com.adeneche.metadata.Metadata.MetadataFiles.Builder.class);
+              com.adeneche.metadata.Metadata.MetadataColumns.class, com.adeneche.metadata.Metadata.MetadataColumns.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<MetadataFiles> PARSER =
-        new com.google.protobuf.AbstractParser<MetadataFiles>() {
-      public MetadataFiles parsePartialFrom(
+    public static com.google.protobuf.Parser<MetadataColumns> PARSER =
+        new com.google.protobuf.AbstractParser<MetadataColumns>() {
+      public MetadataColumns parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MetadataFiles(input, extensionRegistry);
+        return new MetadataColumns(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<MetadataFiles> getParserForType() {
+    public com.google.protobuf.Parser<MetadataColumns> getParserForType() {
       return PARSER;
     }
 
@@ -855,28 +4597,28 @@ public final class Metadata {
       com.google.protobuf.ByteString
           getNameBytes();
 
-      // optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;
+      // optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;
       /**
-       * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
+       * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
        */
       boolean hasPrimitiveType();
       /**
-       * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
+       * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
        */
-      com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName getPrimitiveType();
+      com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName getPrimitiveType();
 
-      // optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;
+      // optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;
       /**
-       * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;</code>
+       * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;</code>
        */
       boolean hasOriginalType();
       /**
-       * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;</code>
+       * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;</code>
        */
-      com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType getOriginalType();
+      com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType getOriginalType();
     }
     /**
-     * Protobuf type {@code metadata.MetadataFiles.ColumnTypeInfo}
+     * Protobuf type {@code metadata.MetadataColumns.ColumnTypeInfo}
      */
     public static final class ColumnTypeInfo extends
         com.google.protobuf.GeneratedMessage
@@ -933,7 +4675,7 @@ public final class Metadata {
               }
               case 16: {
                 int rawValue = input.readEnum();
-                com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName value = com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName.valueOf(rawValue);
+                com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName value = com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName.valueOf(rawValue);
                 if (value == null) {
                   unknownFields.mergeVarintField(2, rawValue);
                 } else {
@@ -944,7 +4686,7 @@ public final class Metadata {
               }
               case 24: {
                 int rawValue = input.readEnum();
-                com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType value = com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType.valueOf(rawValue);
+                com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType value = com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType.valueOf(rawValue);
                 if (value == null) {
                   unknownFields.mergeVarintField(3, rawValue);
                 } else {
@@ -967,14 +4709,14 @@ public final class Metadata {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ColumnTypeInfo_descriptor;
+        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataColumns_ColumnTypeInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ColumnTypeInfo_fieldAccessorTable
+        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataColumns_ColumnTypeInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.class, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder.class);
+                com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.class, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder.class);
       }
 
       public static com.google.protobuf.Parser<ColumnTypeInfo> PARSER =
@@ -993,7 +4735,7 @@ public final class Metadata {
       }
 
       /**
-       * Protobuf enum {@code metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName}
+       * Protobuf enum {@code metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName}
        */
       public enum PrimitiveTypeName
           implements com.google.protobuf.ProtocolMessageEnum {
@@ -1103,7 +4845,7 @@ public final class Metadata {
         }
         public static final com.google.protobuf.Descriptors.EnumDescriptor
             getDescriptor() {
-          return com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.getDescriptor().getEnumTypes().get(0);
+          return com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.getDescriptor().getEnumTypes().get(0);
         }
 
         private static final PrimitiveTypeName[] VALUES = values();
@@ -1125,11 +4867,11 @@ public final class Metadata {
           this.value = value;
         }
 
-        // @@protoc_insertion_point(enum_scope:metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName)
+        // @@protoc_insertion_point(enum_scope:metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName)
       }
 
       /**
-       * Protobuf enum {@code metadata.MetadataFiles.ColumnTypeInfo.OriginalType}
+       * Protobuf enum {@code metadata.MetadataColumns.ColumnTypeInfo.OriginalType}
        */
       public enum OriginalType
           implements com.google.protobuf.ProtocolMessageEnum {
@@ -1347,7 +5089,7 @@ public final class Metadata {
         }
         public static final com.google.protobuf.Descriptors.EnumDescriptor
             getDescriptor() {
-          return com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.getDescriptor().getEnumTypes().get(1);
+          return com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.getDescriptor().getEnumTypes().get(1);
         }
 
         private static final OriginalType[] VALUES = values();
@@ -1369,7 +5111,7 @@ public final class Metadata {
           this.value = value;
         }
 
-        // @@protoc_insertion_point(enum_scope:metadata.MetadataFiles.ColumnTypeInfo.OriginalType)
+        // @@protoc_insertion_point(enum_scope:metadata.MetadataColumns.ColumnTypeInfo.OriginalType)
       }
 
       private int bitField0_;
@@ -1416,42 +5158,42 @@ public final class Metadata {
         }
       }
 
-      // optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;
+      // optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;
       public static final int PRIMITIVETYPE_FIELD_NUMBER = 2;
-      private com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType_;
+      private com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType_;
       /**
-       * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
+       * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
        */
       public boolean hasPrimitiveType() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
+       * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
        */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName getPrimitiveType() {
+      public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName getPrimitiveType() {
         return primitiveType_;
       }
 
-      // optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;
+      // optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;
       public static final int ORIGINALTYPE_FIELD_NUMBER = 3;
-      private com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType_;
+      private com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType_;
       /**
-       * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;</code>
+       * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;</code>
        */
       public boolean hasOriginalType() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;</code>
+       * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;</code>
        */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType getOriginalType() {
+      public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType getOriginalType() {
         return originalType_;
       }
 
       private void initFields() {
         name_ = "";
-        primitiveType_ = com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName.INT64;
-        originalType_ = com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType.MAP;
+        primitiveType_ = com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName.INT64;
+        originalType_ = com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType.MAP;
       }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
@@ -1507,53 +5249,53 @@ public final class Metadata {
         return super.writeReplace();
       }
 
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parseFrom(
+      public static com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parseFrom(
+      public static com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parseFrom(byte[] data)
+      public static com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parseFrom(
+      public static com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parseFrom(java.io.InputStream input)
+      public static com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parseFrom(
+      public static com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parseDelimitedFrom(java.io.InputStream input)
+      public static com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parseDelimitedFrom(
+      public static com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parseFrom(
+      public static com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parseFrom(
+      public static com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -1562,7 +5304,7 @@ public final class Metadata {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo prototype) {
+      public static Builder newBuilder(com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -1574,24 +5316,24 @@ public final class Metadata {
         return builder;
       }
       /**
-       * Protobuf type {@code metadata.MetadataFiles.ColumnTypeInfo}
+       * Protobuf type {@code metadata.MetadataColumns.ColumnTypeInfo}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfoOrBuilder {
+         implements com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfoOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ColumnTypeInfo_descriptor;
+          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataColumns_ColumnTypeInfo_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ColumnTypeInfo_fieldAccessorTable
+          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataColumns_ColumnTypeInfo_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.class, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder.class);
+                  com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.class, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder.class);
         }
 
-        // Construct using com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.newBuilder()
+        // Construct using com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -1613,9 +5355,9 @@ public final class Metadata {
           super.clear();
           name_ = "";
           bitField0_ = (bitField0_ & ~0x00000001);
-          primitiveType_ = com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName.INT64;
+          primitiveType_ = com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName.INT64;
           bitField0_ = (bitField0_ & ~0x00000002);
-          originalType_ = com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType.MAP;
+          originalType_ = com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType.MAP;
           bitField0_ = (bitField0_ & ~0x00000004);
           return this;
         }
@@ -1626,23 +5368,23 @@ public final class Metadata {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ColumnTypeInfo_descriptor;
+          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataColumns_ColumnTypeInfo_descriptor;
         }
 
-        public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo getDefaultInstanceForType() {
-          return com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.getDefaultInstance();
+        public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo getDefaultInstanceForType() {
+          return com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.getDefaultInstance();
         }
 
-        public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo build() {
-          com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo result = buildPartial();
+        public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo build() {
+          com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo buildPartial() {
-          com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo result = new com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo(this);
+        public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo buildPartial() {
+          com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo result = new com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1663,16 +5405,16 @@ public final class Metadata {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo) {
-            return mergeFrom((com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo)other);
+          if (other instanceof com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo) {
+            return mergeFrom((com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo other) {
-          if (other == com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo other) {
+          if (other == com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.getDefaultInstance()) return this;
           if (other.hasName()) {
             bitField0_ |= 0x00000001;
             name_ = other.name_;
@@ -1696,11 +5438,11 @@ public final class Metadata {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo parsedMessage = null;
+          com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo) e.getUnfinishedMessage();
+            parsedMessage = (com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -1785,24 +5527,24 @@ public final class Metadata {
           return this;
         }
 
-        // optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;
-        private com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType_ = com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName.INT64;
+        // optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;
+        private com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType_ = com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName.INT64;
         /**
-         * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
+         * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
          */
         public boolean hasPrimitiveType() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
         /**
-         * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
+         * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
          */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName getPrimitiveType() {
+        public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName getPrimitiveType() {
           return primitiveType_;
         }
         /**
-         * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
+         * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
          */
-        public Builder setPrimitiveType(com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName value) {
+        public Builder setPrimitiveType(com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName value) {
           if (value == null) {
             throw new NullPointerException();
           }
@@ -1812,33 +5554,33 @@ public final class Metadata {
           return this;
         }
         /**
-         * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
+         * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName primitiveType = 2;</code>
          */
         public Builder clearPrimitiveType() {
           bitField0_ = (bitField0_ & ~0x00000002);
-          primitiveType_ = com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.PrimitiveTypeName.INT64;
+          primitiveType_ = com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.PrimitiveTypeName.INT64;
           onChanged();
           return this;
         }
 
-        // optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;
-        private com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType_ = com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType.MAP;
+        // optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;
+        private com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType_ = com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType.MAP;
         /**
-         * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;</code>
+         * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;</code>
          */
         public boolean hasOriginalType() {
           return ((bitField0_ & 0x00000004) == 0x00000004);
         }
         /**
-         * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;</code>
+         * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;</code>
          */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType getOriginalType() {
+        public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType getOriginalType() {
           return originalType_;
         }
         /**
-         * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;</code>
+         * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;</code>
          */
-        public Builder setOriginalType(com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType value) {
+        public Builder setOriginalType(com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType value) {
           if (value == null) {
             throw new NullPointerException();
           }
@@ -1848,16 +5590,16 @@ public final class Metadata {
           return this;
         }
         /**
-         * <code>optional .metadata.MetadataFiles.ColumnTypeInfo.OriginalType originalType = 3;</code>
+         * <code>optional .metadata.MetadataColumns.ColumnTypeInfo.OriginalType originalType = 3;</code>
          */
         public Builder clearOriginalType() {
           bitField0_ = (bitField0_ & ~0x00000004);
-          originalType_ = com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.OriginalType.MAP;
+          originalType_ = com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.OriginalType.MAP;
           onChanged();
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:metadata.MetadataFiles.ColumnTypeInfo)
+        // @@protoc_insertion_point(builder_scope:metadata.MetadataColumns.ColumnTypeInfo)
       }
 
       static {
@@ -1865,3874 +5607,53 @@ public final class Metadata {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:metadata.MetadataFiles.ColumnTypeInfo)
+      // @@protoc_insertion_point(class_scope:metadata.MetadataColumns.ColumnTypeInfo)
     }
 
-    public interface ParquetFileMetadataOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // optional string path = 1;
-      /**
-       * <code>optional string path = 1;</code>
-       */
-      boolean hasPath();
-      /**
-       * <code>optional string path = 1;</code>
-       */
-      java.lang.String getPath();
-      /**
-       * <code>optional string path = 1;</code>
-       */
-      com.google.protobuf.ByteString
-          getPathBytes();
-
-      // optional uint64 length = 2;
-      /**
-       * <code>optional uint64 length = 2;</code>
-       */
-      boolean hasLength();
-      /**
-       * <code>optional uint64 length = 2;</code>
-       */
-      long getLength();
-
-      // repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-       */
-      java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup> 
-          getRowGroupsList();
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-       */
-      com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup getRowGroups(int index);
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-       */
-      int getRowGroupsCount();
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-       */
-      java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroupOrBuilder> 
-          getRowGroupsOrBuilderList();
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-       */
-      com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroupOrBuilder getRowGroupsOrBuilder(
-          int index);
-    }
-    /**
-     * Protobuf type {@code metadata.MetadataFiles.ParquetFileMetadata}
-     */
-    public static final class ParquetFileMetadata extends
-        com.google.protobuf.GeneratedMessage
-        implements ParquetFileMetadataOrBuilder {
-      // Use ParquetFileMetadata.newBuilder() to construct.
-      private ParquetFileMetadata(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
-      }
-      private ParquetFileMetadata(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final ParquetFileMetadata defaultInstance;
-      public static ParquetFileMetadata getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public ParquetFileMetadata getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private ParquetFileMetadata(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 10: {
-                bitField0_ |= 0x00000001;
-                path_ = input.readBytes();
-                break;
-              }
-              case 16: {
-                bitField0_ |= 0x00000002;
-                length_ = input.readUInt64();
-                break;
-              }
-              case 26: {
-                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                  rowGroups_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup>();
-                  mutable_bitField0_ |= 0x00000004;
-                }
-                rowGroups_.add(input.readMessage(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.PARSER, extensionRegistry));
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-            rowGroups_ = java.util.Collections.unmodifiableList(rowGroups_);
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.class, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<ParquetFileMetadata> PARSER =
-          new com.google.protobuf.AbstractParser<ParquetFileMetadata>() {
-        public ParquetFileMetadata parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ParquetFileMetadata(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<ParquetFileMetadata> getParserForType() {
-        return PARSER;
-      }
-
-      public interface RowGroupOrBuilder
-          extends com.google.protobuf.MessageOrBuilder {
-
-        // optional uint64 start = 1;
-        /**
-         * <code>optional uint64 start = 1;</code>
-         */
-        boolean hasStart();
-        /**
-         * <code>optional uint64 start = 1;</code>
-         */
-        long getStart();
-
-        // optional uint64 length = 2;
-        /**
-         * <code>optional uint64 length = 2;</code>
-         */
-        boolean hasLength();
-        /**
-         * <code>optional uint64 length = 2;</code>
-         */
-        long getLength();
-
-        // optional uint64 rowCount = 3;
-        /**
-         * <code>optional uint64 rowCount = 3;</code>
-         */
-        boolean hasRowCount();
-        /**
-         * <code>optional uint64 rowCount = 3;</code>
-         */
-        long getRowCount();
-
-        // repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-         */
-        java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity> 
-            getAffinitiesList();
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-         */
-        com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity getAffinities(int index);
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-         */
-        int getAffinitiesCount();
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-         */
-        java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder> 
-            getAffinitiesOrBuilderList();
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-         */
-        com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder getAffinitiesOrBuilder(
-            int index);
-
-        // repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-         */
-        java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata> 
-            getColumnsList();
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-         */
-        com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata getColumns(int index);
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-         */
-        int getColumnsCount();
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-         */
-        java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder> 
-            getColumnsOrBuilderList();
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-         */
-        com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder getColumnsOrBuilder(
-            int index);
-      }
-      /**
-       * Protobuf type {@code metadata.MetadataFiles.ParquetFileMetadata.RowGroup}
-       */
-      public static final class RowGroup extends
-          com.google.protobuf.GeneratedMessage
-          implements RowGroupOrBuilder {
-        // Use RowGroup.newBuilder() to construct.
-        private RowGroup(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-          super(builder);
-          this.unknownFields = builder.getUnknownFields();
-        }
-        private RowGroup(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-        private static final RowGroup defaultInstance;
-        public static RowGroup getDefaultInstance() {
-          return defaultInstance;
-        }
-
-        public RowGroup getDefaultInstanceForType() {
-          return defaultInstance;
-        }
-
-        private final com.google.protobuf.UnknownFieldSet unknownFields;
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-            getUnknownFields() {
-          return this.unknownFields;
-        }
-        private RowGroup(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          initFields();
-          int mutable_bitField0_ = 0;
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                default: {
-                  if (!parseUnknownField(input, unknownFields,
-                                         extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-                case 8: {
-                  bitField0_ |= 0x00000001;
-                  start_ = input.readUInt64();
-                  break;
-                }
-                case 16: {
-                  bitField0_ |= 0x00000002;
-                  length_ = input.readUInt64();
-                  break;
-                }
-                case 24: {
-                  bitField0_ |= 0x00000004;
-                  rowCount_ = input.readUInt64();
-                  break;
-                }
-                case 34: {
-                  if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                    affinities_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity>();
-                    mutable_bitField0_ |= 0x00000008;
-                  }
-                  affinities_.add(input.readMessage(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.PARSER, extensionRegistry));
-                  break;
-                }
-                case 42: {
-                  if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                    columns_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata>();
-                    mutable_bitField0_ |= 0x00000010;
-                  }
-                  columns_.add(input.readMessage(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.PARSER, extensionRegistry));
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e.getMessage()).setUnfinishedMessage(this);
-          } finally {
-            if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-              affinities_ = java.util.Collections.unmodifiableList(affinities_);
-            }
-            if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-              columns_ = java.util.Collections.unmodifiableList(columns_);
-            }
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.class, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder.class);
-        }
-
-        public static com.google.protobuf.Parser<RowGroup> PARSER =
-            new com.google.protobuf.AbstractParser<RowGroup>() {
-          public RowGroup parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return new RowGroup(input, extensionRegistry);
-          }
-        };
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<RowGroup> getParserForType() {
-          return PARSER;
-        }
-
-        public interface HostAffinityOrBuilder
-            extends com.google.protobuf.MessageOrBuilder {
-
-          // optional string key = 1;
-          /**
-           * <code>optional string key = 1;</code>
-           */
-          boolean hasKey();
-          /**
-           * <code>optional string key = 1;</code>
-           */
-          java.lang.String getKey();
-          /**
-           * <code>optional string key = 1;</code>
-           */
-          com.google.protobuf.ByteString
-              getKeyBytes();
-
-          // optional float value = 2;
-          /**
-           * <code>optional float value = 2;</code>
-           */
-          boolean hasValue();
-          /**
-           * <code>optional float value = 2;</code>
-           */
-          float getValue();
-        }
-        /**
-         * Protobuf type {@code metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity}
-         */
-        public static final class HostAffinity extends
-            com.google.protobuf.GeneratedMessage
-            implements HostAffinityOrBuilder {
-          // Use HostAffinity.newBuilder() to construct.
-          private HostAffinity(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-            super(builder);
-            this.unknownFields = builder.getUnknownFields();
-          }
-          private HostAffinity(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-          private static final HostAffinity defaultInstance;
-          public static HostAffinity getDefaultInstance() {
-            return defaultInstance;
-          }
-
-          public HostAffinity getDefaultInstanceForType() {
-            return defaultInstance;
-          }
-
-          private final com.google.protobuf.UnknownFieldSet unknownFields;
-          @java.lang.Override
-          public final com.google.protobuf.UnknownFieldSet
-              getUnknownFields() {
-            return this.unknownFields;
-          }
-          private HostAffinity(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            initFields();
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-              boolean done = false;
-              while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                  case 0:
-                    done = true;
-                    break;
-                  default: {
-                    if (!parseUnknownField(input, unknownFields,
-                                           extensionRegistry, tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                  case 10: {
-                    bitField0_ |= 0x00000001;
-                    key_ = input.readBytes();
-                    break;
-                  }
-                  case 21: {
-                    bitField0_ |= 0x00000002;
-                    value_ = input.readFloat();
-                    break;
-                  }
-                }
-              }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-              throw new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this);
-            } finally {
-              this.unknownFields = unknownFields.build();
-              makeExtensionsImmutable();
-            }
-          }
-          public static final com.google.protobuf.Descriptors.Descriptor
-              getDescriptor() {
-            return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_HostAffinity_descriptor;
-          }
-
-          protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-              internalGetFieldAccessorTable() {
-            return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_HostAffinity_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                    com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.class, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder.class);
-          }
-
-          public static com.google.protobuf.Parser<HostAffinity> PARSER =
-              new com.google.protobuf.AbstractParser<HostAffinity>() {
-            public HostAffinity parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return new HostAffinity(input, extensionRegistry);
-            }
-          };
-
-          @java.lang.Override
-          public com.google.protobuf.Parser<HostAffinity> getParserForType() {
-            return PARSER;
-          }
-
-          private int bitField0_;
-          // optional string key = 1;
-          public static final int KEY_FIELD_NUMBER = 1;
-          private java.lang.Object key_;
-          /**
-           * <code>optional string key = 1;</code>
-           */
-          public boolean hasKey() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
-          }
-          /**
-           * <code>optional string key = 1;</code>
-           */
-          public java.lang.String getKey() {
-            java.lang.Object ref = key_;
-            if (ref instanceof java.lang.String) {
-              return (java.lang.String) ref;
-            } else {
-              com.google.protobuf.ByteString bs = 
-                  (com.google.protobuf.ByteString) ref;
-              java.lang.String s = bs.toStringUtf8();
-              if (bs.isValidUtf8()) {
-                key_ = s;
-              }
-              return s;
-            }
-          }
-          /**
-           * <code>optional string key = 1;</code>
-           */
-          public com.google.protobuf.ByteString
-              getKeyBytes() {
-            java.lang.Object ref = key_;
-            if (ref instanceof java.lang.String) {
-              com.google.protobuf.ByteString b = 
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                      (java.lang.String) ref);
-              key_ = b;
-              return b;
-            } else {
-              return (com.google.protobuf.ByteString) ref;
-            }
-          }
-
-          // optional float value = 2;
-          public static final int VALUE_FIELD_NUMBER = 2;
-          private float value_;
-          /**
-           * <code>optional float value = 2;</code>
-           */
-          public boolean hasValue() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
-          }
-          /**
-           * <code>optional float value = 2;</code>
-           */
-          public float getValue() {
-            return value_;
-          }
-
-          private void initFields() {
-            key_ = "";
-            value_ = 0F;
-          }
-          private byte memoizedIsInitialized = -1;
-          public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized != -1) return isInitialized == 1;
-
-            memoizedIsInitialized = 1;
-            return true;
-          }
-
-          public void writeTo(com.google.protobuf.CodedOutputStream output)
-                              throws java.io.IOException {
-            getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-              output.writeBytes(1, getKeyBytes());
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-              output.writeFloat(2, value_);
-            }
-            getUnknownFields().writeTo(output);
-          }
-
-          private int memoizedSerializedSize = -1;
-          public int getSerializedSize() {
-            int size = memoizedSerializedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeBytesSize(1, getKeyBytes());
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeFloatSize(2, value_);
-            }
-            size += getUnknownFields().getSerializedSize();
-            memoizedSerializedSize = size;
-            return size;
-          }
-
-          private static final long serialVersionUID = 0L;
-          @java.lang.Override
-          protected java.lang.Object writeReplace()
-              throws java.io.ObjectStreamException {
-            return super.writeReplace();
-          }
-
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
-              com.google.protobuf.ByteString data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
-              com.google.protobuf.ByteString data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(byte[] data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
-              byte[] data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(java.io.InputStream input)
-              throws java.io.IOException {
-            return PARSER.parseFrom(input);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
-              java.io.InputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parseDelimitedFrom(java.io.InputStream input)
-              throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parseDelimitedFrom(
-              java.io.InputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input, extensionRegistry);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
-              com.google.protobuf.CodedInputStream input)
-              throws java.io.IOException {
-            return PARSER.parseFrom(input);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parseFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-          }
-
-          public static Builder newBuilder() { return Builder.create(); }
-          public Builder newBuilderForType() { return newBuilder(); }
-          public static Builder newBuilder(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity prototype) {
-            return newBuilder().mergeFrom(prototype);
-          }
-          public Builder toBuilder() { return newBuilder(this); }
-
-          @java.lang.Override
-          protected Builder newBuilderForType(
-              com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-          }
-          /**
-           * Protobuf type {@code metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity}
-           */
-          public static final class Builder extends
-              com.google.protobuf.GeneratedMessage.Builder<Builder>
-             implements com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-                getDescriptor() {
-              return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_HostAffinity_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-                internalGetFieldAccessorTable() {
-              return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_HostAffinity_fieldAccessorTable
-                  .ensureFieldAccessorsInitialized(
-                      com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.class, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder.class);
-            }
-
-            // Construct using com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.newBuilder()
-            private Builder() {
-              maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-              super(parent);
-              maybeForceBuilderInitialization();
-            }
-            private void maybeForceBuilderInitialization() {
-              if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-              }
-            }
-            private static Builder create() {
-              return new Builder();
-            }
-
-            public Builder clear() {
-              super.clear();
-              key_ = "";
-              bitField0_ = (bitField0_ & ~0x00000001);
-              value_ = 0F;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              return this;
-            }
-
-            public Builder clone() {
-              return create().mergeFrom(buildPartial());
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-                getDescriptorForType() {
-              return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_HostAffinity_descriptor;
-            }
-
-            public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity getDefaultInstanceForType() {
-              return com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.getDefaultInstance();
-            }
-
-            public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity build() {
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity result = buildPartial();
-              if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-              }
-              return result;
-            }
-
-            public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity buildPartial() {
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity result = new com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity(this);
-              int from_bitField0_ = bitField0_;
-              int to_bitField0_ = 0;
-              if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-                to_bitField0_ |= 0x00000001;
-              }
-              result.key_ = key_;
-              if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-                to_bitField0_ |= 0x00000002;
-              }
-              result.value_ = value_;
-              result.bitField0_ = to_bitField0_;
-              onBuilt();
-              return result;
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-              if (other instanceof com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity) {
-                return mergeFrom((com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity)other);
-              } else {
-                super.mergeFrom(other);
-                return this;
-              }
-            }
-
-            public Builder mergeFrom(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity other) {
-              if (other == com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.getDefaultInstance()) return this;
-              if (other.hasKey()) {
-                bitField0_ |= 0x00000001;
-                key_ = other.key_;
-                onChanged();
-              }
-              if (other.hasValue()) {
-                setValue(other.getValue());
-              }
-              this.mergeUnknownFields(other.getUnknownFields());
-              return this;
-            }
-
-            public final boolean isInitialized() {
-              return true;
-            }
-
-            public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity parsedMessage = null;
-              try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity) e.getUnfinishedMessage();
-                throw e;
-              } finally {
-                if (parsedMessage != null) {
-                  mergeFrom(parsedMessage);
-                }
-              }
-              return this;
-            }
-            private int bitField0_;
-
-            // optional string key = 1;
-            private java.lang.Object key_ = "";
-            /**
-             * <code>optional string key = 1;</code>
-             */
-            public boolean hasKey() {
-              return ((bitField0_ & 0x00000001) == 0x00000001);
-            }
-            /**
-             * <code>optional string key = 1;</code>
-             */
-            public java.lang.String getKey() {
-              java.lang.Object ref = key_;
-              if (!(ref instanceof java.lang.String)) {
-                java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                    .toStringUtf8();
-                key_ = s;
-                return s;
-              } else {
-                return (java.lang.String) ref;
-              }
-            }
-            /**
-             * <code>optional string key = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-                getKeyBytes() {
-              java.lang.Object ref = key_;
-              if (ref instanceof String) {
-                com.google.protobuf.ByteString b = 
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-                key_ = b;
-                return b;
-              } else {
-                return (com.google.protobuf.ByteString) ref;
-              }
-            }
-            /**
-             * <code>optional string key = 1;</code>
-             */
-            public Builder setKey(
-                java.lang.String value) {
-              if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-              key_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional string key = 1;</code>
-             */
-            public Builder clearKey() {
-              bitField0_ = (bitField0_ & ~0x00000001);
-              key_ = getDefaultInstance().getKey();
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional string key = 1;</code>
-             */
-            public Builder setKeyBytes(
-                com.google.protobuf.ByteString value) {
-              if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-              key_ = value;
-              onChanged();
-              return this;
-            }
-
-            // optional float value = 2;
-            private float value_ ;
-            /**
-             * <code>optional float value = 2;</code>
-             */
-            public boolean hasValue() {
-              return ((bitField0_ & 0x00000002) == 0x00000002);
-            }
-            /**
-             * <code>optional float value = 2;</code>
-             */
-            public float getValue() {
-              return value_;
-            }
-            /**
-             * <code>optional float value = 2;</code>
-             */
-            public Builder setValue(float value) {
-              bitField0_ |= 0x00000002;
-              value_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional float value = 2;</code>
-             */
-            public Builder clearValue() {
-              bitField0_ = (bitField0_ & ~0x00000002);
-              value_ = 0F;
-              onChanged();
-              return this;
-            }
-
-            // @@protoc_insertion_point(builder_scope:metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity)
-          }
-
-          static {
-            defaultInstance = new HostAffinity(true);
-            defaultInstance.initFields();
-          }
-
-          // @@protoc_insertion_point(class_scope:metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity)
-        }
-
-        public interface ColumnMetadataOrBuilder
-            extends com.google.protobuf.MessageOrBuilder {
-
-          // required uint32 name = 1;
-          /**
-           * <code>required uint32 name = 1;</code>
-           */
-          boolean hasName();
-          /**
-           * <code>required uint32 name = 1;</code>
-           */
-          int getName();
-
-          // optional uint64 nulls = 2;
-          /**
-           * <code>optional uint64 nulls = 2;</code>
-           */
-          boolean hasNulls();
-          /**
-           * <code>optional uint64 nulls = 2;</code>
-           */
-          long getNulls();
-
-          // optional sint64 vint64 = 3;
-          /**
-           * <code>optional sint64 vint64 = 3;</code>
-           */
-          boolean hasVint64();
-          /**
-           * <code>optional sint64 vint64 = 3;</code>
-           */
-          long getVint64();
-
-          // optional sint32 vint32 = 4;
-          /**
-           * <code>optional sint32 vint32 = 4;</code>
-           */
-          boolean hasVint32();
-          /**
-           * <code>optional sint32 vint32 = 4;</code>
-           */
-          int getVint32();
-
-          // optional bool vbool = 5;
-          /**
-           * <code>optional bool vbool = 5;</code>
-           */
-          boolean hasVbool();
-          /**
-           * <code>optional bool vbool = 5;</code>
-           */
-          boolean getVbool();
-
-          // optional bytes vbinary = 6;
-          /**
-           * <code>optional bytes vbinary = 6;</code>
-           *
-           * <pre>
-           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-           * </pre>
-           */
-          boolean hasVbinary();
-          /**
-           * <code>optional bytes vbinary = 6;</code>
-           *
-           * <pre>
-           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-           * </pre>
-           */
-          com.google.protobuf.ByteString getVbinary();
-
-          // optional float vfloat = 7;
-          /**
-           * <code>optional float vfloat = 7;</code>
-           */
-          boolean hasVfloat();
-          /**
-           * <code>optional float vfloat = 7;</code>
-           */
-          float getVfloat();
-
-          // optional double vdouble = 8;
-          /**
-           * <code>optional double vdouble = 8;</code>
-           */
-          boolean hasVdouble();
-          /**
-           * <code>optional double vdouble = 8;</code>
-           */
-          double getVdouble();
-        }
-        /**
-         * Protobuf type {@code metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata}
-         */
-        public static final class ColumnMetadata extends
-            com.google.protobuf.GeneratedMessage
-            implements ColumnMetadataOrBuilder {
-          // Use ColumnMetadata.newBuilder() to construct.
-          private ColumnMetadata(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-            super(builder);
-            this.unknownFields = builder.getUnknownFields();
-          }
-          private ColumnMetadata(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-          private static final ColumnMetadata defaultInstance;
-          public static ColumnMetadata getDefaultInstance() {
-            return defaultInstance;
-          }
-
-          public ColumnMetadata getDefaultInstanceForType() {
-            return defaultInstance;
-          }
-
-          private final com.google.protobuf.UnknownFieldSet unknownFields;
-          @java.lang.Override
-          public final com.google.protobuf.UnknownFieldSet
-              getUnknownFields() {
-            return this.unknownFields;
-          }
-          private ColumnMetadata(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            initFields();
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-              boolean done = false;
-              while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                  case 0:
-                    done = true;
-                    break;
-                  default: {
-                    if (!parseUnknownField(input, unknownFields,
-                                           extensionRegistry, tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                  case 8: {
-                    bitField0_ |= 0x00000001;
-                    name_ = input.readUInt32();
-                    break;
-                  }
-                  case 16: {
-                    bitField0_ |= 0x00000002;
-                    nulls_ = input.readUInt64();
-                    break;
-                  }
-                  case 24: {
-                    bitField0_ |= 0x00000004;
-                    vint64_ = input.readSInt64();
-                    break;
-                  }
-                  case 32: {
-                    bitField0_ |= 0x00000008;
-                    vint32_ = input.readSInt32();
-                    break;
-                  }
-                  case 40: {
-                    bitField0_ |= 0x00000010;
-                    vbool_ = input.readBool();
-                    break;
-                  }
-                  case 50: {
-                    bitField0_ |= 0x00000020;
-                    vbinary_ = input.readBytes();
-                    break;
-                  }
-                  case 61: {
-                    bitField0_ |= 0x00000040;
-                    vfloat_ = input.readFloat();
-                    break;
-                  }
-                  case 65: {
-                    bitField0_ |= 0x00000080;
-                    vdouble_ = input.readDouble();
-                    break;
-                  }
-                }
-              }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-              throw new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this);
-            } finally {
-              this.unknownFields = unknownFields.build();
-              makeExtensionsImmutable();
-            }
-          }
-          public static final com.google.protobuf.Descriptors.Descriptor
-              getDescriptor() {
-            return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor;
-          }
-
-          protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-              internalGetFieldAccessorTable() {
-            return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                    com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.class, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder.class);
-          }
-
-          public static com.google.protobuf.Parser<ColumnMetadata> PARSER =
-              new com.google.protobuf.AbstractParser<ColumnMetadata>() {
-            public ColumnMetadata parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return new ColumnMetadata(input, extensionRegistry);
-            }
-          };
-
-          @java.lang.Override
-          public com.google.protobuf.Parser<ColumnMetadata> getParserForType() {
-            return PARSER;
-          }
-
-          private int bitField0_;
-          // required uint32 name = 1;
-          public static final int NAME_FIELD_NUMBER = 1;
-          private int name_;
-          /**
-           * <code>required uint32 name = 1;</code>
-           */
-          public boolean hasName() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
-          }
-          /**
-           * <code>required uint32 name = 1;</code>
-           */
-          public int getName() {
-            return name_;
-          }
-
-          // optional uint64 nulls = 2;
-          public static final int NULLS_FIELD_NUMBER = 2;
-          private long nulls_;
-          /**
-           * <code>optional uint64 nulls = 2;</code>
-           */
-          public boolean hasNulls() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
-          }
-          /**
-           * <code>optional uint64 nulls = 2;</code>
-           */
-          public long getNulls() {
-            return nulls_;
-          }
-
-          // optional sint64 vint64 = 3;
-          public static final int VINT64_FIELD_NUMBER = 3;
-          private long vint64_;
-          /**
-           * <code>optional sint64 vint64 = 3;</code>
-           */
-          public boolean hasVint64() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
-          }
-          /**
-           * <code>optional sint64 vint64 = 3;</code>
-           */
-          public long getVint64() {
-            return vint64_;
-          }
-
-          // optional sint32 vint32 = 4;
-          public static final int VINT32_FIELD_NUMBER = 4;
-          private int vint32_;
-          /**
-           * <code>optional sint32 vint32 = 4;</code>
-           */
-          public boolean hasVint32() {
-            return ((bitField0_ & 0x00000008) == 0x00000008);
-          }
-          /**
-           * <code>optional sint32 vint32 = 4;</code>
-           */
-          public int getVint32() {
-            return vint32_;
-          }
-
-          // optional bool vbool = 5;
-          public static final int VBOOL_FIELD_NUMBER = 5;
-          private boolean vbool_;
-          /**
-           * <code>optional bool vbool = 5;</code>
-           */
-          public boolean hasVbool() {
-            return ((bitField0_ & 0x00000010) == 0x00000010);
-          }
-          /**
-           * <code>optional bool vbool = 5;</code>
-           */
-          public boolean getVbool() {
-            return vbool_;
-          }
-
-          // optional bytes vbinary = 6;
-          public static final int VBINARY_FIELD_NUMBER = 6;
-          private com.google.protobuf.ByteString vbinary_;
-          /**
-           * <code>optional bytes vbinary = 6;</code>
-           *
-           * <pre>
-           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-           * </pre>
-           */
-          public boolean hasVbinary() {
-            return ((bitField0_ & 0x00000020) == 0x00000020);
-          }
-          /**
-           * <code>optional bytes vbinary = 6;</code>
-           *
-           * <pre>
-           * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-           * </pre>
-           */
-          public com.google.protobuf.ByteString getVbinary() {
-            return vbinary_;
-          }
-
-          // optional float vfloat = 7;
-          public static final int VFLOAT_FIELD_NUMBER = 7;
-          private float vfloat_;
-          /**
-           * <code>optional float vfloat = 7;</code>
-           */
-          public boolean hasVfloat() {
-            return ((bitField0_ & 0x00000040) == 0x00000040);
-          }
-          /**
-           * <code>optional float vfloat = 7;</code>
-           */
-          public float getVfloat() {
-            return vfloat_;
-          }
-
-          // optional double vdouble = 8;
-          public static final int VDOUBLE_FIELD_NUMBER = 8;
-          private double vdouble_;
-          /**
-           * <code>optional double vdouble = 8;</code>
-           */
-          public boolean hasVdouble() {
-            return ((bitField0_ & 0x00000080) == 0x00000080);
-          }
-          /**
-           * <code>optional double vdouble = 8;</code>
-           */
-          public double getVdouble() {
-            return vdouble_;
-          }
-
-          private void initFields() {
-            name_ = 0;
-            nulls_ = 0L;
-            vint64_ = 0L;
-            vint32_ = 0;
-            vbool_ = false;
-            vbinary_ = com.google.protobuf.ByteString.EMPTY;
-            vfloat_ = 0F;
-            vdouble_ = 0D;
-          }
-          private byte memoizedIsInitialized = -1;
-          public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized != -1) return isInitialized == 1;
-
-            if (!hasName()) {
-              memoizedIsInitialized = 0;
-              return false;
-            }
-            memoizedIsInitialized = 1;
-            return true;
-          }
-
-          public void writeTo(com.google.protobuf.CodedOutputStream output)
-                              throws java.io.IOException {
-            getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-              output.writeUInt32(1, name_);
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-              output.writeUInt64(2, nulls_);
-            }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-              output.writeSInt64(3, vint64_);
-            }
-            if (((bitField0_ & 0x00000008) == 0x00000008)) {
-              output.writeSInt32(4, vint32_);
-            }
-            if (((bitField0_ & 0x00000010) == 0x00000010)) {
-              output.writeBool(5, vbool_);
-            }
-            if (((bitField0_ & 0x00000020) == 0x00000020)) {
-              output.writeBytes(6, vbinary_);
-            }
-            if (((bitField0_ & 0x00000040) == 0x00000040)) {
-              output.writeFloat(7, vfloat_);
-            }
-            if (((bitField0_ & 0x00000080) == 0x00000080)) {
-              output.writeDouble(8, vdouble_);
-            }
-            getUnknownFields().writeTo(output);
-          }
-
-          private int memoizedSerializedSize = -1;
-          public int getSerializedSize() {
-            int size = memoizedSerializedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeUInt32Size(1, name_);
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeUInt64Size(2, nulls_);
-            }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeSInt64Size(3, vint64_);
-            }
-            if (((bitField0_ & 0x00000008) == 0x00000008)) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeSInt32Size(4, vint32_);
-            }
-            if (((bitField0_ & 0x00000010) == 0x00000010)) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeBoolSize(5, vbool_);
-            }
-            if (((bitField0_ & 0x00000020) == 0x00000020)) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeBytesSize(6, vbinary_);
-            }
-            if (((bitField0_ & 0x00000040) == 0x00000040)) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeFloatSize(7, vfloat_);
-            }
-            if (((bitField0_ & 0x00000080) == 0x00000080)) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeDoubleSize(8, vdouble_);
-            }
-            size += getUnknownFields().getSerializedSize();
-            memoizedSerializedSize = size;
-            return size;
-          }
-
-          private static final long serialVersionUID = 0L;
-          @java.lang.Override
-          protected java.lang.Object writeReplace()
-              throws java.io.ObjectStreamException {
-            return super.writeReplace();
-          }
-
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
-              com.google.protobuf.ByteString data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
-              com.google.protobuf.ByteString data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(byte[] data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
-              byte[] data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(java.io.InputStream input)
-              throws java.io.IOException {
-            return PARSER.parseFrom(input);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
-              java.io.InputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parseDelimitedFrom(java.io.InputStream input)
-              throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parseDelimitedFrom(
-              java.io.InputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input, extensionRegistry);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
-              com.google.protobuf.CodedInputStream input)
-              throws java.io.IOException {
-            return PARSER.parseFrom(input);
-          }
-          public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parseFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-          }
-
-          public static Builder newBuilder() { return Builder.create(); }
-          public Builder newBuilderForType() { return newBuilder(); }
-          public static Builder newBuilder(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata prototype) {
-            return newBuilder().mergeFrom(prototype);
-          }
-          public Builder toBuilder() { return newBuilder(this); }
-
-          @java.lang.Override
-          protected Builder newBuilderForType(
-              com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-          }
-          /**
-           * Protobuf type {@code metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata}
-           */
-          public static final class Builder extends
-              com.google.protobuf.GeneratedMessage.Builder<Builder>
-             implements com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-                getDescriptor() {
-              return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-                internalGetFieldAccessorTable() {
-              return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_fieldAccessorTable
-                  .ensureFieldAccessorsInitialized(
-                      com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.class, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder.class);
-            }
-
-            // Construct using com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.newBuilder()
-            private Builder() {
-              maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-              super(parent);
-              maybeForceBuilderInitialization();
-            }
-            private void maybeForceBuilderInitialization() {
-              if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-              }
-            }
-            private static Builder create() {
-              return new Builder();
-            }
-
-            public Builder clear() {
-              super.clear();
-              name_ = 0;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              nulls_ = 0L;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              vint64_ = 0L;
-              bitField0_ = (bitField0_ & ~0x00000004);
-              vint32_ = 0;
-              bitField0_ = (bitField0_ & ~0x00000008);
-              vbool_ = false;
-              bitField0_ = (bitField0_ & ~0x00000010);
-              vbinary_ = com.google.protobuf.ByteString.EMPTY;
-              bitField0_ = (bitField0_ & ~0x00000020);
-              vfloat_ = 0F;
-              bitField0_ = (bitField0_ & ~0x00000040);
-              vdouble_ = 0D;
-              bitField0_ = (bitField0_ & ~0x00000080);
-              return this;
-            }
-
-            public Builder clone() {
-              return create().mergeFrom(buildPartial());
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-                getDescriptorForType() {
-              return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor;
-            }
-
-            public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata getDefaultInstanceForType() {
-              return com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.getDefaultInstance();
-            }
-
-            public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata build() {
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata result = buildPartial();
-              if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-              }
-              return result;
-            }
-
-            public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata buildPartial() {
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata result = new com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata(this);
-              int from_bitField0_ = bitField0_;
-              int to_bitField0_ = 0;
-              if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-                to_bitField0_ |= 0x00000001;
-              }
-              result.name_ = name_;
-              if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-                to_bitField0_ |= 0x00000002;
-              }
-              result.nulls_ = nulls_;
-              if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-                to_bitField0_ |= 0x00000004;
-              }
-              result.vint64_ = vint64_;
-              if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-                to_bitField0_ |= 0x00000008;
-              }
-              result.vint32_ = vint32_;
-              if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-                to_bitField0_ |= 0x00000010;
-              }
-              result.vbool_ = vbool_;
-              if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-                to_bitField0_ |= 0x00000020;
-              }
-              result.vbinary_ = vbinary_;
-              if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-                to_bitField0_ |= 0x00000040;
-              }
-              result.vfloat_ = vfloat_;
-              if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-                to_bitField0_ |= 0x00000080;
-              }
-              result.vdouble_ = vdouble_;
-              result.bitField0_ = to_bitField0_;
-              onBuilt();
-              return result;
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-              if (other instanceof com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata) {
-                return mergeFrom((com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata)other);
-              } else {
-                super.mergeFrom(other);
-                return this;
-              }
-            }
-
-            public Builder mergeFrom(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata other) {
-              if (other == com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.getDefaultInstance()) return this;
-              if (other.hasName()) {
-                setName(other.getName());
-              }
-              if (other.hasNulls()) {
-                setNulls(other.getNulls());
-              }
-              if (other.hasVint64()) {
-                setVint64(other.getVint64());
-              }
-              if (other.hasVint32()) {
-                setVint32(other.getVint32());
-              }
-              if (other.hasVbool()) {
-                setVbool(other.getVbool());
-              }
-              if (other.hasVbinary()) {
-                setVbinary(other.getVbinary());
-              }
-              if (other.hasVfloat()) {
-                setVfloat(other.getVfloat());
-              }
-              if (other.hasVdouble()) {
-                setVdouble(other.getVdouble());
-              }
-              this.mergeUnknownFields(other.getUnknownFields());
-              return this;
-            }
-
-            public final boolean isInitialized() {
-              if (!hasName()) {
-                
-                return false;
-              }
-              return true;
-            }
-
-            public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata parsedMessage = null;
-              try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata) e.getUnfinishedMessage();
-                throw e;
-              } finally {
-                if (parsedMessage != null) {
-                  mergeFrom(parsedMessage);
-                }
-              }
-              return this;
-            }
-            private int bitField0_;
-
-            // required uint32 name = 1;
-            private int name_ ;
-            /**
-             * <code>required uint32 name = 1;</code>
-             */
-            public boolean hasName() {
-              return ((bitField0_ & 0x00000001) == 0x00000001);
-            }
-            /**
-             * <code>required uint32 name = 1;</code>
-             */
-            public int getName() {
-              return name_;
-            }
-            /**
-             * <code>required uint32 name = 1;</code>
-             */
-            public Builder setName(int value) {
-              bitField0_ |= 0x00000001;
-              name_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>required uint32 name = 1;</code>
-             */
-            public Builder clearName() {
-              bitField0_ = (bitField0_ & ~0x00000001);
-              name_ = 0;
-              onChanged();
-              return this;
-            }
-
-            // optional uint64 nulls = 2;
-            private long nulls_ ;
-            /**
-             * <code>optional uint64 nulls = 2;</code>
-             */
-            public boolean hasNulls() {
-              return ((bitField0_ & 0x00000002) == 0x00000002);
-            }
-            /**
-             * <code>optional uint64 nulls = 2;</code>
-             */
-            public long getNulls() {
-              return nulls_;
-            }
-            /**
-             * <code>optional uint64 nulls = 2;</code>
-             */
-            public Builder setNulls(long value) {
-              bitField0_ |= 0x00000002;
-              nulls_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional uint64 nulls = 2;</code>
-             */
-            public Builder clearNulls() {
-              bitField0_ = (bitField0_ & ~0x00000002);
-              nulls_ = 0L;
-              onChanged();
-              return this;
-            }
-
-            // optional sint64 vint64 = 3;
-            private long vint64_ ;
-            /**
-             * <code>optional sint64 vint64 = 3;</code>
-             */
-            public boolean hasVint64() {
-              return ((bitField0_ & 0x00000004) == 0x00000004);
-            }
-            /**
-             * <code>optional sint64 vint64 = 3;</code>
-             */
-            public long getVint64() {
-              return vint64_;
-            }
-            /**
-             * <code>optional sint64 vint64 = 3;</code>
-             */
-            public Builder setVint64(long value) {
-              bitField0_ |= 0x00000004;
-              vint64_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional sint64 vint64 = 3;</code>
-             */
-            public Builder clearVint64() {
-              bitField0_ = (bitField0_ & ~0x00000004);
-              vint64_ = 0L;
-              onChanged();
-              return this;
-            }
-
-            // optional sint32 vint32 = 4;
-            private int vint32_ ;
-            /**
-             * <code>optional sint32 vint32 = 4;</code>
-             */
-            public boolean hasVint32() {
-              return ((bitField0_ & 0x00000008) == 0x00000008);
-            }
-            /**
-             * <code>optional sint32 vint32 = 4;</code>
-             */
-            public int getVint32() {
-              return vint32_;
-            }
-            /**
-             * <code>optional sint32 vint32 = 4;</code>
-             */
-            public Builder setVint32(int value) {
-              bitField0_ |= 0x00000008;
-              vint32_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional sint32 vint32 = 4;</code>
-             */
-            public Builder clearVint32() {
-              bitField0_ = (bitField0_ & ~0x00000008);
-              vint32_ = 0;
-              onChanged();
-              return this;
-            }
-
-            // optional bool vbool = 5;
-            private boolean vbool_ ;
-            /**
-             * <code>optional bool vbool = 5;</code>
-             */
-            public boolean hasVbool() {
-              return ((bitField0_ & 0x00000010) == 0x00000010);
-            }
-            /**
-             * <code>optional bool vbool = 5;</code>
-             */
-            public boolean getVbool() {
-              return vbool_;
-            }
-            /**
-             * <code>optional bool vbool = 5;</code>
-             */
-            public Builder setVbool(boolean value) {
-              bitField0_ |= 0x00000010;
-              vbool_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional bool vbool = 5;</code>
-             */
-            public Builder clearVbool() {
-              bitField0_ = (bitField0_ & ~0x00000010);
-              vbool_ = false;
-              onChanged();
-              return this;
-            }
-
-            // optional bytes vbinary = 6;
-            private com.google.protobuf.ByteString vbinary_ = com.google.protobuf.ByteString.EMPTY;
-            /**
-             * <code>optional bytes vbinary = 6;</code>
-             *
-             * <pre>
-             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-             * </pre>
-             */
-            public boolean hasVbinary() {
-              return ((bitField0_ & 0x00000020) == 0x00000020);
-            }
-            /**
-             * <code>optional bytes vbinary = 6;</code>
-             *
-             * <pre>
-             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-             * </pre>
-             */
-            public com.google.protobuf.ByteString getVbinary() {
-              return vbinary_;
-            }
-            /**
-             * <code>optional bytes vbinary = 6;</code>
-             *
-             * <pre>
-             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-             * </pre>
-             */
-            public Builder setVbinary(com.google.protobuf.ByteString value) {
-              if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-              vbinary_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional bytes vbinary = 6;</code>
-             *
-             * <pre>
-             * used for BINARY, INT96 and FIXED_LEN_BYTE_ARRAY
-             * </pre>
-             */
-            public Builder clearVbinary() {
-              bitField0_ = (bitField0_ & ~0x00000020);
-              vbinary_ = getDefaultInstance().getVbinary();
-              onChanged();
-              return this;
-            }
-
-            // optional float vfloat = 7;
-            private float vfloat_ ;
-            /**
-             * <code>optional float vfloat = 7;</code>
-             */
-            public boolean hasVfloat() {
-              return ((bitField0_ & 0x00000040) == 0x00000040);
-            }
-            /**
-             * <code>optional float vfloat = 7;</code>
-             */
-            public float getVfloat() {
-              return vfloat_;
-            }
-            /**
-             * <code>optional float vfloat = 7;</code>
-             */
-            public Builder setVfloat(float value) {
-              bitField0_ |= 0x00000040;
-              vfloat_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional float vfloat = 7;</code>
-             */
-            public Builder clearVfloat() {
-              bitField0_ = (bitField0_ & ~0x00000040);
-              vfloat_ = 0F;
-              onChanged();
-              return this;
-            }
-
-            // optional double vdouble = 8;
-            private double vdouble_ ;
-            /**
-             * <code>optional double vdouble = 8;</code>
-             */
-            public boolean hasVdouble() {
-              return ((bitField0_ & 0x00000080) == 0x00000080);
-            }
-            /**
-             * <code>optional double vdouble = 8;</code>
-             */
-            public double getVdouble() {
-              return vdouble_;
-            }
-            /**
-             * <code>optional double vdouble = 8;</code>
-             */
-            public Builder setVdouble(double value) {
-              bitField0_ |= 0x00000080;
-              vdouble_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>optional double vdouble = 8;</code>
-             */
-            public Builder clearVdouble() {
-              bitField0_ = (bitField0_ & ~0x00000080);
-              vdouble_ = 0D;
-              onChanged();
-              return this;
-            }
-
-            // @@protoc_insertion_point(builder_scope:metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata)
-          }
-
-          static {
-            defaultInstance = new ColumnMetadata(true);
-            defaultInstance.initFields();
-          }
-
-          // @@protoc_insertion_point(class_scope:metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata)
-        }
-
-        private int bitField0_;
-        // optional uint64 start = 1;
-        public static final int START_FIELD_NUMBER = 1;
-        private long start_;
-        /**
-         * <code>optional uint64 start = 1;</code>
-         */
-        public boolean hasStart() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>optional uint64 start = 1;</code>
-         */
-        public long getStart() {
-          return start_;
-        }
-
-        // optional uint64 length = 2;
-        public static final int LENGTH_FIELD_NUMBER = 2;
-        private long length_;
-        /**
-         * <code>optional uint64 length = 2;</code>
-         */
-        public boolean hasLength() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>optional uint64 length = 2;</code>
-         */
-        public long getLength() {
-          return length_;
-        }
-
-        // optional uint64 rowCount = 3;
-        public static final int ROWCOUNT_FIELD_NUMBER = 3;
-        private long rowCount_;
-        /**
-         * <code>optional uint64 rowCount = 3;</code>
-         */
-        public boolean hasRowCount() {
-          return ((bitField0_ & 0x00000004) == 0x00000004);
-        }
-        /**
-         * <code>optional uint64 rowCount = 3;</code>
-         */
-        public long getRowCount() {
-          return rowCount_;
-        }
-
-        // repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;
-        public static final int AFFINITIES_FIELD_NUMBER = 4;
-        private java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity> affinities_;
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-         */
-        public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity> getAffinitiesList() {
-          return affinities_;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-         */
-        public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder> 
-            getAffinitiesOrBuilderList() {
-          return affinities_;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-         */
-        public int getAffinitiesCount() {
-          return affinities_.size();
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-         */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity getAffinities(int index) {
-          return affinities_.get(index);
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-         */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder getAffinitiesOrBuilder(
-            int index) {
-          return affinities_.get(index);
-        }
-
-        // repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;
-        public static final int COLUMNS_FIELD_NUMBER = 5;
-        private java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata> columns_;
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-         */
-        public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata> getColumnsList() {
-          return columns_;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-         */
-        public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder> 
-            getColumnsOrBuilderList() {
-          return columns_;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-         */
-        public int getColumnsCount() {
-          return columns_.size();
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-         */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata getColumns(int index) {
-          return columns_.get(index);
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-         */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder getColumnsOrBuilder(
-            int index) {
-          return columns_.get(index);
-        }
-
-        private void initFields() {
-          start_ = 0L;
-          length_ = 0L;
-          rowCount_ = 0L;
-          affinities_ = java.util.Collections.emptyList();
-          columns_ = java.util.Collections.emptyList();
-        }
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-          byte isInitialized = memoizedIsInitialized;
-          if (isInitialized != -1) return isInitialized == 1;
-
-          for (int i = 0; i < getColumnsCount(); i++) {
-            if (!getColumns(i).isInitialized()) {
-              memoizedIsInitialized = 0;
-              return false;
-            }
-          }
-          memoizedIsInitialized = 1;
-          return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                            throws java.io.IOException {
-          getSerializedSize();
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            output.writeUInt64(1, start_);
-          }
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            output.writeUInt64(2, length_);
-          }
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            output.writeUInt64(3, rowCount_);
-          }
-          for (int i = 0; i < affinities_.size(); i++) {
-            output.writeMessage(4, affinities_.get(i));
-          }
-          for (int i = 0; i < columns_.size(); i++) {
-            output.writeMessage(5, columns_.get(i));
-          }
-          getUnknownFields().writeTo(output);
-        }
-
-        private int memoizedSerializedSize = -1;
-        public int getSerializedSize() {
-          int size = memoizedSerializedSize;
-          if (size != -1) return size;
-
-          size = 0;
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeUInt64Size(1, start_);
-          }
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeUInt64Size(2, length_);
-          }
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeUInt64Size(3, rowCount_);
-          }
-          for (int i = 0; i < affinities_.size(); i++) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeMessageSize(4, affinities_.get(i));
-          }
-          for (int i = 0; i < columns_.size(); i++) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeMessageSize(5, columns_.get(i));
-          }
-          size += getUnknownFields().getSerializedSize();
-          memoizedSerializedSize = size;
-          return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-        @java.lang.Override
-        protected java.lang.Object writeReplace()
-            throws java.io.ObjectStreamException {
-          return super.writeReplace();
-        }
-
-        public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-          return PARSER.parseFrom(input);
-        }
-        public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return PARSER.parseFrom(input, extensionRegistry);
-        }
-        public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-          return PARSER.parseDelimitedFrom(input);
-        }
-        public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return PARSER.parseDelimitedFrom(input, extensionRegistry);
-        }
-        public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-          return PARSER.parseFrom(input);
-        }
-        public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return PARSER.parseFrom(input, extensionRegistry);
-        }
-
-        public static Builder newBuilder() { return Builder.create(); }
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup prototype) {
-          return newBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() { return newBuilder(this); }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          Builder builder = new Builder(parent);
-          return builder;
-        }
-        /**
-         * Protobuf type {@code metadata.MetadataFiles.ParquetFileMetadata.RowGroup}
-         */
-        public static final class Builder extends
-            com.google.protobuf.GeneratedMessage.Builder<Builder>
-           implements com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroupOrBuilder {
-          public static final com.google.protobuf.Descriptors.Descriptor
-              getDescriptor() {
-            return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_descriptor;
-          }
-
-          protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-              internalGetFieldAccessorTable() {
-            return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                    com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.class, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder.class);
-          }
-
-          // Construct using com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.newBuilder()
-          private Builder() {
-            maybeForceBuilderInitialization();
-          }
-
-          private Builder(
-              com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-              getAffinitiesFieldBuilder();
-              getColumnsFieldBuilder();
-            }
-          }
-          private static Builder create() {
-            return new Builder();
-          }
-
-          public Builder clear() {
-            super.clear();
-            start_ = 0L;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            length_ = 0L;
-            bitField0_ = (bitField0_ & ~0x00000002);
-            rowCount_ = 0L;
-            bitField0_ = (bitField0_ & ~0x00000004);
-            if (affinitiesBuilder_ == null) {
-              affinities_ = java.util.Collections.emptyList();
-              bitField0_ = (bitField0_ & ~0x00000008);
-            } else {
-              affinitiesBuilder_.clear();
-            }
-            if (columnsBuilder_ == null) {
-              columns_ = java.util.Collections.emptyList();
-              bitField0_ = (bitField0_ & ~0x00000010);
-            } else {
-              columnsBuilder_.clear();
-            }
-            return this;
-          }
-
-          public Builder clone() {
-            return create().mergeFrom(buildPartial());
-          }
-
-          public com.google.protobuf.Descriptors.Descriptor
-              getDescriptorForType() {
-            return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_descriptor;
-          }
-
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup getDefaultInstanceForType() {
-            return com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.getDefaultInstance();
-          }
-
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup build() {
-            com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup result = buildPartial();
-            if (!result.isInitialized()) {
-              throw newUninitializedMessageException(result);
-            }
-            return result;
-          }
-
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup buildPartial() {
-            com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup result = new com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup(this);
-            int from_bitField0_ = bitField0_;
-            int to_bitField0_ = 0;
-            if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-              to_bitField0_ |= 0x00000001;
-            }
-            result.start_ = start_;
-            if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-              to_bitField0_ |= 0x00000002;
-            }
-            result.length_ = length_;
-            if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-              to_bitField0_ |= 0x00000004;
-            }
-            result.rowCount_ = rowCount_;
-            if (affinitiesBuilder_ == null) {
-              if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                affinities_ = java.util.Collections.unmodifiableList(affinities_);
-                bitField0_ = (bitField0_ & ~0x00000008);
-              }
-              result.affinities_ = affinities_;
-            } else {
-              result.affinities_ = affinitiesBuilder_.build();
-            }
-            if (columnsBuilder_ == null) {
-              if (((bitField0_ & 0x00000010) == 0x00000010)) {
-                columns_ = java.util.Collections.unmodifiableList(columns_);
-                bitField0_ = (bitField0_ & ~0x00000010);
-              }
-              result.columns_ = columns_;
-            } else {
-              result.columns_ = columnsBuilder_.build();
-            }
-            result.bitField0_ = to_bitField0_;
-            onBuilt();
-            return result;
-          }
-
-          public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup) {
-              return mergeFrom((com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup)other);
-            } else {
-              super.mergeFrom(other);
-              return this;
-            }
-          }
-
-          public Builder mergeFrom(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup other) {
-            if (other == com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.getDefaultInstance()) return this;
-            if (other.hasStart()) {
-              setStart(other.getStart());
-            }
-            if (other.hasLength()) {
-              setLength(other.getLength());
-            }
-            if (other.hasRowCount()) {
-              setRowCount(other.getRowCount());
-            }
-            if (affinitiesBuilder_ == null) {
-              if (!other.affinities_.isEmpty()) {
-                if (affinities_.isEmpty()) {
-                  affinities_ = other.affinities_;
-                  bitField0_ = (bitField0_ & ~0x00000008);
-                } else {
-                  ensureAffinitiesIsMutable();
-                  affinities_.addAll(other.affinities_);
-                }
-                onChanged();
-              }
-            } else {
-              if (!other.affinities_.isEmpty()) {
-                if (affinitiesBuilder_.isEmpty()) {
-                  affinitiesBuilder_.dispose();
-                  affinitiesBuilder_ = null;
-                  affinities_ = other.affinities_;
-                  bitField0_ = (bitField0_ & ~0x00000008);
-                  affinitiesBuilder_ = 
-                    com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                       getAffinitiesFieldBuilder() : null;
-                } else {
-                  affinitiesBuilder_.addAllMessages(other.affinities_);
-                }
-              }
-            }
-            if (columnsBuilder_ == null) {
-              if (!other.columns_.isEmpty()) {
-                if (columns_.isEmpty()) {
-                  columns_ = other.columns_;
-                  bitField0_ = (bitField0_ & ~0x00000010);
-                } else {
-                  ensureColumnsIsMutable();
-                  columns_.addAll(other.columns_);
-                }
-                onChanged();
-              }
-            } else {
-              if (!other.columns_.isEmpty()) {
-                if (columnsBuilder_.isEmpty()) {
-                  columnsBuilder_.dispose();
-                  columnsBuilder_ = null;
-                  columns_ = other.columns_;
-                  bitField0_ = (bitField0_ & ~0x00000010);
-                  columnsBuilder_ = 
-                    com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                       getColumnsFieldBuilder() : null;
-                } else {
-                  columnsBuilder_.addAllMessages(other.columns_);
-                }
-              }
-            }
-            this.mergeUnknownFields(other.getUnknownFields());
-            return this;
-          }
-
-          public final boolean isInitialized() {
-            for (int i = 0; i < getColumnsCount(); i++) {
-              if (!getColumns(i).isInitialized()) {
-                
-                return false;
-              }
-            }
-            return true;
-          }
-
-          public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup parsedMessage = null;
-            try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup) e.getUnfinishedMessage();
-              throw e;
-            } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
-            return this;
-          }
-          private int bitField0_;
-
-          // optional uint64 start = 1;
-          private long start_ ;
-          /**
-           * <code>optional uint64 start = 1;</code>
-           */
-          public boolean hasStart() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
-          }
-          /**
-           * <code>optional uint64 start = 1;</code>
-           */
-          public long getStart() {
-            return start_;
-          }
-          /**
-           * <code>optional uint64 start = 1;</code>
-           */
-          public Builder setStart(long value) {
-            bitField0_ |= 0x00000001;
-            start_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>optional uint64 start = 1;</code>
-           */
-          public Builder clearStart() {
-            bitField0_ = (bitField0_ & ~0x00000001);
-            start_ = 0L;
-            onChanged();
-            return this;
-          }
-
-          // optional uint64 length = 2;
-          private long length_ ;
-          /**
-           * <code>optional uint64 length = 2;</code>
-           */
-          public boolean hasLength() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
-          }
-          /**
-           * <code>optional uint64 length = 2;</code>
-           */
-          public long getLength() {
-            return length_;
-          }
-          /**
-           * <code>optional uint64 length = 2;</code>
-           */
-          public Builder setLength(long value) {
-            bitField0_ |= 0x00000002;
-            length_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>optional uint64 length = 2;</code>
-           */
-          public Builder clearLength() {
-            bitField0_ = (bitField0_ & ~0x00000002);
-            length_ = 0L;
-            onChanged();
-            return this;
-          }
-
-          // optional uint64 rowCount = 3;
-          private long rowCount_ ;
-          /**
-           * <code>optional uint64 rowCount = 3;</code>
-           */
-          public boolean hasRowCount() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
-          }
-          /**
-           * <code>optional uint64 rowCount = 3;</code>
-           */
-          public long getRowCount() {
-            return rowCount_;
-          }
-          /**
-           * <code>optional uint64 rowCount = 3;</code>
-           */
-          public Builder setRowCount(long value) {
-            bitField0_ |= 0x00000004;
-            rowCount_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>optional uint64 rowCount = 3;</code>
-           */
-          public Builder clearRowCount() {
-            bitField0_ = (bitField0_ & ~0x00000004);
-            rowCount_ = 0L;
-            onChanged();
-            return this;
-          }
-
-          // repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;
-          private java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity> affinities_ =
-            java.util.Collections.emptyList();
-          private void ensureAffinitiesIsMutable() {
-            if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-              affinities_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity>(affinities_);
-              bitField0_ |= 0x00000008;
-             }
-          }
-
-          private com.google.protobuf.RepeatedFieldBuilder<
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder> affinitiesBuilder_;
-
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity> getAffinitiesList() {
-            if (affinitiesBuilder_ == null) {
-              return java.util.Collections.unmodifiableList(affinities_);
-            } else {
-              return affinitiesBuilder_.getMessageList();
-            }
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public int getAffinitiesCount() {
-            if (affinitiesBuilder_ == null) {
-              return affinities_.size();
-            } else {
-              return affinitiesBuilder_.getCount();
-            }
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity getAffinities(int index) {
-            if (affinitiesBuilder_ == null) {
-              return affinities_.get(index);
-            } else {
-              return affinitiesBuilder_.getMessage(index);
-            }
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public Builder setAffinities(
-              int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity value) {
-            if (affinitiesBuilder_ == null) {
-              if (value == null) {
-                throw new NullPointerException();
-              }
-              ensureAffinitiesIsMutable();
-              affinities_.set(index, value);
-              onChanged();
-            } else {
-              affinitiesBuilder_.setMessage(index, value);
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public Builder setAffinities(
-              int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder builderForValue) {
-            if (affinitiesBuilder_ == null) {
-              ensureAffinitiesIsMutable();
-              affinities_.set(index, builderForValue.build());
-              onChanged();
-            } else {
-              affinitiesBuilder_.setMessage(index, builderForValue.build());
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public Builder addAffinities(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity value) {
-            if (affinitiesBuilder_ == null) {
-              if (value == null) {
-                throw new NullPointerException();
-              }
-              ensureAffinitiesIsMutable();
-              affinities_.add(value);
-              onChanged();
-            } else {
-              affinitiesBuilder_.addMessage(value);
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public Builder addAffinities(
-              int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity value) {
-            if (affinitiesBuilder_ == null) {
-              if (value == null) {
-                throw new NullPointerException();
-              }
-              ensureAffinitiesIsMutable();
-              affinities_.add(index, value);
-              onChanged();
-            } else {
-              affinitiesBuilder_.addMessage(index, value);
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public Builder addAffinities(
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder builderForValue) {
-            if (affinitiesBuilder_ == null) {
-              ensureAffinitiesIsMutable();
-              affinities_.add(builderForValue.build());
-              onChanged();
-            } else {
-              affinitiesBuilder_.addMessage(builderForValue.build());
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public Builder addAffinities(
-              int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder builderForValue) {
-            if (affinitiesBuilder_ == null) {
-              ensureAffinitiesIsMutable();
-              affinities_.add(index, builderForValue.build());
-              onChanged();
-            } else {
-              affinitiesBuilder_.addMessage(index, builderForValue.build());
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public Builder addAllAffinities(
-              java.lang.Iterable<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity> values) {
-            if (affinitiesBuilder_ == null) {
-              ensureAffinitiesIsMutable();
-              super.addAll(values, affinities_);
-              onChanged();
-            } else {
-              affinitiesBuilder_.addAllMessages(values);
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public Builder clearAffinities() {
-            if (affinitiesBuilder_ == null) {
-              affinities_ = java.util.Collections.emptyList();
-              bitField0_ = (bitField0_ & ~0x00000008);
-              onChanged();
-            } else {
-              affinitiesBuilder_.clear();
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public Builder removeAffinities(int index) {
-            if (affinitiesBuilder_ == null) {
-              ensureAffinitiesIsMutable();
-              affinities_.remove(index);
-              onChanged();
-            } else {
-              affinitiesBuilder_.remove(index);
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder getAffinitiesBuilder(
-              int index) {
-            return getAffinitiesFieldBuilder().getBuilder(index);
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder getAffinitiesOrBuilder(
-              int index) {
-            if (affinitiesBuilder_ == null) {
-              return affinities_.get(index);  } else {
-              return affinitiesBuilder_.getMessageOrBuilder(index);
-            }
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder> 
-               getAffinitiesOrBuilderList() {
-            if (affinitiesBuilder_ != null) {
-              return affinitiesBuilder_.getMessageOrBuilderList();
-            } else {
-              return java.util.Collections.unmodifiableList(affinities_);
-            }
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder addAffinitiesBuilder() {
-            return getAffinitiesFieldBuilder().addBuilder(
-                com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.getDefaultInstance());
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder addAffinitiesBuilder(
-              int index) {
-            return getAffinitiesFieldBuilder().addBuilder(
-                index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.getDefaultInstance());
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity affinities = 4;</code>
-           */
-          public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder> 
-               getAffinitiesBuilderList() {
-            return getAffinitiesFieldBuilder().getBuilderList();
-          }
-          private com.google.protobuf.RepeatedFieldBuilder<
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder> 
-              getAffinitiesFieldBuilder() {
-            if (affinitiesBuilder_ == null) {
-              affinitiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-                  com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinity.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.HostAffinityOrBuilder>(
-                      affinities_,
-                      ((bitField0_ & 0x00000008) == 0x00000008),
-                      getParentForChildren(),
-                      isClean());
-              affinities_ = null;
-            }
-            return affinitiesBuilder_;
-          }
-
-          // repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;
-          private java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata> columns_ =
-            java.util.Collections.emptyList();
-          private void ensureColumnsIsMutable() {
-            if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-              columns_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata>(columns_);
-              bitField0_ |= 0x00000010;
-             }
-          }
-
-          private com.google.protobuf.RepeatedFieldBuilder<
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder> columnsBuilder_;
-
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata> getColumnsList() {
-            if (columnsBuilder_ == null) {
-              return java.util.Collections.unmodifiableList(columns_);
-            } else {
-              return columnsBuilder_.getMessageList();
-            }
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public int getColumnsCount() {
-            if (columnsBuilder_ == null) {
-              return columns_.size();
-            } else {
-              return columnsBuilder_.getCount();
-            }
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata getColumns(int index) {
-            if (columnsBuilder_ == null) {
-              return columns_.get(index);
-            } else {
-              return columnsBuilder_.getMessage(index);
-            }
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public Builder setColumns(
-              int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata value) {
-            if (columnsBuilder_ == null) {
-              if (value == null) {
-                throw new NullPointerException();
-              }
-              ensureColumnsIsMutable();
-              columns_.set(index, value);
-              onChanged();
-            } else {
-              columnsBuilder_.setMessage(index, value);
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public Builder setColumns(
-              int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder builderForValue) {
-            if (columnsBuilder_ == null) {
-              ensureColumnsIsMutable();
-              columns_.set(index, builderForValue.build());
-              onChanged();
-            } else {
-              columnsBuilder_.setMessage(index, builderForValue.build());
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public Builder addColumns(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata value) {
-            if (columnsBuilder_ == null) {
-              if (value == null) {
-                throw new NullPointerException();
-              }
-              ensureColumnsIsMutable();
-              columns_.add(value);
-              onChanged();
-            } else {
-              columnsBuilder_.addMessage(value);
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public Builder addColumns(
-              int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata value) {
-            if (columnsBuilder_ == null) {
-              if (value == null) {
-                throw new NullPointerException();
-              }
-              ensureColumnsIsMutable();
-              columns_.add(index, value);
-              onChanged();
-            } else {
-              columnsBuilder_.addMessage(index, value);
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public Builder addColumns(
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder builderForValue) {
-            if (columnsBuilder_ == null) {
-              ensureColumnsIsMutable();
-              columns_.add(builderForValue.build());
-              onChanged();
-            } else {
-              columnsBuilder_.addMessage(builderForValue.build());
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public Builder addColumns(
-              int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder builderForValue) {
-            if (columnsBuilder_ == null) {
-              ensureColumnsIsMutable();
-              columns_.add(index, builderForValue.build());
-              onChanged();
-            } else {
-              columnsBuilder_.addMessage(index, builderForValue.build());
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public Builder addAllColumns(
-              java.lang.Iterable<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata> values) {
-            if (columnsBuilder_ == null) {
-              ensureColumnsIsMutable();
-              super.addAll(values, columns_);
-              onChanged();
-            } else {
-              columnsBuilder_.addAllMessages(values);
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public Builder clearColumns() {
-            if (columnsBuilder_ == null) {
-              columns_ = java.util.Collections.emptyList();
-              bitField0_ = (bitField0_ & ~0x00000010);
-              onChanged();
-            } else {
-              columnsBuilder_.clear();
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public Builder removeColumns(int index) {
-            if (columnsBuilder_ == null) {
-              ensureColumnsIsMutable();
-              columns_.remove(index);
-              onChanged();
-            } else {
-              columnsBuilder_.remove(index);
-            }
-            return this;
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder getColumnsBuilder(
-              int index) {
-            return getColumnsFieldBuilder().getBuilder(index);
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder getColumnsOrBuilder(
-              int index) {
-            if (columnsBuilder_ == null) {
-              return columns_.get(index);  } else {
-              return columnsBuilder_.getMessageOrBuilder(index);
-            }
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder> 
-               getColumnsOrBuilderList() {
-            if (columnsBuilder_ != null) {
-              return columnsBuilder_.getMessageOrBuilderList();
-            } else {
-              return java.util.Collections.unmodifiableList(columns_);
-            }
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder addColumnsBuilder() {
-            return getColumnsFieldBuilder().addBuilder(
-                com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.getDefaultInstance());
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder addColumnsBuilder(
-              int index) {
-            return getColumnsFieldBuilder().addBuilder(
-                index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.getDefaultInstance());
-          }
-          /**
-           * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata columns = 5;</code>
-           */
-          public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder> 
-               getColumnsBuilderList() {
-            return getColumnsFieldBuilder().getBuilderList();
-          }
-          private com.google.protobuf.RepeatedFieldBuilder<
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder> 
-              getColumnsFieldBuilder() {
-            if (columnsBuilder_ == null) {
-              columnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-                  com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadata.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.ColumnMetadataOrBuilder>(
-                      columns_,
-                      ((bitField0_ & 0x00000010) == 0x00000010),
-                      getParentForChildren(),
-                      isClean());
-              columns_ = null;
-            }
-            return columnsBuilder_;
-          }
-
-          // @@protoc_insertion_point(builder_scope:metadata.MetadataFiles.ParquetFileMetadata.RowGroup)
-        }
-
-        static {
-          defaultInstance = new RowGroup(true);
-          defaultInstance.initFields();
-        }
-
-        // @@protoc_insertion_point(class_scope:metadata.MetadataFiles.ParquetFileMetadata.RowGroup)
-      }
-
-      private int bitField0_;
-      // optional string path = 1;
-      public static final int PATH_FIELD_NUMBER = 1;
-      private java.lang.Object path_;
-      /**
-       * <code>optional string path = 1;</code>
-       */
-      public boolean hasPath() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional string path = 1;</code>
-       */
-      public java.lang.String getPath() {
-        java.lang.Object ref = path_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            path_ = s;
-          }
-          return s;
-        }
-      }
-      /**
-       * <code>optional string path = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getPathBytes() {
-        java.lang.Object ref = path_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          path_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      // optional uint64 length = 2;
-      public static final int LENGTH_FIELD_NUMBER = 2;
-      private long length_;
-      /**
-       * <code>optional uint64 length = 2;</code>
-       */
-      public boolean hasLength() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional uint64 length = 2;</code>
-       */
-      public long getLength() {
-        return length_;
-      }
-
-      // repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;
-      public static final int ROWGROUPS_FIELD_NUMBER = 3;
-      private java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup> rowGroups_;
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-       */
-      public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup> getRowGroupsList() {
-        return rowGroups_;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-       */
-      public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroupOrBuilder> 
-          getRowGroupsOrBuilderList() {
-        return rowGroups_;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-       */
-      public int getRowGroupsCount() {
-        return rowGroups_.size();
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-       */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup getRowGroups(int index) {
-        return rowGroups_.get(index);
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-       */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroupOrBuilder getRowGroupsOrBuilder(
-          int index) {
-        return rowGroups_.get(index);
-      }
-
-      private void initFields() {
-        path_ = "";
-        length_ = 0L;
-        rowGroups_ = java.util.Collections.emptyList();
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-
-        for (int i = 0; i < getRowGroupsCount(); i++) {
-          if (!getRowGroups(i).isInitialized()) {
-            memoizedIsInitialized = 0;
-            return false;
-          }
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeBytes(1, getPathBytes());
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeUInt64(2, length_);
-        }
-        for (int i = 0; i < rowGroups_.size(); i++) {
-          output.writeMessage(3, rowGroups_.get(i));
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, getPathBytes());
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeUInt64Size(2, length_);
-        }
-        for (int i = 0; i < rowGroups_.size(); i++) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(3, rowGroups_.get(i));
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code metadata.MetadataFiles.ParquetFileMetadata}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadataOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.class, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder.class);
-        }
-
-        // Construct using com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-            getRowGroupsFieldBuilder();
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          path_ = "";
-          bitField0_ = (bitField0_ & ~0x00000001);
-          length_ = 0L;
-          bitField0_ = (bitField0_ & ~0x00000002);
-          if (rowGroupsBuilder_ == null) {
-            rowGroups_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            rowGroupsBuilder_.clear();
-          }
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_ParquetFileMetadata_descriptor;
-        }
-
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata getDefaultInstanceForType() {
-          return com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.getDefaultInstance();
-        }
-
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata build() {
-          com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata buildPartial() {
-          com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata result = new com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.path_ = path_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.length_ = length_;
-          if (rowGroupsBuilder_ == null) {
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-              rowGroups_ = java.util.Collections.unmodifiableList(rowGroups_);
-              bitField0_ = (bitField0_ & ~0x00000004);
-            }
-            result.rowGroups_ = rowGroups_;
-          } else {
-            result.rowGroups_ = rowGroupsBuilder_.build();
-          }
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata) {
-            return mergeFrom((com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata other) {
-          if (other == com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.getDefaultInstance()) return this;
-          if (other.hasPath()) {
-            bitField0_ |= 0x00000001;
-            path_ = other.path_;
-            onChanged();
-          }
-          if (other.hasLength()) {
-            setLength(other.getLength());
-          }
-          if (rowGroupsBuilder_ == null) {
-            if (!other.rowGroups_.isEmpty()) {
-              if (rowGroups_.isEmpty()) {
-                rowGroups_ = other.rowGroups_;
-                bitField0_ = (bitField0_ & ~0x00000004);
-              } else {
-                ensureRowGroupsIsMutable();
-                rowGroups_.addAll(other.rowGroups_);
-              }
-              onChanged();
-            }
-          } else {
-            if (!other.rowGroups_.isEmpty()) {
-              if (rowGroupsBuilder_.isEmpty()) {
-                rowGroupsBuilder_.dispose();
-                rowGroupsBuilder_ = null;
-                rowGroups_ = other.rowGroups_;
-                bitField0_ = (bitField0_ & ~0x00000004);
-                rowGroupsBuilder_ = 
-                  com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                     getRowGroupsFieldBuilder() : null;
-              } else {
-                rowGroupsBuilder_.addAllMessages(other.rowGroups_);
-              }
-            }
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          for (int i = 0; i < getRowGroupsCount(); i++) {
-            if (!getRowGroups(i).isInitialized()) {
-              
-              return false;
-            }
-          }
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        // optional string path = 1;
-        private java.lang.Object path_ = "";
-        /**
-         * <code>optional string path = 1;</code>
-         */
-        public boolean hasPath() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>optional string path = 1;</code>
-         */
-        public java.lang.String getPath() {
-          java.lang.Object ref = path_;
-          if (!(ref instanceof java.lang.String)) {
-            java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                .toStringUtf8();
-            path_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>optional string path = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-            getPathBytes() {
-          java.lang.Object ref = path_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            path_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>optional string path = 1;</code>
-         */
-        public Builder setPath(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-          path_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional string path = 1;</code>
-         */
-        public Builder clearPath() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          path_ = getDefaultInstance().getPath();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional string path = 1;</code>
-         */
-        public Builder setPathBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-          path_ = value;
-          onChanged();
-          return this;
-        }
-
-        // optional uint64 length = 2;
-        private long length_ ;
-        /**
-         * <code>optional uint64 length = 2;</code>
-         */
-        public boolean hasLength() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>optional uint64 length = 2;</code>
-         */
-        public long getLength() {
-          return length_;
-        }
-        /**
-         * <code>optional uint64 length = 2;</code>
-         */
-        public Builder setLength(long value) {
-          bitField0_ |= 0x00000002;
-          length_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional uint64 length = 2;</code>
-         */
-        public Builder clearLength() {
-          bitField0_ = (bitField0_ & ~0x00000002);
-          length_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        // repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;
-        private java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup> rowGroups_ =
-          java.util.Collections.emptyList();
-        private void ensureRowGroupsIsMutable() {
-          if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-            rowGroups_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup>(rowGroups_);
-            bitField0_ |= 0x00000004;
-           }
-        }
-
-        private com.google.protobuf.RepeatedFieldBuilder<
-            com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroupOrBuilder> rowGroupsBuilder_;
-
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup> getRowGroupsList() {
-          if (rowGroupsBuilder_ == null) {
-            return java.util.Collections.unmodifiableList(rowGroups_);
-          } else {
-            return rowGroupsBuilder_.getMessageList();
-          }
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public int getRowGroupsCount() {
-          if (rowGroupsBuilder_ == null) {
-            return rowGroups_.size();
-          } else {
-            return rowGroupsBuilder_.getCount();
-          }
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup getRowGroups(int index) {
-          if (rowGroupsBuilder_ == null) {
-            return rowGroups_.get(index);
-          } else {
-            return rowGroupsBuilder_.getMessage(index);
-          }
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public Builder setRowGroups(
-            int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup value) {
-          if (rowGroupsBuilder_ == null) {
-            if (value == null) {
-              throw new NullPointerException();
-            }
-            ensureRowGroupsIsMutable();
-            rowGroups_.set(index, value);
-            onChanged();
-          } else {
-            rowGroupsBuilder_.setMessage(index, value);
-          }
-          return this;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public Builder setRowGroups(
-            int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder builderForValue) {
-          if (rowGroupsBuilder_ == null) {
-            ensureRowGroupsIsMutable();
-            rowGroups_.set(index, builderForValue.build());
-            onChanged();
-          } else {
-            rowGroupsBuilder_.setMessage(index, builderForValue.build());
-          }
-          return this;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public Builder addRowGroups(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup value) {
-          if (rowGroupsBuilder_ == null) {
-            if (value == null) {
-              throw new NullPointerException();
-            }
-            ensureRowGroupsIsMutable();
-            rowGroups_.add(value);
-            onChanged();
-          } else {
-            rowGroupsBuilder_.addMessage(value);
-          }
-          return this;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public Builder addRowGroups(
-            int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup value) {
-          if (rowGroupsBuilder_ == null) {
-            if (value == null) {
-              throw new NullPointerException();
-            }
-            ensureRowGroupsIsMutable();
-            rowGroups_.add(index, value);
-            onChanged();
-          } else {
-            rowGroupsBuilder_.addMessage(index, value);
-          }
-          return this;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public Builder addRowGroups(
-            com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder builderForValue) {
-          if (rowGroupsBuilder_ == null) {
-            ensureRowGroupsIsMutable();
-            rowGroups_.add(builderForValue.build());
-            onChanged();
-          } else {
-            rowGroupsBuilder_.addMessage(builderForValue.build());
-          }
-          return this;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public Builder addRowGroups(
-            int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder builderForValue) {
-          if (rowGroupsBuilder_ == null) {
-            ensureRowGroupsIsMutable();
-            rowGroups_.add(index, builderForValue.build());
-            onChanged();
-          } else {
-            rowGroupsBuilder_.addMessage(index, builderForValue.build());
-          }
-          return this;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public Builder addAllRowGroups(
-            java.lang.Iterable<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup> values) {
-          if (rowGroupsBuilder_ == null) {
-            ensureRowGroupsIsMutable();
-            super.addAll(values, rowGroups_);
-            onChanged();
-          } else {
-            rowGroupsBuilder_.addAllMessages(values);
-          }
-          return this;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public Builder clearRowGroups() {
-          if (rowGroupsBuilder_ == null) {
-            rowGroups_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000004);
-            onChanged();
-          } else {
-            rowGroupsBuilder_.clear();
-          }
-          return this;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public Builder removeRowGroups(int index) {
-          if (rowGroupsBuilder_ == null) {
-            ensureRowGroupsIsMutable();
-            rowGroups_.remove(index);
-            onChanged();
-          } else {
-            rowGroupsBuilder_.remove(index);
-          }
-          return this;
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder getRowGroupsBuilder(
-            int index) {
-          return getRowGroupsFieldBuilder().getBuilder(index);
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroupOrBuilder getRowGroupsOrBuilder(
-            int index) {
-          if (rowGroupsBuilder_ == null) {
-            return rowGroups_.get(index);  } else {
-            return rowGroupsBuilder_.getMessageOrBuilder(index);
-          }
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroupOrBuilder> 
-             getRowGroupsOrBuilderList() {
-          if (rowGroupsBuilder_ != null) {
-            return rowGroupsBuilder_.getMessageOrBuilderList();
-          } else {
-            return java.util.Collections.unmodifiableList(rowGroups_);
-          }
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder addRowGroupsBuilder() {
-          return getRowGroupsFieldBuilder().addBuilder(
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.getDefaultInstance());
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder addRowGroupsBuilder(
-            int index) {
-          return getRowGroupsFieldBuilder().addBuilder(
-              index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.getDefaultInstance());
-        }
-        /**
-         * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata.RowGroup rowGroups = 3;</code>
-         */
-        public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder> 
-             getRowGroupsBuilderList() {
-          return getRowGroupsFieldBuilder().getBuilderList();
-        }
-        private com.google.protobuf.RepeatedFieldBuilder<
-            com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroupOrBuilder> 
-            getRowGroupsFieldBuilder() {
-          if (rowGroupsBuilder_ == null) {
-            rowGroupsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-                com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroup.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.RowGroupOrBuilder>(
-                    rowGroups_,
-                    ((bitField0_ & 0x00000004) == 0x00000004),
-                    getParentForChildren(),
-                    isClean());
-            rowGroups_ = null;
-          }
-          return rowGroupsBuilder_;
-        }
-
-        // @@protoc_insertion_point(builder_scope:metadata.MetadataFiles.ParquetFileMetadata)
-      }
-
-      static {
-        defaultInstance = new ParquetFileMetadata(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:metadata.MetadataFiles.ParquetFileMetadata)
-    }
-
-    // repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;
+    // repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;
     public static final int COLUMNS_FIELD_NUMBER = 2;
-    private java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo> columns_;
+    private java.util.List<com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo> columns_;
     /**
-     * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+     * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
      */
-    public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo> getColumnsList() {
+    public java.util.List<com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo> getColumnsList() {
       return columns_;
     }
     /**
-     * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+     * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
      */
-    public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfoOrBuilder> 
+    public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfoOrBuilder> 
         getColumnsOrBuilderList() {
       return columns_;
     }
     /**
-     * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+     * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
      */
     public int getColumnsCount() {
       return columns_.size();
     }
     /**
-     * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+     * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
      */
-    public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo getColumns(int index) {
+    public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo getColumns(int index) {
       return columns_.get(index);
     }
     /**
-     * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+     * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
      */
-    public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfoOrBuilder getColumnsOrBuilder(
+    public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfoOrBuilder getColumnsOrBuilder(
         int index) {
       return columns_.get(index);
-    }
-
-    // repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;
-    public static final int FILES_FIELD_NUMBER = 3;
-    private java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata> files_;
-    /**
-     * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-     */
-    public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata> getFilesList() {
-      return files_;
-    }
-    /**
-     * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-     */
-    public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadataOrBuilder> 
-        getFilesOrBuilderList() {
-      return files_;
-    }
-    /**
-     * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-     */
-    public int getFilesCount() {
-      return files_.size();
-    }
-    /**
-     * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-     */
-    public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata getFiles(int index) {
-      return files_.get(index);
-    }
-    /**
-     * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-     */
-    public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadataOrBuilder getFilesOrBuilder(
-        int index) {
-      return files_.get(index);
     }
 
     private void initFields() {
       columns_ = java.util.Collections.emptyList();
-      files_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      for (int i = 0; i < getFilesCount(); i++) {
-        if (!getFiles(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -5742,9 +5663,6 @@ public final class Metadata {
       getSerializedSize();
       for (int i = 0; i < columns_.size(); i++) {
         output.writeMessage(2, columns_.get(i));
-      }
-      for (int i = 0; i < files_.size(); i++) {
-        output.writeMessage(3, files_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -5759,10 +5677,6 @@ public final class Metadata {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, columns_.get(i));
       }
-      for (int i = 0; i < files_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, files_.get(i));
-      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -5775,53 +5689,53 @@ public final class Metadata {
       return super.writeReplace();
     }
 
-    public static com.adeneche.metadata.Metadata.MetadataFiles parseFrom(
+    public static com.adeneche.metadata.Metadata.MetadataColumns parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.adeneche.metadata.Metadata.MetadataFiles parseFrom(
+    public static com.adeneche.metadata.Metadata.MetadataColumns parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.adeneche.metadata.Metadata.MetadataFiles parseFrom(byte[] data)
+    public static com.adeneche.metadata.Metadata.MetadataColumns parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.adeneche.metadata.Metadata.MetadataFiles parseFrom(
+    public static com.adeneche.metadata.Metadata.MetadataColumns parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.adeneche.metadata.Metadata.MetadataFiles parseFrom(java.io.InputStream input)
+    public static com.adeneche.metadata.Metadata.MetadataColumns parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.adeneche.metadata.Metadata.MetadataFiles parseFrom(
+    public static com.adeneche.metadata.Metadata.MetadataColumns parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.adeneche.metadata.Metadata.MetadataFiles parseDelimitedFrom(java.io.InputStream input)
+    public static com.adeneche.metadata.Metadata.MetadataColumns parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.adeneche.metadata.Metadata.MetadataFiles parseDelimitedFrom(
+    public static com.adeneche.metadata.Metadata.MetadataColumns parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.adeneche.metadata.Metadata.MetadataFiles parseFrom(
+    public static com.adeneche.metadata.Metadata.MetadataColumns parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.adeneche.metadata.Metadata.MetadataFiles parseFrom(
+    public static com.adeneche.metadata.Metadata.MetadataColumns parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5830,7 +5744,7 @@ public final class Metadata {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.adeneche.metadata.Metadata.MetadataFiles prototype) {
+    public static Builder newBuilder(com.adeneche.metadata.Metadata.MetadataColumns prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -5842,24 +5756,24 @@ public final class Metadata {
       return builder;
     }
     /**
-     * Protobuf type {@code metadata.MetadataFiles}
+     * Protobuf type {@code metadata.MetadataColumns}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.adeneche.metadata.Metadata.MetadataFilesOrBuilder {
+       implements com.adeneche.metadata.Metadata.MetadataColumnsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_descriptor;
+        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataColumns_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_fieldAccessorTable
+        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataColumns_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.adeneche.metadata.Metadata.MetadataFiles.class, com.adeneche.metadata.Metadata.MetadataFiles.Builder.class);
+                com.adeneche.metadata.Metadata.MetadataColumns.class, com.adeneche.metadata.Metadata.MetadataColumns.Builder.class);
       }
 
-      // Construct using com.adeneche.metadata.Metadata.MetadataFiles.newBuilder()
+      // Construct using com.adeneche.metadata.Metadata.MetadataColumns.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5872,7 +5786,6 @@ public final class Metadata {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getColumnsFieldBuilder();
-          getFilesFieldBuilder();
         }
       }
       private static Builder create() {
@@ -5887,12 +5800,6 @@ public final class Metadata {
         } else {
           columnsBuilder_.clear();
         }
-        if (filesBuilder_ == null) {
-          files_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        } else {
-          filesBuilder_.clear();
-        }
         return this;
       }
 
@@ -5902,23 +5809,23 @@ public final class Metadata {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataFiles_descriptor;
+        return com.adeneche.metadata.Metadata.internal_static_metadata_MetadataColumns_descriptor;
       }
 
-      public com.adeneche.metadata.Metadata.MetadataFiles getDefaultInstanceForType() {
-        return com.adeneche.metadata.Metadata.MetadataFiles.getDefaultInstance();
+      public com.adeneche.metadata.Metadata.MetadataColumns getDefaultInstanceForType() {
+        return com.adeneche.metadata.Metadata.MetadataColumns.getDefaultInstance();
       }
 
-      public com.adeneche.metadata.Metadata.MetadataFiles build() {
-        com.adeneche.metadata.Metadata.MetadataFiles result = buildPartial();
+      public com.adeneche.metadata.Metadata.MetadataColumns build() {
+        com.adeneche.metadata.Metadata.MetadataColumns result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.adeneche.metadata.Metadata.MetadataFiles buildPartial() {
-        com.adeneche.metadata.Metadata.MetadataFiles result = new com.adeneche.metadata.Metadata.MetadataFiles(this);
+      public com.adeneche.metadata.Metadata.MetadataColumns buildPartial() {
+        com.adeneche.metadata.Metadata.MetadataColumns result = new com.adeneche.metadata.Metadata.MetadataColumns(this);
         int from_bitField0_ = bitField0_;
         if (columnsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5929,30 +5836,21 @@ public final class Metadata {
         } else {
           result.columns_ = columnsBuilder_.build();
         }
-        if (filesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            files_ = java.util.Collections.unmodifiableList(files_);
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
-          result.files_ = files_;
-        } else {
-          result.files_ = filesBuilder_.build();
-        }
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.adeneche.metadata.Metadata.MetadataFiles) {
-          return mergeFrom((com.adeneche.metadata.Metadata.MetadataFiles)other);
+        if (other instanceof com.adeneche.metadata.Metadata.MetadataColumns) {
+          return mergeFrom((com.adeneche.metadata.Metadata.MetadataColumns)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.adeneche.metadata.Metadata.MetadataFiles other) {
-        if (other == com.adeneche.metadata.Metadata.MetadataFiles.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.adeneche.metadata.Metadata.MetadataColumns other) {
+        if (other == com.adeneche.metadata.Metadata.MetadataColumns.getDefaultInstance()) return this;
         if (columnsBuilder_ == null) {
           if (!other.columns_.isEmpty()) {
             if (columns_.isEmpty()) {
@@ -5979,43 +5877,11 @@ public final class Metadata {
             }
           }
         }
-        if (filesBuilder_ == null) {
-          if (!other.files_.isEmpty()) {
-            if (files_.isEmpty()) {
-              files_ = other.files_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-            } else {
-              ensureFilesIsMutable();
-              files_.addAll(other.files_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.files_.isEmpty()) {
-            if (filesBuilder_.isEmpty()) {
-              filesBuilder_.dispose();
-              filesBuilder_ = null;
-              files_ = other.files_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              filesBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getFilesFieldBuilder() : null;
-            } else {
-              filesBuilder_.addAllMessages(other.files_);
-            }
-          }
-        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        for (int i = 0; i < getFilesCount(); i++) {
-          if (!getFiles(i).isInitialized()) {
-            
-            return false;
-          }
-        }
         return true;
       }
 
@@ -6023,11 +5889,11 @@ public final class Metadata {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.adeneche.metadata.Metadata.MetadataFiles parsedMessage = null;
+        com.adeneche.metadata.Metadata.MetadataColumns parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.adeneche.metadata.Metadata.MetadataFiles) e.getUnfinishedMessage();
+          parsedMessage = (com.adeneche.metadata.Metadata.MetadataColumns) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -6038,23 +5904,23 @@ public final class Metadata {
       }
       private int bitField0_;
 
-      // repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;
-      private java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo> columns_ =
+      // repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;
+      private java.util.List<com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo> columns_ =
         java.util.Collections.emptyList();
       private void ensureColumnsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          columns_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo>(columns_);
+          columns_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo>(columns_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfoOrBuilder> columnsBuilder_;
+          com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfoOrBuilder> columnsBuilder_;
 
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
-      public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo> getColumnsList() {
+      public java.util.List<com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo> getColumnsList() {
         if (columnsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(columns_);
         } else {
@@ -6062,7 +5928,7 @@ public final class Metadata {
         }
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
       public int getColumnsCount() {
         if (columnsBuilder_ == null) {
@@ -6072,9 +5938,9 @@ public final class Metadata {
         }
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo getColumns(int index) {
+      public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo getColumns(int index) {
         if (columnsBuilder_ == null) {
           return columns_.get(index);
         } else {
@@ -6082,10 +5948,10 @@ public final class Metadata {
         }
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
       public Builder setColumns(
-          int index, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo value) {
+          int index, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo value) {
         if (columnsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -6099,10 +5965,10 @@ public final class Metadata {
         return this;
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
       public Builder setColumns(
-          int index, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder builderForValue) {
+          int index, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder builderForValue) {
         if (columnsBuilder_ == null) {
           ensureColumnsIsMutable();
           columns_.set(index, builderForValue.build());
@@ -6113,9 +5979,9 @@ public final class Metadata {
         return this;
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
-      public Builder addColumns(com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo value) {
+      public Builder addColumns(com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo value) {
         if (columnsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -6129,10 +5995,10 @@ public final class Metadata {
         return this;
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
       public Builder addColumns(
-          int index, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo value) {
+          int index, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo value) {
         if (columnsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -6146,10 +6012,10 @@ public final class Metadata {
         return this;
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
       public Builder addColumns(
-          com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder builderForValue) {
+          com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder builderForValue) {
         if (columnsBuilder_ == null) {
           ensureColumnsIsMutable();
           columns_.add(builderForValue.build());
@@ -6160,10 +6026,10 @@ public final class Metadata {
         return this;
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
       public Builder addColumns(
-          int index, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder builderForValue) {
+          int index, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder builderForValue) {
         if (columnsBuilder_ == null) {
           ensureColumnsIsMutable();
           columns_.add(index, builderForValue.build());
@@ -6174,10 +6040,10 @@ public final class Metadata {
         return this;
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
       public Builder addAllColumns(
-          java.lang.Iterable<? extends com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo> values) {
+          java.lang.Iterable<? extends com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo> values) {
         if (columnsBuilder_ == null) {
           ensureColumnsIsMutable();
           super.addAll(values, columns_);
@@ -6188,7 +6054,7 @@ public final class Metadata {
         return this;
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
       public Builder clearColumns() {
         if (columnsBuilder_ == null) {
@@ -6201,7 +6067,7 @@ public final class Metadata {
         return this;
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
       public Builder removeColumns(int index) {
         if (columnsBuilder_ == null) {
@@ -6214,16 +6080,16 @@ public final class Metadata {
         return this;
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder getColumnsBuilder(
+      public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder getColumnsBuilder(
           int index) {
         return getColumnsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfoOrBuilder getColumnsOrBuilder(
+      public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfoOrBuilder getColumnsOrBuilder(
           int index) {
         if (columnsBuilder_ == null) {
           return columns_.get(index);  } else {
@@ -6231,9 +6097,9 @@ public final class Metadata {
         }
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
-      public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfoOrBuilder> 
+      public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfoOrBuilder> 
            getColumnsOrBuilderList() {
         if (columnsBuilder_ != null) {
           return columnsBuilder_.getMessageOrBuilderList();
@@ -6242,33 +6108,33 @@ public final class Metadata {
         }
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder addColumnsBuilder() {
+      public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder addColumnsBuilder() {
         return getColumnsFieldBuilder().addBuilder(
-            com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.getDefaultInstance());
+            com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder addColumnsBuilder(
+      public com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder addColumnsBuilder(
           int index) {
         return getColumnsFieldBuilder().addBuilder(
-            index, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.getDefaultInstance());
+            index, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .metadata.MetadataFiles.ColumnTypeInfo columns = 2;</code>
+       * <code>repeated .metadata.MetadataColumns.ColumnTypeInfo columns = 2;</code>
        */
-      public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder> 
+      public java.util.List<com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder> 
            getColumnsBuilderList() {
         return getColumnsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfoOrBuilder> 
+          com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfoOrBuilder> 
           getColumnsFieldBuilder() {
         if (columnsBuilder_ == null) {
           columnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfo.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ColumnTypeInfoOrBuilder>(
+              com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo.Builder, com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfoOrBuilder>(
                   columns_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -6278,255 +6144,15 @@ public final class Metadata {
         return columnsBuilder_;
       }
 
-      // repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;
-      private java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata> files_ =
-        java.util.Collections.emptyList();
-      private void ensureFilesIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          files_ = new java.util.ArrayList<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata>(files_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadataOrBuilder> filesBuilder_;
-
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata> getFilesList() {
-        if (filesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(files_);
-        } else {
-          return filesBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public int getFilesCount() {
-        if (filesBuilder_ == null) {
-          return files_.size();
-        } else {
-          return filesBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata getFiles(int index) {
-        if (filesBuilder_ == null) {
-          return files_.get(index);
-        } else {
-          return filesBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public Builder setFiles(
-          int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata value) {
-        if (filesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureFilesIsMutable();
-          files_.set(index, value);
-          onChanged();
-        } else {
-          filesBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public Builder setFiles(
-          int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder builderForValue) {
-        if (filesBuilder_ == null) {
-          ensureFilesIsMutable();
-          files_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          filesBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public Builder addFiles(com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata value) {
-        if (filesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureFilesIsMutable();
-          files_.add(value);
-          onChanged();
-        } else {
-          filesBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public Builder addFiles(
-          int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata value) {
-        if (filesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureFilesIsMutable();
-          files_.add(index, value);
-          onChanged();
-        } else {
-          filesBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public Builder addFiles(
-          com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder builderForValue) {
-        if (filesBuilder_ == null) {
-          ensureFilesIsMutable();
-          files_.add(builderForValue.build());
-          onChanged();
-        } else {
-          filesBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public Builder addFiles(
-          int index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder builderForValue) {
-        if (filesBuilder_ == null) {
-          ensureFilesIsMutable();
-          files_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          filesBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public Builder addAllFiles(
-          java.lang.Iterable<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata> values) {
-        if (filesBuilder_ == null) {
-          ensureFilesIsMutable();
-          super.addAll(values, files_);
-          onChanged();
-        } else {
-          filesBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public Builder clearFiles() {
-        if (filesBuilder_ == null) {
-          files_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-          onChanged();
-        } else {
-          filesBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public Builder removeFiles(int index) {
-        if (filesBuilder_ == null) {
-          ensureFilesIsMutable();
-          files_.remove(index);
-          onChanged();
-        } else {
-          filesBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder getFilesBuilder(
-          int index) {
-        return getFilesFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadataOrBuilder getFilesOrBuilder(
-          int index) {
-        if (filesBuilder_ == null) {
-          return files_.get(index);  } else {
-          return filesBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public java.util.List<? extends com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadataOrBuilder> 
-           getFilesOrBuilderList() {
-        if (filesBuilder_ != null) {
-          return filesBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(files_);
-        }
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder addFilesBuilder() {
-        return getFilesFieldBuilder().addBuilder(
-            com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder addFilesBuilder(
-          int index) {
-        return getFilesFieldBuilder().addBuilder(
-            index, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .metadata.MetadataFiles.ParquetFileMetadata files = 3;</code>
-       */
-      public java.util.List<com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder> 
-           getFilesBuilderList() {
-        return getFilesFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadataOrBuilder> 
-          getFilesFieldBuilder() {
-        if (filesBuilder_ == null) {
-          filesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadata.Builder, com.adeneche.metadata.Metadata.MetadataFiles.ParquetFileMetadataOrBuilder>(
-                  files_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
-                  getParentForChildren(),
-                  isClean());
-          files_ = null;
-        }
-        return filesBuilder_;
-      }
-
-      // @@protoc_insertion_point(builder_scope:metadata.MetadataFiles)
+      // @@protoc_insertion_point(builder_scope:metadata.MetadataColumns)
     }
 
     static {
-      defaultInstance = new MetadataFiles(true);
+      defaultInstance = new MetadataColumns(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:metadata.MetadataFiles)
+    // @@protoc_insertion_point(class_scope:metadata.MetadataColumns)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -6535,35 +6161,35 @@ public final class Metadata {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_metadata_MetadataHeader_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_metadata_MetadataFiles_descriptor;
+    internal_static_metadata_ParquetFileMetadata_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_metadata_MetadataFiles_fieldAccessorTable;
+      internal_static_metadata_ParquetFileMetadata_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_metadata_MetadataFiles_ColumnTypeInfo_descriptor;
+    internal_static_metadata_ParquetFileMetadata_RowGroup_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_metadata_MetadataFiles_ColumnTypeInfo_fieldAccessorTable;
+      internal_static_metadata_ParquetFileMetadata_RowGroup_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_metadata_MetadataFiles_ParquetFileMetadata_descriptor;
+    internal_static_metadata_ParquetFileMetadata_RowGroup_HostAffinity_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_metadata_MetadataFiles_ParquetFileMetadata_fieldAccessorTable;
+      internal_static_metadata_ParquetFileMetadata_RowGroup_HostAffinity_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_descriptor;
+    internal_static_metadata_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_fieldAccessorTable;
+      internal_static_metadata_ParquetFileMetadata_RowGroup_ColumnMetadata_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_HostAffinity_descriptor;
+    internal_static_metadata_MetadataColumns_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_HostAffinity_fieldAccessorTable;
+      internal_static_metadata_MetadataColumns_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor;
+    internal_static_metadata_MetadataColumns_ColumnTypeInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_fieldAccessorTable;
+      internal_static_metadata_MetadataColumns_ColumnTypeInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -6575,40 +6201,37 @@ public final class Metadata {
     java.lang.String[] descriptorData = {
       "\n\022src/metadata.proto\022\010metadata\"?\n\016Metada" +
       "taHeader\022\030\n\020metadata_version\030\001 \002(\t\022\023\n\013di" +
-      "rectories\030\004 \003(\t\"\365\t\n\rMetadataFiles\0227\n\007col" +
-      "umns\030\002 \003(\0132&.metadata.MetadataFiles.Colu" +
-      "mnTypeInfo\022:\n\005files\030\003 \003(\0132+.metadata.Met" +
-      "adataFiles.ParquetFileMetadata\032\307\004\n\016Colum" +
-      "nTypeInfo\022\014\n\004name\030\001 \001(\t\022O\n\rprimitiveType" +
-      "\030\002 \001(\01628.metadata.MetadataFiles.ColumnTy" +
-      "peInfo.PrimitiveTypeName\022I\n\014originalType" +
-      "\030\003 \001(\01623.metadata.MetadataFiles.ColumnTy",
-      "peInfo.OriginalType\"~\n\021PrimitiveTypeName" +
-      "\022\t\n\005INT64\020\000\022\t\n\005INT32\020\001\022\013\n\007BOOLEAN\020\002\022\n\n\006B" +
-      "INARY\020\003\022\t\n\005FLOAT\020\004\022\n\n\006DOUBLE\020\005\022\t\n\005INT96\020" +
-      "\006\022\030\n\024FIXED_LEN_BYTE_ARRAY\020\007\"\212\002\n\014Original" +
-      "Type\022\007\n\003MAP\020\000\022\010\n\004LIST\020\001\022\010\n\004UTF8\020\002\022\021\n\rMAP" +
-      "_KEY_VALUE\020\003\022\010\n\004ENUM\020\004\022\013\n\007DECIMAL\020\005\022\010\n\004D" +
-      "ATE\020\006\022\017\n\013TIME_MILLIS\020\007\022\024\n\020TIMESTAMP_MILL" +
-      "IS\020\010\022\n\n\006UINT_8\020\t\022\013\n\007UINT_16\020\n\022\013\n\007UINT_32" +
-      "\020\013\022\013\n\007UINT_64\020\014\022\t\n\005INT_8\020\r\022\n\n\006INT_16\020\016\022\n" +
-      "\n\006INT_32\020\017\022\n\n\006INT_64\020\020\022\010\n\004JSON\020\021\022\010\n\004BSON",
-      "\020\022\022\014\n\010INTERVAL\020\023\032\244\004\n\023ParquetFileMetadata" +
-      "\022\014\n\004path\030\001 \001(\t\022\016\n\006length\030\002 \001(\004\022G\n\trowGro" +
-      "ups\030\003 \003(\01324.metadata.MetadataFiles.Parqu" +
-      "etFileMetadata.RowGroup\032\245\003\n\010RowGroup\022\r\n\005" +
-      "start\030\001 \001(\004\022\016\n\006length\030\002 \001(\004\022\020\n\010rowCount\030" +
-      "\003 \001(\004\022U\n\naffinities\030\004 \003(\0132A.metadata.Met" +
-      "adataFiles.ParquetFileMetadata.RowGroup." +
-      "HostAffinity\022T\n\007columns\030\005 \003(\0132C.metadata" +
-      ".MetadataFiles.ParquetFileMetadata.RowGr" +
-      "oup.ColumnMetadata\032*\n\014HostAffinity\022\013\n\003ke",
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\032\216\001\n\016ColumnMetadat" +
-      "a\022\014\n\004name\030\001 \002(\r\022\r\n\005nulls\030\002 \001(\004\022\016\n\006vint64" +
-      "\030\003 \001(\022\022\016\n\006vint32\030\004 \001(\021\022\r\n\005vbool\030\005 \001(\010\022\017\n" +
-      "\007vbinary\030\006 \001(\014\022\016\n\006vfloat\030\007 \001(\002\022\017\n\007vdoubl" +
-      "e\030\010 \001(\001B!\n\025com.adeneche.metadataB\010Metada" +
-      "ta"
+      "rectories\030\004 \003(\t\"\372\003\n\023ParquetFileMetadata\022" +
+      "\014\n\004path\030\001 \001(\t\022\016\n\006length\030\002 \001(\004\0229\n\trowGrou" +
+      "ps\030\003 \003(\0132&.metadata.ParquetFileMetadata." +
+      "RowGroup\032\211\003\n\010RowGroup\022\r\n\005start\030\001 \001(\004\022\016\n\006" +
+      "length\030\002 \001(\004\022\020\n\010rowCount\030\003 \001(\004\022G\n\naffini" +
+      "ties\030\004 \003(\01323.metadata.ParquetFileMetadat" +
+      "a.RowGroup.HostAffinity\022F\n\007columns\030\005 \003(\013" +
+      "25.metadata.ParquetFileMetadata.RowGroup",
+      ".ColumnMetadata\032*\n\014HostAffinity\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\002\032\216\001\n\016ColumnMetadata\022\014" +
+      "\n\004name\030\001 \002(\r\022\r\n\005nulls\030\002 \001(\004\022\016\n\006vint64\030\003 " +
+      "\001(\022\022\016\n\006vint32\030\004 \001(\021\022\r\n\005vbool\030\005 \001(\010\022\017\n\007vb" +
+      "inary\030\006 \001(\014\022\016\n\006vfloat\030\007 \001(\002\022\017\n\007vdouble\030\010" +
+      " \001(\001\"\232\005\n\017MetadataColumns\0229\n\007columns\030\002 \003(" +
+      "\0132(.metadata.MetadataColumns.ColumnTypeI" +
+      "nfo\032\313\004\n\016ColumnTypeInfo\022\014\n\004name\030\001 \001(\t\022Q\n\r" +
+      "primitiveType\030\002 \001(\0162:.metadata.MetadataC" +
+      "olumns.ColumnTypeInfo.PrimitiveTypeName\022",
+      "K\n\014originalType\030\003 \001(\01625.metadata.Metadat" +
+      "aColumns.ColumnTypeInfo.OriginalType\"~\n\021" +
+      "PrimitiveTypeName\022\t\n\005INT64\020\000\022\t\n\005INT32\020\001\022" +
+      "\013\n\007BOOLEAN\020\002\022\n\n\006BINARY\020\003\022\t\n\005FLOAT\020\004\022\n\n\006D" +
+      "OUBLE\020\005\022\t\n\005INT96\020\006\022\030\n\024FIXED_LEN_BYTE_ARR" +
+      "AY\020\007\"\212\002\n\014OriginalType\022\007\n\003MAP\020\000\022\010\n\004LIST\020\001" +
+      "\022\010\n\004UTF8\020\002\022\021\n\rMAP_KEY_VALUE\020\003\022\010\n\004ENUM\020\004\022" +
+      "\013\n\007DECIMAL\020\005\022\010\n\004DATE\020\006\022\017\n\013TIME_MILLIS\020\007\022" +
+      "\024\n\020TIMESTAMP_MILLIS\020\010\022\n\n\006UINT_8\020\t\022\013\n\007UIN" +
+      "T_16\020\n\022\013\n\007UINT_32\020\013\022\013\n\007UINT_64\020\014\022\t\n\005INT_",
+      "8\020\r\022\n\n\006INT_16\020\016\022\n\n\006INT_32\020\017\022\n\n\006INT_64\020\020\022" +
+      "\010\n\004JSON\020\021\022\010\n\004BSON\020\022\022\014\n\010INTERVAL\020\023B!\n\025com" +
+      ".adeneche.metadataB\010Metadata"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -6621,42 +6244,42 @@ public final class Metadata {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_metadata_MetadataHeader_descriptor,
               new java.lang.String[] { "MetadataVersion", "Directories", });
-          internal_static_metadata_MetadataFiles_descriptor =
+          internal_static_metadata_ParquetFileMetadata_descriptor =
             getDescriptor().getMessageTypes().get(1);
-          internal_static_metadata_MetadataFiles_fieldAccessorTable = new
+          internal_static_metadata_ParquetFileMetadata_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_metadata_MetadataFiles_descriptor,
-              new java.lang.String[] { "Columns", "Files", });
-          internal_static_metadata_MetadataFiles_ColumnTypeInfo_descriptor =
-            internal_static_metadata_MetadataFiles_descriptor.getNestedTypes().get(0);
-          internal_static_metadata_MetadataFiles_ColumnTypeInfo_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_metadata_MetadataFiles_ColumnTypeInfo_descriptor,
-              new java.lang.String[] { "Name", "PrimitiveType", "OriginalType", });
-          internal_static_metadata_MetadataFiles_ParquetFileMetadata_descriptor =
-            internal_static_metadata_MetadataFiles_descriptor.getNestedTypes().get(1);
-          internal_static_metadata_MetadataFiles_ParquetFileMetadata_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_metadata_MetadataFiles_ParquetFileMetadata_descriptor,
+              internal_static_metadata_ParquetFileMetadata_descriptor,
               new java.lang.String[] { "Path", "Length", "RowGroups", });
-          internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_descriptor =
-            internal_static_metadata_MetadataFiles_ParquetFileMetadata_descriptor.getNestedTypes().get(0);
-          internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_fieldAccessorTable = new
+          internal_static_metadata_ParquetFileMetadata_RowGroup_descriptor =
+            internal_static_metadata_ParquetFileMetadata_descriptor.getNestedTypes().get(0);
+          internal_static_metadata_ParquetFileMetadata_RowGroup_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_descriptor,
+              internal_static_metadata_ParquetFileMetadata_RowGroup_descriptor,
               new java.lang.String[] { "Start", "Length", "RowCount", "Affinities", "Columns", });
-          internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_HostAffinity_descriptor =
-            internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_descriptor.getNestedTypes().get(0);
-          internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_HostAffinity_fieldAccessorTable = new
+          internal_static_metadata_ParquetFileMetadata_RowGroup_HostAffinity_descriptor =
+            internal_static_metadata_ParquetFileMetadata_RowGroup_descriptor.getNestedTypes().get(0);
+          internal_static_metadata_ParquetFileMetadata_RowGroup_HostAffinity_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_HostAffinity_descriptor,
+              internal_static_metadata_ParquetFileMetadata_RowGroup_HostAffinity_descriptor,
               new java.lang.String[] { "Key", "Value", });
-          internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor =
-            internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_descriptor.getNestedTypes().get(1);
-          internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_fieldAccessorTable = new
+          internal_static_metadata_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor =
+            internal_static_metadata_ParquetFileMetadata_RowGroup_descriptor.getNestedTypes().get(1);
+          internal_static_metadata_ParquetFileMetadata_RowGroup_ColumnMetadata_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_metadata_MetadataFiles_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor,
+              internal_static_metadata_ParquetFileMetadata_RowGroup_ColumnMetadata_descriptor,
               new java.lang.String[] { "Name", "Nulls", "Vint64", "Vint32", "Vbool", "Vbinary", "Vfloat", "Vdouble", });
+          internal_static_metadata_MetadataColumns_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_metadata_MetadataColumns_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_metadata_MetadataColumns_descriptor,
+              new java.lang.String[] { "Columns", });
+          internal_static_metadata_MetadataColumns_ColumnTypeInfo_descriptor =
+            internal_static_metadata_MetadataColumns_descriptor.getNestedTypes().get(0);
+          internal_static_metadata_MetadataColumns_ColumnTypeInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_metadata_MetadataColumns_ColumnTypeInfo_descriptor,
+              new java.lang.String[] { "Name", "PrimitiveType", "OriginalType", });
           return null;
         }
       };
