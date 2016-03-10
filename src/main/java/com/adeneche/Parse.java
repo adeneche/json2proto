@@ -22,6 +22,8 @@ public class Parse {
     private boolean verbose;
     @Option(name = "-s")
     private int size = -1;
+    @Option(name = "-e")
+    private boolean export = false;
   }
 
   private static Options parseArguments(String[] args) {
@@ -58,6 +60,11 @@ public class Parse {
       System.out.printf("File parsed in %d ms%n", watch.elapsed(TimeUnit.MILLISECONDS));
     } else {
       System.out.println(holder);
+    }
+
+    if (options.export) {
+      System.out.println("converting to parquetTableMetadata");
+      holder.toParquetTableMetadata();
     }
   }
 }

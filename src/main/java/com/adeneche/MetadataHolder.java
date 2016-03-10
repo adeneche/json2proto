@@ -1,7 +1,10 @@
 package com.adeneche;
 
 import com.adeneche.metadata.Metadata;
+import com.adeneche.metadata.Metadata.MetadataColumns.ColumnTypeInfo;
+import com.adeneche.metadata.Metadata.ParquetFileMetadata.RowGroup;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
 
@@ -81,6 +84,64 @@ class MetadataHolder {
     header = protoBuilder.buildHeader("v2");
     columns = protoBuilder.buildColumns();
     files = protoBuilder.buildFiles();
+  }
+
+  public Holders.ParquetTableMetadata toParquetTableMetadata() {
+    final Holders.ParquetTableMetadata tableMetadata = new Holders.ParquetTableMetadata();
+
+    tableMetadata.columnTypeInfo = Maps.newHashMap();
+    for (final ColumnTypeInfo column : columns.getColumnsList()) {
+      final Holders.ColumnTypeMetadata columnMetadata = new Holders.ColumnTypeMetadata();
+      columnMetadata.name = column.getName().split(".");
+      columnMetadata.primitiveType = column.getPrimitiveType();
+      columnMetadata.originalType = column.getOriginalType();
+      tableMetadata.columnTypeInfo.put(columnMetadata.key(), columnMetadata);
+    }
+
+    tableMetadata.files = Lists.newArrayList();
+    for (final Metadata.ParquetFileMetadata file : files) {
+      final Holders.ParquetFileMetadata fileMetadata = new Holders.ParquetFileMetadata();
+      fileMetadata.path = file.getPath();
+      fileMetadata.length = file.getLength();
+      fileMetadata.rowGroups = Lists.newArrayList();
+      for (final RowGroup rowGroup : file.getRowGroupsList()) {
+        final Holders.RowGroupMetadata rowGroupMetadata = new Holders.RowGroupMetadata();
+        rowGroupMetadata.start = rowGroup.getStart();
+        rowGroupMetadata.length = rowGroup.getLength();
+        rowGroupMetadata.rowCount = rowGroup.getRowCount();
+
+        rowGroupMetadata.hostAffinity = Maps.newHashMap();
+        for (final RowGroup.HostAffinity affinity : rowGroup.getAffinitiesList()) {
+          rowGroupMetadata.hostAffinity.put(affinity.getKey(), affinity.getValue());
+        }
+
+        rowGroupMetadata.columns = Lists.newArrayList();
+        for (final RowGroup.ColumnMetadata rowGroupColumn : rowGroup.getColumnsList()) {
+          final Metadata.MetadataColumns.ColumnTypeInfo colMeta = columns.getColumns(rowGroupColumn.getName());
+          final Holders.ColumnMetadata columnMetadata = new Holders.ColumnMetadata(
+            colMeta.getName().split("."),
+            colMeta.getPrimitiveType(),
+            getMxValue(rowGroupColumn),
+            rowGroupColumn.getNulls()
+          );
+          rowGroupMetadata.columns.add(columnMetadata);
+        }
+      }
+    }
+
+    tableMetadata.directories = header.getDirectoriesList();
+
+    return tableMetadata;
+  }
+
+  private static Object getMxValue(final RowGroup.ColumnMetadata columnMetadata) {
+    if (columnMetadata.hasVbinary()) return columnMetadata.getVbinary();
+    else if (columnMetadata.hasVbool()) return columnMetadata.getVbool();
+    else if (columnMetadata.hasVdouble()) return columnMetadata.getVdouble();
+    else if (columnMetadata.hasVfloat()) return columnMetadata.getVfloat();
+    else if (columnMetadata.hasVint32()) return columnMetadata.getVint32();
+    else if (columnMetadata.hasVint64()) return columnMetadata.getVint64();
+    return null;
   }
 
   @Override
